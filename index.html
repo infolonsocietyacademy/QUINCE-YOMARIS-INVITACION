@@ -2747,7 +2747,127 @@ footer{
   .music-entry-card,.admin-login-card,.cinematic-card{border-radius:28px !important;}
 }
 
-</style>
+
+/* =====================================================
+   FOTO PRINCIPAL YOMARIS - RUTA CREADA PARA GITHUB
+   Ruta de la imagen: assets/yomaris-marie-foto.png
+   ===================================================== */
+.quince-photo-frame{
+  width:min(460px,94%);
+  aspect-ratio:3/4;
+  border-radius:46px;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  border:1px solid rgba(255,243,191,.72);
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,243,191,.18),transparent 34%),
+    linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.04));
+  box-shadow:
+    0 38px 110px rgba(0,0,0,.44),
+    0 0 44px rgba(255,183,214,.18),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+  animation:photoFloat 4s ease-in-out infinite;
+}
+
+.quince-photo-frame::before{
+  content:"";
+  position:absolute;
+  inset:15px;
+  border-radius:34px;
+  border:1px solid rgba(255,243,191,.36);
+  z-index:3;
+  pointer-events:none;
+}
+
+.quince-photo-frame::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.20)),
+    radial-gradient(circle at 50% 10%,rgba(255,243,191,.15),transparent 36%);
+  z-index:2;
+  pointer-events:none;
+}
+
+.quince-photo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transform:scale(1.02);
+  filter:saturate(1.08) contrast(1.04) brightness(1.02);
+}
+
+.photo-15-badge{
+  position:absolute;
+  left:22px;
+  bottom:22px;
+  z-index:4;
+  width:108px;
+  height:108px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:58px;
+  font-weight:800;
+  color:#fff8ed;
+  background:
+    radial-gradient(circle at 32% 24%,rgba(255,255,255,.34),transparent 30%),
+    linear-gradient(135deg,rgba(255,183,214,.88),rgba(244,207,118,.78));
+  border:1px solid rgba(255,243,191,.82);
+  box-shadow:
+    0 18px 48px rgba(0,0,0,.34),
+    0 0 28px rgba(255,243,191,.32);
+  text-shadow:
+    0 2px 0 rgba(120,70,12,.50),
+    0 0 18px rgba(255,243,191,.72);
+}
+
+.photo-name-ribbon{
+  position:absolute;
+  right:18px;
+  bottom:28px;
+  z-index:4;
+  max-width:62%;
+  padding:12px 15px;
+  border-radius:999px;
+  color:#fffdf7;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  text-align:center;
+  border:1px solid rgba(255,243,191,.55);
+  background:rgba(22,5,19,.62);
+  backdrop-filter:blur(12px);
+  box-shadow:0 16px 42px rgba(0,0,0,.28);
+}
+
+@media(max-width:900px){
+  .quince-photo-frame{
+    width:min(370px,94%);
+    border-radius:34px;
+  }
+  .photo-15-badge{
+    width:88px;
+    height:88px;
+    font-size:46px;
+    left:18px;
+    bottom:18px;
+  }
+  .photo-name-ribbon{
+    right:15px;
+    bottom:22px;
+    font-size:10px;
+    letter-spacing:.12em;
+  }
+}
+
+  </style>
 </head>
 <body>
 
@@ -2869,44 +2989,10 @@ footer{
           </div>
 
           <div class="hero-right">
-            <div class="princess-frame">
-              <div class="princess-inner">
-                <svg class="princess-tiara" viewBox="0 0 360 210" aria-label="Tiara de princesa premium">
-              <defs>
-                <linearGradient id="tiaraGoldB" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#fffbe6"/>
-                  <stop offset="20%" stop-color="#ffe08a"/>
-                  <stop offset="48%" stop-color="#c28a28"/>
-                  <stop offset="74%" stop-color="#fff3b7"/>
-                  <stop offset="100%" stop-color="#d6ad4f"/>
-                </linearGradient>
-                <linearGradient id="tiaraRoseB" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#fff5fa"/>
-                  <stop offset="52%" stop-color="#f8b6d1"/>
-                  <stop offset="100%" stop-color="#ec79ae"/>
-                </linearGradient>
-                <filter id="tiaraGlowB" x="-45%" y="-45%" width="190%" height="190%">
-                  <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000000" flood-opacity=".30"/>
-                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#fff0b8" flood-opacity=".72"/>
-                </filter>
-              </defs>
-              <g filter="url(#tiaraGlowB)">
-                <path d="M36 151 C82 116 99 70 125 119 C146 70 164 42 180 22 C196 42 214 70 235 119 C261 70 278 116 324 151" fill="none" stroke="url(#tiaraGoldB)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M58 153 C104 124 130 135 180 135 C230 135 256 124 302 153" fill="none" stroke="#fff7cf" stroke-width="6" stroke-linecap="round" opacity=".78"/>
-                <rect x="50" y="145" width="260" height="34" rx="17" fill="url(#tiaraGoldB)" stroke="#fff7cf" stroke-width="5"/>
-                <path d="M76 161 H284" stroke="#8f6418" stroke-width="3" opacity=".36"/>
-                <path d="M180 54 L198 84 L180 114 L162 84 Z" fill="url(#tiaraRoseB)" stroke="#fff7cf" stroke-width="5"/>
-                <path d="M126 103 L139 124 L126 145 L113 124 Z" fill="#fff7cf" stroke="#d6ad4f" stroke-width="4"/>
-                <path d="M234 103 L247 124 L234 145 L221 124 Z" fill="#fff7cf" stroke="#d6ad4f" stroke-width="4"/>
-                <circle cx="86" cy="146" r="9" fill="url(#tiaraRoseB)" stroke="#fff7cf" stroke-width="4"/>
-                <circle cx="274" cy="146" r="9" fill="url(#tiaraRoseB)" stroke="#fff7cf" stroke-width="4"/>
-                <path class="tiara-spark" d="M294 40 L304 62 L328 72 L304 82 L294 105 L284 82 L260 72 L284 62 Z" fill="#fff7cf" opacity=".85"/>
-                <path class="tiara-spark" d="M64 46 L72 63 L91 71 L72 79 L64 96 L56 79 L37 71 L56 63 Z" fill="#fff7cf" opacity=".72"/>
-              </g>
-            </svg>
-                <div class="flourish">✦ ✧ ✦</div><div class="elegant-15">15</div><div class="flourish">❦</div>
-                <p>Una noche de princesa, elegante y llena de magia.</p>
-              </div>
+            <div class="quince-photo-frame" aria-label="Foto principal de Yomaris Marie">
+              <img class="quince-photo" src="assets/yomaris-marie-foto.png" alt="Yomaris Marie Arce Delgado">
+              <div class="photo-15-badge">15</div>
+              <div class="photo-name-ribbon">Yomaris Marie</div>
             </div>
           </div>
         </div>
