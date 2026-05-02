@@ -51,7 +51,7 @@
 
     .sparkles,.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
     .sparkles span{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 18px var(--gold-2),0 0 34px rgba(214,173,79,.9);animation:floatUp linear infinite}
-    .petals span{position:absolute;color:rgba(255,248,236,.82);font-size:20px;text-shadow:0 0 18px rgba(248,182,209,.95);animation:petalFall linear infinite}
+    .petals span{position:absolute;color:rgba(255,240,184,.95);font-size:24px;font-weight:900;letter-spacing:.04em;text-shadow:0 0 18px rgba(255,240,184,.75),0 0 26px rgba(248,182,209,.38);animation:petalFall linear infinite}
 
     @keyframes floatUp{0%{transform:translateY(112vh) scale(.4);opacity:0}15%{opacity:1}100%{transform:translateY(-15vh) scale(1.25);opacity:0}}
     @keyframes petalFall{0%{transform:translateY(-12vh) translateX(0) rotate(0deg);opacity:0}12%{opacity:1}100%{transform:translateY(112vh) translateX(70px) rotate(360deg);opacity:0}}
@@ -153,7 +153,144 @@
 
     footer{padding:45px 16px 58px;text-align:center;color:#fff9ef}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);z-index:20;padding:14px 18px;border-radius:999px;background:rgba(35,7,29,.96);border:1px solid rgba(255,240,184,.52);color:var(--gold-2);box-shadow:0 20px 50px rgba(0,0,0,.35);transition:.3s ease;pointer-events:none;text-align:center;width:max-content;max-width:calc(100% - 30px)}.toast.show{transform:translateX(-50%) translateY(0)}
 
-    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1{font-size:clamp(58px,17vw,92px)}h1 span{font-size:clamp(38px,12vw,64px)}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
+
+    .admin-locked{
+      display:grid;
+      place-items:center;
+      min-height:100vh;
+      padding:28px 16px;
+      background:
+        radial-gradient(circle at 20% 10%,rgba(255,240,184,.22),transparent 28%),
+        radial-gradient(circle at 80% 15%,rgba(248,182,209,.26),transparent 30%),
+        linear-gradient(135deg,#23051d,#4b1239 52%,#8f3d69);
+    }
+
+    .admin-login-card{
+      width:min(520px,100%);
+      border-radius:38px;
+      border:1px solid rgba(255,240,184,.58);
+      background:
+        linear-gradient(145deg,rgba(42,9,34,.92),rgba(72,16,55,.82)),
+        radial-gradient(circle at top,rgba(255,240,184,.18),transparent 46%);
+      box-shadow:0 35px 110px rgba(0,0,0,.42), inset 0 0 60px rgba(255,255,255,.06);
+      padding:34px;
+      text-align:center;
+      animation:reveal .65s ease both;
+    }
+
+    .admin-login-card h1{
+      font-family:"Segoe UI",system-ui,sans-serif;
+      font-size:clamp(30px,5vw,48px);
+      line-height:1.05;
+      color:var(--gold-2);
+      text-shadow:0 0 22px rgba(255,240,184,.34);
+      margin-bottom:12px;
+    }
+
+    .admin-login-card p{
+      color:#fff9ef;
+      line-height:1.65;
+      margin-bottom:22px;
+    }
+
+    .admin-login-card input{
+      text-align:center;
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+    .admin-login-card .btn{
+      width:100%;
+      margin-top:14px;
+    }
+
+    .admin-error{
+      min-height:24px;
+      color:#ffd1dc;
+      font-weight:800;
+      margin-top:14px;
+    }
+
+    body.admin-mode .hero,
+    body.admin-mode #contador,
+    body.admin-mode #registro,
+    body.admin-mode #entretenimiento,
+    body.admin-mode #detalles,
+    body.admin-mode footer{
+      display:none!important;
+    }
+
+    body.admin-mode #admin{
+      display:block!important;
+      padding-top:34px;
+    }
+
+    body:not(.admin-mode) #admin{
+      display:none!important;
+    }
+
+
+    .music-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:34px;
+    }
+
+    .music-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+      border:1px solid rgba(255,240,184,.42);
+      background:
+        linear-gradient(145deg,rgba(255,248,236,.12),rgba(255,255,255,.05)),
+        radial-gradient(circle at top right,rgba(255,240,184,.16),transparent 42%);
+      padding:26px 22px;
+      box-shadow:0 22px 58px rgba(0,0,0,.24), inset 0 0 34px rgba(255,255,255,.05);
+    }
+
+    .music-card::before{
+      content:"♪";
+      position:absolute;
+      right:18px;
+      top:10px;
+      font-size:54px;
+      color:rgba(255,240,184,.18);
+      transform:rotate(-10deg);
+    }
+
+    .music-icon{
+      width:52px;
+      height:52px;
+      display:inline-grid;
+      place-items:center;
+      border-radius:18px;
+      margin-bottom:15px;
+      color:#421231;
+      font-size:28px;
+      background:linear-gradient(135deg,var(--cream),var(--gold-2),var(--rose));
+      box-shadow:0 14px 34px rgba(214,173,79,.25);
+    }
+
+    .music-card h3{
+      position:relative;
+      color:var(--gold-2);
+      font-size:18px;
+      margin-bottom:10px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .music-card p{
+      position:relative;
+      color:#fff9ef;
+      line-height:1.6;
+      font-size:16px;
+      font-weight:700;
+    }
+
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats,.music-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1{font-size:clamp(58px,17vw,92px)}h1 span{font-size:clamp(38px,12vw,64px)}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
   </style>
 </head>
 <body>
@@ -213,7 +350,7 @@
 
             <div class="actions">
               <a href="#registro" class="btn">Confirmar asistencia</a>
-              <a href="#admin" class="btn secondary">Panel admin</a>
+              <a href="./?admin=1" target="_blank" rel="noopener" class="btn secondary">Panel admin</a>
             </div>
           </div>
 
@@ -321,6 +458,10 @@
 
       <div class="wrap">
         <h2 class="section-title">Panel Admin</h2>
+        <div class="actions" style="justify-content:center;margin-bottom:24px;">
+          <button class="btn secondary" id="adminLogout" type="button">Cerrar panel admin</button>
+          <a class="btn secondary" href="./">Volver a la invitación</a>
+        </div>
         <p class="section-sub">Aquí puedes ver cuántas personas hay registradas, los nombres, teléfonos, códigos QR y el total de invitados.</p>
         <div class="admin-panel">
           <div class="admin-pill">♕ Control de invitados</div>
@@ -339,7 +480,37 @@
       </div>
     </section>
 
-    <section class="section">
+
+    <section class="section" id="entretenimiento">
+      <div class="wrap">
+        <h2 class="section-title">Entretenimiento</h2>
+        <p class="section-sub">
+          Una noche preparada con música, alegría y ambiente elegante para celebrar los quince años de Yomaris.
+        </p>
+
+        <div class="music-grid">
+          <div class="music-card">
+            <div class="music-icon">♫</div>
+            <h3>Música</h3>
+            <p>Compuesta por <strong>DJ Francis Machado</strong>.</p>
+          </div>
+
+          <div class="music-card">
+            <div class="music-icon">🎤</div>
+            <h3>Karaoke</h3>
+            <p>Karaoke especial para disfrutar en familia y compartir momentos inolvidables.</p>
+          </div>
+
+          <div class="music-card">
+            <div class="music-icon">♪</div>
+            <h3>Música en Vivo</h3>
+            <p>Presentación en vivo por <strong>Grupo Sender La Melodía</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="detalles">
       <div class="wrap">
         <h2 class="section-title">Detalles del Evento</h2>
         <p class="section-sub">Una celebración preparada con elegancia para compartir con las personas más especiales.</p>
@@ -360,9 +531,9 @@
   <script>
     // =====================================================
     // CONFIGURACIÓN SUPABASE
-    // 1) Ve a Supabase > Project Settings > API
-    // 2) Copia Project URL y anon public key
-    // 3) Pégalos aquí abajo
+    // IMPORTANTE:
+    // Pega aquí tus datos reales de Supabase.
+    // Supabase > Project Settings > API
     // =====================================================
     const SUPABASE_URL = "PEGA_AQUI_TU_SUPABASE_URL";
     const SUPABASE_ANON_KEY = "PEGA_AQUI_TU_SUPABASE_ANON_KEY";
@@ -370,12 +541,71 @@
     const SUPABASE_READY =
       SUPABASE_URL &&
       SUPABASE_ANON_KEY &&
+      SUPABASE_URL.startsWith("https://") &&
       !SUPABASE_URL.includes("PEGA_AQUI") &&
       !SUPABASE_ANON_KEY.includes("PEGA_AQUI");
 
     const supabaseClient = SUPABASE_READY
       ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
       : null;
+
+    // =====================================================
+    // ADMIN PROTEGIDO
+    // =====================================================
+    const ADMIN_ACCESS_CODE = "mis15yomaris";
+    const ADMIN_SESSION_KEY = "yomarisAdminAccess";
+    const isAdminPage = new URLSearchParams(window.location.search).get("admin") === "1";
+
+    function hasAdminAccess(){
+      return sessionStorage.getItem(ADMIN_SESSION_KEY) === "granted";
+    }
+
+    function showAdminLogin(){
+      document.body.innerHTML = `
+        <main class="admin-locked">
+          <div class="admin-login-card">
+            <div class="mini-crown" style="font-size:52px;margin-bottom:8px;">♕</div>
+            <h1>Acceso Admin</h1>
+            <p>Panel privado para ver registros, nombres, códigos QR y cantidad de invitados.</p>
+            <input id="adminAccessInput" type="password" placeholder="Código de acceso" autocomplete="off" />
+            <button class="btn" id="adminAccessBtn" type="button">Entrar al panel</button>
+            <div class="admin-error" id="adminAccessError"></div>
+            <a class="btn secondary" style="margin-top:8px;" href="./">Volver a la invitación</a>
+          </div>
+        </main>
+      `;
+
+      const input = document.getElementById("adminAccessInput");
+      const btn = document.getElementById("adminAccessBtn");
+      const error = document.getElementById("adminAccessError");
+
+      function tryAccess(){
+        if(input.value.trim() === ADMIN_ACCESS_CODE){
+          sessionStorage.setItem(ADMIN_SESSION_KEY, "granted");
+          window.location.reload();
+        }else{
+          error.textContent = "Código incorrecto.";
+          input.value = "";
+          input.focus();
+        }
+      }
+
+      btn.addEventListener("click", tryAccess);
+      input.addEventListener("keydown", function(e){
+        if(e.key === "Enter") tryAccess();
+      });
+      input.focus();
+    }
+
+    if(isAdminPage && !hasAdminAccess()){
+      showAdminLogin();
+      throw new Error("Admin bloqueado hasta ingresar código.");
+    }
+
+    if(isAdminPage && hasAdminAccess()){
+      document.body.classList.add("admin-mode");
+      document.title = "Panel Admin | Invitación Yomaris";
+    }
 
     // =====================================================
     // ANIMACIONES
@@ -397,11 +627,11 @@
     if(petals){
       for(let i = 0; i < 24; i++){
         const p = document.createElement("span");
-        p.innerHTML = Math.random() > .5 ? "❀" : "♡";
+        p.innerHTML = Math.random() > .5 ? "15" : "♕";
         p.style.left = Math.random() * 100 + "%";
         p.style.animationDuration = (8 + Math.random() * 10) + "s";
         p.style.animationDelay = (Math.random() * 8) + "s";
-        p.style.fontSize = (16 + Math.random() * 18) + "px";
+        p.style.fontSize = (18 + Math.random() * 18) + "px";
         petals.appendChild(p);
       }
     }
@@ -414,10 +644,9 @@
     function updateCountdown(){
       const now = new Date().getTime();
       const gap = eventDate - now;
-      const ids = ["days","hours","minutes","seconds"];
 
       if(gap <= 0){
-        ids.forEach(id => {
+        ["days","hours","minutes","seconds"].forEach(id => {
           const el = document.getElementById(id);
           if(el) el.textContent = "00";
         });
@@ -461,7 +690,7 @@
       if(!toast) return alert(text);
       toast.textContent = text;
       toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"),2800);
+      setTimeout(() => toast.classList.remove("show"),3200);
     }
 
     function normalizePhone(phone){
@@ -491,8 +720,8 @@
         id: row.id,
         invitado: row.full_name,
         telefono: row.phone,
-        acompanantes: row.companions,
-        total_personas: row.total_people,
+        acompanantes: Number(row.companions || 0),
+        total_personas: Number(row.total_people || (Number(row.companions || 0) + 1)),
         confirmacion: row.attendance,
         mensaje: row.special_message || "",
         codigo: row.qr_code,
@@ -530,7 +759,6 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
 
     function generateQr(record){
       if(!qrcodeBox) return;
-      qrcodeBox.innerHTML = "";
 
       const payload = {
         evento:"Quinceañera Yomaris Arce Delgado",
@@ -544,30 +772,69 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
         codigo:record.codigo
       };
 
-      if(typeof QRCode !== "undefined"){
-        new QRCode(qrcodeBox,{
-          text: JSON.stringify(payload),
-          width:250,
-          height:250,
-          colorDark:"#3c1230",
-          colorLight:"#ffffff",
-          correctLevel:QRCode.CorrectLevel.H
-        });
-      }else{
-        qrcodeBox.innerHTML = `<div style="color:#3c1230;font-weight:900;text-align:center;padding:30px;">QR no cargó.<br>Código:<br>${record.codigo}</div>`;
+      const qrText = JSON.stringify(payload);
+      qrcodeBox.innerHTML = "";
+
+      try{
+        if(typeof QRCode !== "undefined"){
+          new QRCode(qrcodeBox,{
+            text: qrText,
+            width:250,
+            height:250,
+            colorDark:"#3c1230",
+            colorLight:"#ffffff",
+            correctLevel:QRCode.CorrectLevel.H
+          });
+          return;
+        }
+      }catch(err){
+        console.warn("QRCode local falló, usando imagen externa", err);
       }
+
+      // Fallback seguro: genera QR con imagen externa.
+      // Esto evita que el QR se quede en blanco si la librería QRCode no carga.
+      const img = document.createElement("img");
+      img.alt = "Código QR";
+      img.width = 250;
+      img.height = 250;
+      img.style.width = "250px";
+      img.style.height = "250px";
+      img.style.display = "block";
+      img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + encodeURIComponent(qrText);
+      qrcodeBox.appendChild(img);
     }
 
     async function registerGuestInSupabase(data){
-      if(!supabaseClient) throw new Error("Supabase no está configurado.");
+      if(!supabaseClient) throw new Error("Supabase no está configurado. Pega SUPABASE_URL y SUPABASE_ANON_KEY.");
 
-      const { data: inserted, error } = await supabaseClient.rpc("register_yomaris_guest", {
-        p_full_name: data.full_name,
-        p_phone: data.phone,
-        p_companions: data.companions,
-        p_attendance: data.attendance,
-        p_special_message: data.special_message
-      });
+      const code = makeVipCode(data.full_name);
+
+      const payload = {
+        full_name: data.full_name,
+        phone: data.phone,
+        companions: data.companions,
+        attendance: data.attendance,
+        special_message: data.special_message || null,
+        qr_code: code,
+        qr_payload: {
+          evento:"Quinceañera Yomaris Arce Delgado",
+          fecha:"20 de junio 2026",
+          hora:"6:00 PM",
+          invitado:data.full_name,
+          telefono:data.phone,
+          acompanantes:data.companions,
+          total_personas:data.companions + 1,
+          confirmacion:data.attendance,
+          codigo:code
+        }
+      };
+
+      // Inserción directa a la tabla. Más estable que RPC para web sencilla.
+      const { data: inserted, error } = await supabaseClient
+        .from("yomaris_guests")
+        .insert(payload)
+        .select("*")
+        .single();
 
       if(error) throw error;
       return mapDbRecord(inserted);
@@ -579,6 +846,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
 
         const submitBtn = form.querySelector('button[type="submit"]');
         const oldText = submitBtn ? submitBtn.textContent : "";
+
         if(submitBtn){
           submitBtn.disabled = true;
           submitBtn.textContent = "Guardando registro...";
@@ -615,7 +883,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
               generado:new Date().toLocaleString()
             };
             localSaveGuest(record);
-            showToast("Supabase no está configurado. Guardado localmente.");
+            showToast("Supabase no está configurado. QR generado localmente.");
           }
 
           lastRecord = record;
@@ -625,13 +893,13 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
 
           if(vipCodeBox) vipCodeBox.textContent = record.codigo;
           if(guestSummary){
-            guestSummary.innerHTML = `<strong>${record.invitado}</strong>, tu registro indica: <strong>${record.confirmacion}</strong>. Total registrado: <strong>${record.total_personas} persona(s)</strong>.`;
+            guestSummary.innerHTML = `<strong>${escapeHtml(record.invitado)}</strong>, tu registro indica: <strong>${escapeHtml(record.confirmacion)}</strong>. Total registrado: <strong>${record.total_personas} persona(s)</strong>.`;
           }
 
           successBox?.classList.add("show");
           successBox?.scrollIntoView({behavior:"smooth",block:"start"});
 
-          showToast(SUPABASE_READY ? "Registro guardado en Supabase" : "Pase QR generado");
+          showToast(SUPABASE_READY ? "Registro guardado en Supabase y QR generado" : "Pase QR generado localmente");
           openWhatsapp(record);
           await renderAdmin();
           form.reset();
@@ -677,6 +945,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       downloadPassBtn.addEventListener("click", function(){
         const record = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYomaris") || "{}");
         const qrCanvas = qrcodeBox?.querySelector("canvas");
+        const qrImg = qrcodeBox?.querySelector("img");
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
 
@@ -712,10 +981,19 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
         ctx.font = "bold 34px Segoe UI";
         ctx.fillText("Mis Quince Años",450,376);
 
+        ctx.fillStyle = "#ffffff";
+        roundRect(ctx,275,440,350,350,30,true,false);
+
         if(qrCanvas){
-          ctx.fillStyle = "#ffffff";
-          roundRect(ctx,275,440,350,350,30,true,false);
           ctx.drawImage(qrCanvas,305,470,290,290);
+        }else if(qrImg && qrImg.complete){
+          try{
+            ctx.drawImage(qrImg,305,470,290,290);
+          }catch(err){
+            ctx.fillStyle = "#3c1230";
+            ctx.font = "bold 24px Segoe UI";
+            ctx.fillText(record.codigo || "YOM-000000",450,620);
+          }
         }
 
         ctx.fillStyle = "#ffffff";
@@ -874,30 +1152,34 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
     const exportCsvBtn = document.getElementById("exportCsv");
     if(exportCsvBtn){
       exportCsvBtn.addEventListener("click", async function(){
-        const guests = await fetchGuests();
-        const headers = ["Nombre","Telefono","Confirmacion","Acompanantes","Total","Codigo","Creado"];
-        const rows = guests.map(g => [
-          g.invitado,
-          g.telefono,
-          g.confirmacion,
-          g.acompanantes,
-          g.total_personas,
-          g.codigo,
-          g.generado
-        ]);
+        try{
+          const guests = await fetchGuests();
+          const headers = ["Nombre","Telefono","Confirmacion","Acompanantes","Total","Codigo","Creado"];
+          const rows = guests.map(g => [
+            g.invitado,
+            g.telefono,
+            g.confirmacion,
+            g.acompanantes,
+            g.total_personas,
+            g.codigo,
+            g.generado
+          ]);
 
-        const csv = [headers, ...rows]
-          .map(row => row.map(value => `"${String(value ?? "").replaceAll('"','""')}"`).join(","))
-          .join("\n");
+          const csv = [headers, ...rows]
+            .map(row => row.map(value => `"${String(value ?? "").replaceAll('"','""')}"`).join(","))
+            .join("\n");
 
-        const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = "invitados-yomaris.csv";
-        link.click();
-        URL.revokeObjectURL(url);
-        showToast("CSV descargado");
+          const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "invitados-yomaris.csv";
+          link.click();
+          URL.revokeObjectURL(url);
+          showToast("CSV descargado");
+        }catch(error){
+          showToast("Error exportando: " + (error.message || "No se pudo exportar"));
+        }
       });
     }
 
@@ -927,7 +1209,21 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       });
     }
 
-    renderAdmin();
+    const adminLogoutBtn = document.getElementById("adminLogout");
+    if(adminLogoutBtn){
+      adminLogoutBtn.addEventListener("click", function(){
+        sessionStorage.removeItem(ADMIN_SESSION_KEY);
+        window.location.href = "./";
+      });
+    }
+
+    if(!SUPABASE_READY){
+      console.warn("Supabase no configurado. Pega SUPABASE_URL y SUPABASE_ANON_KEY.");
+    }
+
+    if(!isAdminPage || hasAdminAccess()){
+      renderAdmin();
+    }
   </script>
 </body>
 </html>
