@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quinceañera Yomaris Arce Delgado</title>
+  <style>
+    :root{
+      --pink:#ff5fb7;
+      --rose:#ff9ed2;
+      --gold:#f8d46b;
+      --dark:#160716;
+      --glass:rgba(255,255,255,.14);
+      --white:#fff7fb;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color:var(--white);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,95,183,.35), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(248,212,107,.28), transparent 28%),
+        linear-gradient(135deg, #18051a 0%, #40133d 45%, #120614 100%);
+      overflow-x:hidden;
+    }
+
+    .sparkles, .hearts{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .sparkles span,
+    .hearts span{
+      position:absolute;
+      display:block;
+      animation: floatUp linear infinite;
+      opacity:.8;
+    }
+
+    .sparkles span{
+      width:6px;
+      height:6px;
+      background:var(--gold);
+      border-radius:50%;
+      box-shadow:0 0 18px var(--gold), 0 0 35px var(--gold);
+    }
+
+    .hearts span{
+      color:rgba(255,158,210,.75);
+      font-size:18px;
+      text-shadow:0 0 18px rgba(255,95,183,.8);
+    }
+
+    @keyframes floatUp{
+      0%{ transform:translateY(110vh) scale(.7) rotate(0deg); opacity:0; }
+      15%{ opacity:1; }
+      100%{ transform:translateY(-15vh) scale(1.2) rotate(360deg); opacity:0; }
+    }
+
+    .page{
+      position:relative;
+      z-index:1;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:32px 18px;
+      text-align:center;
+      position:relative;
+    }
+
+    .card{
+      width:min(960px, 100%);
+      padding:44px 24px;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:34px;
+      background:linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
+      box-shadow:
+        0 28px 90px rgba(0,0,0,.38),
+        inset 0 0 30px rgba(255,255,255,.08);
+      backdrop-filter: blur(18px);
+      animation: reveal .9s ease both;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      background:radial-gradient(circle, rgba(255,95,183,.28), transparent 65%);
+      right:-150px;
+      top:-160px;
+      border-radius:50%;
+      animation:pulseGlow 4s ease-in-out infinite;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      width:320px;
+      height:320px;
+      background:radial-gradient(circle, rgba(248,212,107,.22), transparent 65%);
+      left:-100px;
+      bottom:-120px;
+      border-radius:50%;
+      animation:pulseGlow 5s ease-in-out infinite reverse;
+    }
+
+    @keyframes reveal{
+      from{ opacity:0; transform:translateY(35px) scale(.97); }
+      to{ opacity:1; transform:translateY(0) scale(1); }
+    }
+
+    @keyframes pulseGlow{
+      0%,100%{ transform:scale(1); opacity:.8; }
+      50%{ transform:scale(1.16); opacity:1; }
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(248,212,107,.13);
+      border:1px solid rgba(248,212,107,.48);
+      color:#ffe89a;
+      font-weight:700;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:12px;
+      margin-bottom:24px;
+      animation: shimmer 2.8s linear infinite;
+    }
+
+    @keyframes shimmer{
+      0%,100%{ box-shadow:0 0 0 rgba(248,212,107,0); }
+      50%{ box-shadow:0 0 25px rgba(248,212,107,.35); }
+    }
+
+    h1{
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:clamp(50px, 10vw, 118px);
+      line-height:.88;
+      letter-spacing:-.05em;
+      background:linear-gradient(90deg, #fff, #ffd3ea, #f8d46b, #fff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      filter:drop-shadow(0 0 26px rgba(255,95,183,.33));
+      animation:titleGlow 3s ease-in-out infinite;
+    }
+
+    h1 span{
+      display:block;
+      margin-top:16px;
+      font-size:clamp(24px, 4.8vw, 54px);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-family:"Segoe UI", system-ui, sans-serif;
+      font-weight:800;
+      background:linear-gradient(90deg, #f8d46b, #fff2c2, #ffb7df, #f8d46b);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    @keyframes titleGlow{
+      0%,100%{ transform:translateY(0); filter:drop-shadow(0 0 22px rgba(255,95,183,.28)); }
+      50%{ transform:translateY(-6px); filter:drop-shadow(0 0 38px rgba(248,212,107,.38)); }
+    }
+
+    .subtitle{
+      margin:20px auto 0;
+      max-width:740px;
+      font-size:clamp(18px, 3vw, 28px);
+      color:#ffe8f4;
+      font-weight:500;
+    }
+
+    .number{
+      margin:22px auto;
+      width:145px;
+      height:145px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.95), rgba(255,158,210,.82) 35%, rgba(255,95,183,.35) 70%),
+        linear-gradient(135deg, rgba(255,255,255,.2), rgba(255,255,255,.02));
+      border:2px solid rgba(248,212,107,.7);
+      box-shadow:0 0 35px rgba(255,95,183,.46), inset 0 0 30px rgba(255,255,255,.24);
+      color:#6f174c;
+      font-family:Georgia, serif;
+      font-size:72px;
+      font-weight:900;
+      animation: crownFloat 3.5s ease-in-out infinite;
+    }
+
+    @keyframes crownFloat{
+      0%,100%{ transform:translateY(0) rotate(-2deg); }
+      50%{ transform:translateY(-10px) rotate(2deg); }
+    }
+
+    .details{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin:32px auto 26px;
+      max-width:840px;
+    }
+
+    .detail{
+      padding:18px 14px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.09);
+      box-shadow:inset 0 0 20px rgba(255,255,255,.04);
+    }
+
+    .detail small{
+      display:block;
+      color:#ffd9ef;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:11px;
+      margin-bottom:8px;
+    }
+
+    .detail strong{
+      font-size:17px;
+      color:#fff;
+    }
+
+    .buttons{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:26px;
+    }
+
+    .btn{
+      border:0;
+      cursor:pointer;
+      padding:15px 24px;
+      border-radius:999px;
+      font-weight:800;
+      color:#2b0a22;
+      background:linear-gradient(135deg, #fff0fb, #ff9ed2 55%, #f8d46b);
+      box-shadow:0 15px 35px rgba(255,95,183,.24);
+      text-decoration:none;
+      transition:.25s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      box-shadow:0 22px 45px rgba(248,212,107,.26);
+    }
+
+    .btn.outline{
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border:1px solid rgba(248,212,107,.5);
+    }
+
+    .section{
+      padding:78px 18px;
+    }
+
+    .wrap{
+      width:min(1080px, 100%);
+      margin:auto;
+    }
+
+    .section-title{
+      text-align:center;
+      font-family:Georgia, serif;
+      font-size:clamp(34px, 6vw, 64px);
+      color:#fff;
+      margin-bottom:16px;
+    }
+
+    .section-text{
+      max-width:760px;
+      margin:0 auto 34px;
+      text-align:center;
+      color:#ffdef0;
+      font-size:18px;
+      line-height:1.7;
+    }
+
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:14px;
+      max-width:800px;
+      margin:32px auto 0;
+    }
+
+    .timebox{
+      padding:24px 12px;
+      text-align:center;
+      border-radius:24px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 15px 35px rgba(0,0,0,.2);
+    }
+
+    .timebox b{
+      display:block;
+      font-size:clamp(30px, 6vw, 54px);
+      color:#f8d46b;
+      font-family:Georgia, serif;
+    }
+
+    .timebox span{
+      color:#ffe8f4;
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:.16em;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      margin-top:36px;
+    }
+
+    .photo{
+      min-height:220px;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.18);
+      background:
+        linear-gradient(135deg, rgba(255,95,183,.38), rgba(248,212,107,.20)),
+        radial-gradient(circle at center, rgba(255,255,255,.22), transparent 55%);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:#fff;
+      padding:24px;
+      box-shadow:0 22px 60px rgba(0,0,0,.22);
+      transition:.3s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .photo::before{
+      content:"";
+      position:absolute;
+      inset:-60%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+      transform:rotate(25deg);
+      animation: shine 5s infinite;
+    }
+
+    @keyframes shine{
+      0%{ transform:translateX(-100%) rotate(25deg); }
+      40%,100%{ transform:translateX(100%) rotate(25deg); }
+    }
+
+    .photo:hover{
+      transform:translateY(-8px);
+    }
+
+    .photo h3{
+      position:relative;
+      z-index:1;
+      font-size:22px;
+    }
+
+    .message-card{
+      max-width:880px;
+      margin:auto;
+      padding:34px;
+      border-radius:30px;
+      background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.20);
+      box-shadow:0 25px 75px rgba(0,0,0,.25);
+      text-align:center;
+      line-height:1.8;
+      color:#ffeaf6;
+      font-size:19px;
+    }
+
+    footer{
+      padding:38px 18px 54px;
+      text-align:center;
+      color:#ffd9ef;
+    }
+
+    .music{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:10;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      border:1px solid rgba(248,212,107,.55);
+      background:rgba(255,255,255,.14);
+      backdrop-filter:blur(12px);
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+      box-shadow:0 15px 35px rgba(0,0,0,.26);
+      animation: musicPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes musicPulse{
+      0%,100%{ transform:scale(1); }
+      50%{ transform:scale(1.08); }
+    }
+
+    @media(max-width:760px){
+      .card{ padding:34px 16px; border-radius:26px; }
+      .details, .countdown, .gallery{
+        grid-template-columns:1fr;
+      }
+      .number{
+        width:120px;
+        height:120px;
+        font-size:58px;
+      }
+      .section{
+        padding:58px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkles" id="sparkles"></div>
+  <div class="hearts" id="hearts"></div>
+
+  <button class="music" id="musicBtn" title="Música">♪</button>
+  <audio id="bgMusic" loop>
+    <!-- Puedes poner aquí tu música: <source src="musica.mp3" type="audio/mpeg"> -->
+  </audio>
+
+  <main class="page">
+    <section class="hero" id="inicio">
+      <div class="card">
+        <div class="content">
+          <div class="badge">Una noche mágica</div>
+          <h1>Yomaris<br><span>Arce Delgado</span></h1>
+          <div class="number">15</div>
+          <p class="subtitle">
+            Celebrando sus quince años con amor, alegría y un momento que quedará para siempre.
+          </p>
+
+          <div class="details">
+            <div class="detail">
+              <small>Fecha</small>
+              <strong>1 de junio 2026</strong>
+            </div>
+            <div class="detail">
+              <small>Hora</small>
+              <strong>6:00 PM</strong>
+            </div>
+            <div class="detail">
+              <small>Lugar</small>
+              <strong>Salón de Actividades</strong>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <a class="btn" href="#contador">Ver cuenta regresiva</a>
+            <a class="btn outline" href="#mensaje">Mensaje especial</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contador">
+      <div class="wrap">
+        <h2 class="section-title">Cuenta Regresiva</h2>
+        <p class="section-text">
+          Cada día nos acerca más a una celebración llena de brillo, familia, música y recuerdos hermosos.
+        </p>
+
+        <div class="countdown">
+          <div class="timebox"><b id="days">00</b><span>Días</span></div>
+          <div class="timebox"><b id="hours">00</b><span>Horas</span></div>
+          <div class="timebox"><b id="minutes">00</b><span>Minutos</span></div>
+          <div class="timebox"><b id="seconds">00</b><span>Segundos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">Momentos de Princesa</h2>
+        <p class="section-text">
+          Esta área puedes usarla para poner fotos, recuerdos o frases especiales de Yomaris Arce Delgado.
+        </p>
+
+        <div class="gallery">
+          <div class="photo"><h3>Entrada Elegante</h3></div>
+          <div class="photo"><h3>Baile Especial</h3></div>
+          <div class="photo"><h3>Noche Inolvidable</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mensaje">
+      <div class="wrap">
+        <h2 class="section-title">Para Yomaris</h2>
+        <div class="message-card">
+          Hoy celebramos una etapa hermosa de tu vida. Que esta noche marque el comienzo de nuevos sueños,
+          nuevas metas y muchas bendiciones. Que nunca pierdas tu brillo, tu alegría y esa luz especial que te hace única.
+          <br><br>
+          Con mucho amor, tu familia.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Hecho con amor para la quinceañera de Yomaris Arce Delgado ✨
+    </footer>
+  </main>
+
+  <script>
+    const sparkles = document.getElementById("sparkles");
+    const hearts = document.getElementById("hearts");
+
+    function createParticles(){
+      for(let i = 0; i < 45; i++){
+        const s = document.createElement("span");
+        s.style.left = Math.random() * 100 + "%";
+        s.style.animationDuration = (5 + Math.random() * 8) + "s";
+        s.style.animationDelay = (Math.random() * 7) + "s";
+        s.style.opacity = Math.random() * .8 + .2;
+        sparkles.appendChild(s);
+      }
+
+      for(let i = 0; i < 22; i++){
+        const h = document.createElement("span");
+        h.innerHTML = "♥";
+        h.style.left = Math.random() * 100 + "%";
+        h.style.animationDuration = (7 + Math.random() * 9) + "s";
+        h.style.animationDelay = (Math.random() * 8) + "s";
+        h.style.fontSize = (14 + Math.random() * 18) + "px";
+        hearts.appendChild(h);
+      }
+    }
+
+    createParticles();
+
+    const eventDate = new Date("June 1, 2026 18:00:00").getTime();
+
+    function updateCountdown(){
+      const now = new Date().getTime();
+      const gap = eventDate - now;
+
+      if(gap <= 0){
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+      }
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      document.getElementById("days").textContent = Math.floor(gap / day).toString().padStart(2, "0");
+      document.getElementById("hours").textContent = Math.floor((gap % day) / hour).toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = Math.floor((gap % hour) / minute).toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = Math.floor((gap % minute) / second).toString().padStart(2, "0");
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const musicBtn = document.getElementById("musicBtn");
+    const bgMusic = document.getElementById("bgMusic");
+    let playing = false;
+
+    musicBtn.addEventListener("click", async () => {
+      if(!bgMusic.querySelector("source")){
+        alert("Para activar música, coloca tu archivo musica.mp3 en la misma carpeta y agrega el source dentro del audio.");
+        return;
+      }
+
+      if(!playing){
+        await bgMusic.play();
+        playing = true;
+        musicBtn.textContent = "❚❚";
+      }else{
+        bgMusic.pause();
+        playing = false;
+        musicBtn.textContent = "♪";
+      }
+    });
+  </script>
+</body>
+</html>
