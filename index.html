@@ -1022,6 +1022,159 @@ label,
     0 0 16px rgba(255,243,191,.50) !important;
 }
 
+
+/* ===== INVITACION INTERNA MAS MODERNA ===== */
+.panel-premium{
+  position:relative;
+  background:
+    linear-gradient(145deg, rgba(27,6,24,.92), rgba(46,11,37,.84)),
+    radial-gradient(circle at 100% 0%, rgba(255,183,214,.10), transparent 34%) !important;
+  border:1px solid rgba(255,243,191,.24) !important;
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.34),
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    inset 0 0 70px rgba(255,255,255,.03) !important;
+}
+.panel-premium::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.05), transparent);
+  pointer-events:none;
+}
+.panel-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,243,191,.36);
+  color:var(--gold2);
+  background:rgba(255,255,255,.08);
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  box-shadow:0 14px 36px rgba(0,0,0,.18);
+}
+.rsvp-panel form,
+.success-premium,
+#admin .panel-premium{
+  position:relative;
+  z-index:1;
+}
+.field label{
+  color:#fff3bf !important;
+  text-shadow:0 4px 10px rgba(0,0,0,.55);
+}
+input,select,textarea{
+  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.18)) !important;
+  border:1px solid rgba(255,243,191,.18) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.02),
+    inset 0 10px 20px rgba(0,0,0,.14) !important;
+}
+input:focus,select:focus,textarea:focus{
+  transform:translateY(-1px);
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(0,0,0,.16)) !important;
+}
+.form-actions .btn,
+.actions .btn{
+  position:relative;
+  overflow:hidden;
+}
+.form-actions .btn::after,
+.actions .btn::after{
+  content:"";
+  position:absolute;
+  inset:auto -30% 0 -30%;
+  height:100%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.20), transparent);
+  transform:translateX(-120%) skewX(-15deg);
+  transition:transform .8s ease;
+}
+.form-actions .btn:hover::after,
+.actions .btn:hover::after{
+  transform:translateX(120%) skewX(-15deg);
+}
+.success-premium{
+  margin-top:36px;
+  border-radius:34px !important;
+}
+.success-premium .qr-wrap{
+  box-shadow:
+    0 22px 60px rgba(244,207,118,.26),
+    0 10px 30px rgba(0,0,0,.22);
+}
+.modern-grid .music-card,
+.modern-grid .info-card{
+  position:relative;
+  border-radius:32px !important;
+  background:
+    linear-gradient(145deg, rgba(27,6,24,.82), rgba(50,12,40,.72)),
+    radial-gradient(circle at 100% 0%, rgba(255,243,191,.08), transparent 28%) !important;
+  border:1px solid rgba(255,243,191,.20) !important;
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.28),
+    inset 0 0 0 1px rgba(255,255,255,.03);
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.modern-grid .music-card:hover,
+.modern-grid .info-card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(255,243,191,.38) !important;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.34),
+    0 0 24px rgba(255,243,191,.10),
+    inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.modern-grid .music-card::before,
+.modern-grid .info-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:20px;
+  right:20px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold2), transparent);
+  opacity:.75;
+}
+.modern-grid .music-card h3,
+.modern-grid .info-card h3{
+  font-size:19px !important;
+  letter-spacing:.09em !important;
+}
+.modern-grid .music-card p,
+.modern-grid .info-card p{
+  opacity:.98;
+}
+.section-title{
+  position:relative;
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width:110px;
+  height:3px;
+  margin:14px auto 0;
+  border-radius:999px;
+  background:linear-gradient(90deg, transparent, var(--gold2), var(--pink), transparent);
+  box-shadow:0 0 22px rgba(255,243,191,.35);
+}
+#registro .section-sub,
+#entretenimiento .section-sub,
+#detalles .section-sub{
+  max-width:720px;
+}
+.vip-code{
+  background:linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.05)) !important;
+}
+@media(max-width:900px){
+  .panel-chip{margin-left:auto;margin-right:auto;display:flex;width:max-content;}
+}
+
 </style>
 </head>
 <body>
@@ -1218,7 +1371,7 @@ label,
           </form>
         </div>
 
-        <div class="success" id="successBox">
+        <div class="success panel panel-premium success-premium" id="successBox">
           <h2 class="section-title" style="font-size:clamp(42px,6vw,72px);">Pase Generado</h2>
           <p class="section-sub" style="margin-bottom:0;">Gracias por confirmar. Presenta este QR en la entrada de la quinceañera.</p>
           <div class="qr-wrap"><div id="qrcode"></div></div>
@@ -1276,7 +1429,7 @@ label,
           Una noche preparada con música, alegría y ambiente elegante para celebrar los quince años de YOMARIS.
         </p>
 
-        <div class="music-grid">
+        <div class="music-grid modern-grid">
           <div class="music-card">
             <div class="music-icon">♫</div>
             <h3>Audio</h3>
@@ -1302,7 +1455,7 @@ label,
       <div class="wrap">
         <h2 class="section-title">Detalles del Evento</h2>
         <p class="section-sub">Una celebración preparada con elegancia para compartir con las personas más especiales.</p>
-        <div class="info-grid">
+        <div class="info-grid modern-grid">
           <div class="info-card"><h3>Lugar</h3><p><strong>Club de Leones de Morovis</strong><br><a href="https://maps.app.goo.gl/1p9rRudGvgr2RBcb7?g_st=iw" target="_blank" rel="noopener" style="color:var(--gold-2);font-weight:900;text-decoration:none;">Ver ubicación en Google Maps</a></p></div>
           <div class="info-card"><h3>Entrada</h3><p>Presenta tu pase QR digital para validar tu registro al llegar.</p></div>
           <div class="info-card"><h3>Confirmación</h3><p>Favor confirmar asistencia antes del 10 de junio de 2026.</p></div>
