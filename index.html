@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación Quinceañera | YOMARIS M ARCE DELGADO</title>
+  <title>Invitación Quinceañera | YOMARIS MARIE ARCE DELGADO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Great+Vibes&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Imperial+Script&family=Cormorant+Garamond:wght@600;700&display=swap");
     :root{
       --rose:#f8b6d1;
       --rose-2:#ec79ae;
@@ -69,6 +71,38 @@
     @keyframes luxuryNameGlow{0%,100%{filter:drop-shadow(0 0 10px rgba(255,240,184,.30)) drop-shadow(0 0 22px rgba(248,182,209,.26));transform:translateY(0) scale(1)}50%{filter:drop-shadow(0 0 22px rgba(255,240,184,.72)) drop-shadow(0 0 40px rgba(248,182,209,.46));transform:translateY(-3px) scale(1.015)}}
     @keyframes nameShimmer{0%{background-position:-220% center}100%{background-position:220% center}}
     @keyframes flourishSweep{0%,100%{opacity:.45;transform:scaleX(.88)}50%{opacity:1;transform:scaleX(1.08)}}
+    @keyframes magicalWrite{0%{clip-path:inset(0 100% 0 0);opacity:.05;filter:blur(3px) drop-shadow(0 0 0 rgba(255,240,184,0))}18%{opacity:1;filter:blur(1px) drop-shadow(0 0 22px rgba(255,240,184,.55))}68%{clip-path:inset(0 0 0 0);filter:blur(0) drop-shadow(0 0 28px rgba(255,240,184,.75))}100%{clip-path:inset(0 0 0 0);opacity:1}}
+    @keyframes magicDust{0%{left:-4%;opacity:0;transform:translateY(18px) scale(.6) rotate(0deg)}12%{opacity:1}72%{left:102%;opacity:1;transform:translateY(-18px) scale(1.18) rotate(360deg)}100%{left:102%;opacity:0;transform:translateY(-25px) scale(.5) rotate(420deg)}}
+    @keyframes royalSignatureStroke{
+      0%{stroke-dashoffset:1450;opacity:0;filter:drop-shadow(0 0 0 rgba(255,240,184,0))}
+      6%{opacity:1}
+      36%{stroke-dashoffset:0;opacity:1;filter:drop-shadow(0 0 24px rgba(255,240,184,.75))}
+      56%{stroke-dashoffset:0;opacity:1;filter:drop-shadow(0 0 34px rgba(248,182,209,.58))}
+      84%{stroke-dashoffset:-1450;opacity:.85;filter:drop-shadow(0 0 18px rgba(255,240,184,.45))}
+      100%{stroke-dashoffset:-1450;opacity:0}
+    }
+    @keyframes royalSignatureFill{
+      0%,24%{opacity:0}
+      38%,58%{opacity:1}
+      76%,100%{opacity:0}
+    }
+    @keyframes royalPenSpark{
+      0%{offset-distance:0%;opacity:0;transform:scale(.65)}
+      8%{opacity:1}
+      42%{offset-distance:100%;opacity:1;transform:scale(1.15)}
+      55%{opacity:.9}
+      82%{offset-distance:0%;opacity:1;transform:scale(1)}
+      100%{offset-distance:0%;opacity:0;transform:scale(.55)}
+    }
+    @keyframes royalDustFloat{
+      0%,100%{opacity:.35;transform:translateY(0) scale(.95)}
+      50%{opacity:1;transform:translateY(-8px) scale(1.05)}
+    }
+
+    @keyframes signatureWrite{0%{width:0;opacity:.35}8%{opacity:1}100%{width:100%;opacity:1}}
+    @keyframes signatureCaret{0%,100%{border-color:rgba(255,240,184,.95)}50%{border-color:rgba(248,182,209,.45)}}
+    @keyframes signatureCaretFade{0%,82%{border-color:rgba(255,240,184,.98)}100%{border-color:transparent}}
+    @keyframes diamondRain{0%{opacity:0;transform:translateY(16px) scale(.5) rotate(0deg)}22%{opacity:1}100%{opacity:0;transform:translateY(-42px) scale(1.18) rotate(160deg)}}
 
     .page{position:relative;z-index:2}
     .hero{min-height:100vh;display:grid;place-items:center;padding:28px 16px}
@@ -120,9 +154,39 @@
       animation:pulseGlow 2.9s ease-in-out infinite;
     }
 
-    .name-wrap{position:relative;width:max-content;max-width:100%;text-align:center}
-    .name-wrap::before{content:"✧";position:absolute;left:-34px;top:22px;color:var(--gold-2);font-size:28px;text-shadow:0 0 18px rgba(255,240,184,.8)}
-    .name-wrap::after{content:"";display:block;width:88%;height:1px;margin:20px auto 0;background:linear-gradient(90deg,transparent,var(--gold-2),transparent);box-shadow:0 0 18px rgba(255,240,184,.75)}
+    .name-wrap{
+      position:relative;
+      width:min(780px,100%);
+      max-width:100%;
+      text-align:center;
+      isolation:isolate;
+      padding-top:10px;
+    }
+
+    .name-wrap::before{
+      content:"✦ ✧ ✦";
+      position:absolute;
+      left:50%;
+      top:-28px;
+      transform:translateX(-50%);
+      color:var(--gold-2);
+      font-size:24px;
+      letter-spacing:.38em;
+      text-shadow:0 0 18px rgba(255,240,184,.95),0 0 34px rgba(248,182,209,.60);
+      animation:royalDustFloat 2.8s ease-in-out infinite;
+      pointer-events:none;
+    }
+
+    .name-wrap::after{
+      content:"";
+      display:block;
+      width:92%;
+      height:2px;
+      margin:16px auto 0;
+      background:linear-gradient(90deg,transparent,var(--gold-2),rgba(248,182,209,.95),var(--gold-2),transparent);
+      box-shadow:0 0 24px rgba(255,240,184,.85),0 0 42px rgba(248,182,209,.35);
+      animation:flourishSweep 3.1s ease-in-out infinite;
+    }
 
     h1{
       margin:0;
@@ -131,64 +195,86 @@
       text-align:center;
     }
 
-    h1 .first-name{
+    .signature-stage{
       position:relative;
-      display:block;
-      width:max-content;
-      max-width:100%;
+      width:min(760px,100%);
+      height:190px;
       margin:0 auto;
-      padding:0 .08em 10px;
-      font-family:"Imperial Script","Great Vibes","Edwardian Script ITC","Bickham Script Pro","Segoe Script","Snell Roundhand",cursive;
-      font-size:clamp(92px,13.4vw,176px);
-      font-weight:400;
-      letter-spacing:-.055em;
-      word-spacing:-.12em;
-      text-transform:none;
-      color:transparent;
-      background:linear-gradient(90deg,#fffdf7 0%,#fff0b8 20%,#f8b6d1 38%,#ffffff 50%,#d6ad4f 66%,#fff8ec 82%,#fffdf7 100%);
-      background-size:240% auto;
-      -webkit-background-clip:text;
-      background-clip:text;
-      text-shadow:0 3px 0 rgba(214,173,79,.52),0 16px 38px rgba(0,0,0,.42),0 0 45px rgba(255,240,184,.42),0 0 26px rgba(248,182,209,.42);
-      animation:luxuryNameGlow 3.4s ease-in-out infinite,nameShimmer 6.5s linear infinite;
-      transform-origin:center;
+      display:block;
+      overflow:visible;
+      filter:drop-shadow(0 18px 38px rgba(0,0,0,.42));
     }
 
-    h1 .first-name::before{
-      content:"";
+    .signature-stage svg{
+      width:100%;
+      height:100%;
+      overflow:visible;
+      display:block;
+    }
+
+    .signature-path{
+      fill:none;
+      stroke:url(#signatureGoldRose);
+      stroke-width:2.4;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      stroke-dasharray:1450;
+      stroke-dashoffset:1450;
+      animation:royalSignatureStroke 7.2s cubic-bezier(.72,0,.18,1) infinite;
+    }
+
+    .signature-fill{
+      fill:url(#signatureFill);
+      opacity:0;
+      filter:drop-shadow(0 4px 0 rgba(214,173,79,.42)) drop-shadow(0 0 30px rgba(255,240,184,.50)) drop-shadow(0 0 28px rgba(248,182,209,.45));
+      animation:royalSignatureFill 7.2s ease-in-out infinite;
+    }
+
+    .signature-spark{
       position:absolute;
-      left:4%;
-      right:2%;
-      bottom:8px;
-      height:2px;
-      border-radius:999px;
-      background:linear-gradient(90deg,transparent,rgba(255,240,184,.98),rgba(248,182,209,.82),rgba(255,240,184,.98),transparent);
-      box-shadow:0 0 22px rgba(255,240,184,.72),0 0 34px rgba(248,182,209,.26);
-      animation:flourishSweep 3.2s ease-in-out infinite;
-      transform-origin:center;
+      left:0;
+      top:0;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:radial-gradient(circle,#fff 0 14%,#fff0b8 15% 34%,rgba(248,182,209,.78) 35% 58%,transparent 70%);
+      box-shadow:0 0 24px rgba(255,240,184,1),0 0 44px rgba(248,182,209,.85),0 0 70px rgba(214,173,79,.70);
+      offset-path:path("M 40 112 C 100 22, 218 22, 280 96 S 438 184, 540 96 S 655 36, 718 98");
+      animation:royalPenSpark 7.2s cubic-bezier(.72,0,.18,1) infinite;
+      pointer-events:none;
+      z-index:3;
     }
 
-    h1 .first-name::after{
+    .signature-spark::before,
+    .signature-spark::after{
       content:"✦";
       position:absolute;
-      right:-20px;
-      top:20px;
-      font-size:clamp(24px,3vw,38px);
       color:#fff0b8;
-      text-shadow:0 0 18px rgba(255,240,184,.95),0 0 28px rgba(248,182,209,.55);
-      animation:pulseGlow 2.4s ease-in-out infinite;
+      text-shadow:0 0 18px rgba(255,240,184,1),0 0 28px rgba(248,182,209,.8);
+    }
+
+    .signature-spark::before{
+      left:-18px;
+      top:-15px;
+      font-size:18px;
+    }
+
+    .signature-spark::after{
+      right:-16px;
+      bottom:-14px;
+      font-size:14px;
     }
 
     h1 .last-name{
       display:block;
-      margin-top:23px;
-      font-family:"Cormorant Garamond","Playfair Display",Georgia,serif;
+      margin-top:2px;
+      font-family:"Cinzel","Playfair Display",Georgia,serif;
       font-size:clamp(25px,3.8vw,50px);
-      font-weight:700;
+      font-weight:800;
       letter-spacing:.24em;
       text-transform:uppercase;
       color:#fff8ec;
-      text-shadow:0 2px 0 rgba(214,173,79,.50),0 0 28px rgba(248,182,209,.42);
+      text-shadow:0 2px 0 rgba(214,173,79,.55),0 0 28px rgba(248,182,209,.42),0 0 18px rgba(255,240,184,.25);
     }
 
     .subtitle{max-width:700px;margin-top:28px;font-size:clamp(17px,2.2vw,22px);color:#fff9ef;line-height:1.72;text-shadow:0 8px 24px rgba(0,0,0,.34)}
@@ -380,7 +466,7 @@
       font-weight:700;
     }
 
-    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats,.music-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1 .first-name{font-size:clamp(78px,22vw,118px);letter-spacing:-.065em}h1 .first-name::after{right:0;top:10px}h1 .last-name{font-size:clamp(20px,5.2vw,32px);letter-spacing:.14em}.name-wrap::before{display:none}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats,.music-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1 .last-name{font-size:clamp(20px,5.2vw,32px);letter-spacing:.14em}.name-wrap::before{display:none}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
   </style>
 </head>
 <body>
@@ -428,9 +514,41 @@
               </g>
             </svg>
 
-            <div class="name-wrap"><h1><span class="first-name">Yomaris M</span><span class="last-name">Arce Delgado</span></h1></div>
+            <div class="name-wrap">
+              <h1>
+                <span class="signature-stage" aria-label="Yomaris Marie">
+                  <span class="signature-spark" aria-hidden="true"></span>
+                  <svg viewBox="0 0 760 190" role="img" aria-label="Yomaris Marie">
+                    <defs>
+                      <linearGradient id="signatureGoldRose" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#fffdf7"/>
+                        <stop offset="18%" stop-color="#fff0b8"/>
+                        <stop offset="42%" stop-color="#f8b6d1"/>
+                        <stop offset="62%" stop-color="#ffffff"/>
+                        <stop offset="78%" stop-color="#d6ad4f"/>
+                        <stop offset="100%" stop-color="#fff8ec"/>
+                      </linearGradient>
+                      <linearGradient id="signatureFill" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#fffdf7"/>
+                        <stop offset="32%" stop-color="#fff0b8"/>
+                        <stop offset="55%" stop-color="#f8b6d1"/>
+                        <stop offset="76%" stop-color="#fff8ec"/>
+                        <stop offset="100%" stop-color="#d6ad4f"/>
+                      </linearGradient>
+                    </defs>
+                    <text class="signature-fill" x="380" y="122" text-anchor="middle"
+                      font-family="'Great Vibes','Imperial Script','Edwardian Script ITC','Segoe Script',cursive"
+                      font-size="108" font-weight="400" letter-spacing="-3">Yomaris Marie</text>
+                    <text class="signature-path" x="380" y="122" text-anchor="middle"
+                      font-family="'Great Vibes','Imperial Script','Edwardian Script ITC','Segoe Script',cursive"
+                      font-size="108" font-weight="400" letter-spacing="-3">Yomaris Marie</text>
+                  </svg>
+                </span>
+                <span class="last-name">Arce Delgado</span>
+              </h1>
+            </div>
 
-            <p class="subtitle">Con mucho amor y alegría, te invitamos a celebrar una noche mágica: los quince años de YOMARIS M ARCE DELGADO. Una celebración elegante, familiar y llena de recuerdos inolvidables.</p>
+            <p class="subtitle">Con mucho amor y alegría, te invitamos a celebrar una noche mágica: los quince años de YOMARIS MARIE ARCE DELGADO. Una celebración elegante, familiar y llena de recuerdos inolvidables.</p>
 
             <div class="event-row">
               <div class="event-box"><small>Fecha</small><strong>20 de junio 2026</strong></div>
@@ -612,7 +730,7 @@
       </div>
     </section>
 
-    <footer>Invitación digital creada con amor para la princesa YOMARIS M ARCE DELGADO ✨</footer>
+    <footer>Invitación digital creada con amor para la princesa YOMARIS MARIE ARCE DELGADO ✨</footer>
   </main>
 
   <div class="toast" id="toast">Listo</div>
@@ -822,7 +940,7 @@
     }
 
     function whatsappMessage(record){
-      return `✨ Pase Digital Quinceañera YOMARIS M ARCE DELGADO ✨
+      return `✨ Pase Digital Quinceañera YOMARIS MARIE ARCE DELGADO ✨
 
 Hola ${record.invitado}, tu registro fue creado correctamente.
 
@@ -855,7 +973,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       if(!qrcodeBox) return null;
 
       const payload = {
-        evento:"Quinceañera YOMARIS M ARCE DELGADO",
+        evento:"Quinceañera YOMARIS MARIE ARCE DELGADO",
         fecha:"20 de junio 2026",
         hora:"6:00 PM",
         invitado:record.invitado,
@@ -949,7 +1067,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
         special_message: data.special_message || null,
         qr_code: code,
         qr_payload: {
-          evento:"Quinceañera YOMARIS M ARCE DELGADO",
+          evento:"Quinceañera YOMARIS MARIE ARCE DELGADO",
           fecha:"20 de junio 2026",
           hora:"6:00 PM",
           invitado:data.full_name,
@@ -1113,7 +1231,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
 
       ctx.fillStyle = "#ffffff";
       ctx.font = "96px Great Vibes, Segoe Script, Georgia";
-      ctx.fillText("Yomaris M",450,250);
+      ctx.fillText("Yomaris Marie",450,250);
 
       ctx.fillStyle = "#fff8ec";
       ctx.font = "bold 34px Playfair Display, Georgia";
@@ -1189,7 +1307,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
 
           const file = new File([blob], "pase-yomaris-m-arce-delgado.png", {type:"image/png"});
           const shareData = {
-            title:"Pase QR YOMARIS M ARCE DELGADO",
+            title:"Pase QR YOMARIS MARIE ARCE DELGADO",
             text:whatsappMessage(record),
             files:[file]
           };
