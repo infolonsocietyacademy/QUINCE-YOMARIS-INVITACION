@@ -2874,9 +2874,6 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
 .photo-shine{position:absolute;inset:-18% auto auto -42%;width:50%;height:160%;transform:rotate(22deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);animation:quinceShine 5.5s ease-in-out infinite;z-index:2;pointer-events:none;}
 @keyframes quinceShine{0%,25%{left:-45%;opacity:0}35%{opacity:1}70%,100%{left:120%;opacity:0}}
 .photo-15-badge{position:absolute;left:22px;bottom:22px;z-index:4;width:108px;height:108px;border-radius:50%;display:grid;place-items:center;font-family:'Playfair Display',Georgia,serif;font-size:58px;font-weight:800;color:#fff8ed;background:radial-gradient(circle at 32% 24%,rgba(255,255,255,.34),transparent 30%),linear-gradient(135deg,rgba(255,183,214,.88),rgba(244,207,118,.78));border:1px solid rgba(255,243,191,.82);box-shadow:0 18px 48px rgba(0,0,0,.34),0 0 28px rgba(255,243,191,.32);text-shadow:0 2px 0 rgba(120,70,12,.50),0 0 18px rgba(255,243,191,.72);}
-.magazine-caption{position:absolute;right:18px;bottom:20px;z-index:4;max-width:62%;padding:14px 16px;border-radius:22px;background:rgba(12,5,11,.58);border:1px solid rgba(255,243,191,.24);backdrop-filter:blur(14px);box-shadow:0 20px 60px rgba(0,0,0,.26);}
-.magazine-caption strong{display:block;color:#fffdf7;font-size:17px;line-height:1.2;}
-.magazine-caption span{display:block;margin-top:6px;color:#fff1d2;font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.45;}
 .experience-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px;max-width:860px;}
 .experience-card{padding:18px;border-radius:24px;border:1px solid rgba(255,243,191,.18);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));box-shadow:inset 0 0 0 1px rgba(255,255,255,.02),0 20px 50px rgba(0,0,0,.12);}
 .experience-card small{display:block;color:#fff0b8;font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;}
@@ -2916,6 +2913,103 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
 .cinematic-card p{max-width:580px!important;}
 @media(max-width:1100px){.luxury-hero-grid{grid-template-columns:1fr!important}.experience-grid-four,.details-grid-four{grid-template-columns:repeat(2,1fr)!important}.vip-pass-layout{grid-template-columns:1fr}.admin-headbar{align-items:stretch}.quick-nav{justify-content:center}.portal-stat-strip{justify-content:center}}
 @media(max-width:780px){.experience-cards,.vip-pass-preview,.vip-meta-grid{grid-template-columns:1fr}.stepper{grid-template-columns:1fr}.step-dot{justify-content:flex-start}.magazine-caption{max-width:70%}.experience-grid-four,.details-grid-four{grid-template-columns:1fr!important}.photo-15-badge{width:84px;height:84px;font-size:44px}.magazine-photo-wrap{border-radius:28px}.admin-headbar h3{font-size:26px}.quick-nav a{font-size:11px;padding:9px 12px}}
+
+
+/* =====================================================
+   MOBILE FIX - FOTO SIN TEXTO Y ENTRADA MAS BRUTAL
+   ===================================================== */
+@media(max-width:780px){
+  .music-entry-screen{
+    padding:16px !important;
+    align-items:center !important;
+  }
+  .cinematic-card,
+  .music-entry-card{
+    width:100% !important;
+    max-width:100% !important;
+    border-radius:26px !important;
+    padding:34px 18px 26px !important;
+  }
+  .entry-kicker{
+    font-size:11px !important;
+    letter-spacing:.14em !important;
+  }
+  .entry-crown-big{
+    font-size:54px !important;
+    margin-bottom:6px !important;
+  }
+  .music-entry-card small{
+    font-size:11px !important;
+    letter-spacing:.20em !important;
+  }
+  .music-entry-card h2{
+    font-size:clamp(54px,14vw,76px) !important;
+    line-height:.9 !important;
+    margin:14px 0 4px !important;
+  }
+  .entry-lastname{
+    font-size:clamp(18px,5vw,24px) !important;
+    letter-spacing:.18em !important;
+    margin-bottom:10px !important;
+  }
+  .music-entry-card p{
+    font-size:15px !important;
+    line-height:1.6 !important;
+    max-width:100% !important;
+    margin:0 auto 0 !important;
+  }
+  .song-pill{
+    margin-top:18px !important;
+    font-size:12px !important;
+    line-height:1.4 !important;
+    padding:10px 14px !important;
+    width:100% !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+  .entry-actions{
+    flex-direction:column !important;
+    gap:10px !important;
+    width:100% !important;
+    margin-top:22px !important;
+  }
+  .entry-actions .btn{
+    width:100% !important;
+    min-height:52px !important;
+    justify-content:center !important;
+    font-size:15px !important;
+  }
+  .entry-note{
+    margin-top:14px !important;
+    font-size:12px !important;
+    line-height:1.55 !important;
+    opacity:.95 !important;
+  }
+  .quick-nav{
+    justify-content:center !important;
+    gap:8px !important;
+  }
+  .quick-nav a{
+    font-size:10px !important;
+    padding:8px 11px !important;
+  }
+  .portal-stat-strip{
+    justify-content:center !important;
+  }
+  .portal-chip{
+    font-size:10px !important;
+    padding:9px 11px !important;
+  }
+  .magazine-photo-wrap{
+    width:min(100%, 380px) !important;
+    margin:auto !important;
+  }
+  .photo-15-badge{
+    width:92px !important;
+    height:92px !important;
+    font-size:46px !important;
+  }
+}
 
 </style>
 </head>
@@ -3029,11 +3123,7 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
               <img class="quince-photo" src="yomaris-marie-foto.png" alt="Yomaris Marie Arce Delgado">
               <span class="photo-shine" aria-hidden="true"></span>
               <div class="photo-15-badge">15</div>
-              <div class="magazine-caption">
-                <strong>Una noche de princesa</strong>
-                <span>Luxury event app • invitación premium • pase digital</span>
-              </div>
-            </div>
+</div>
           </div>
         </div>
       </div>
