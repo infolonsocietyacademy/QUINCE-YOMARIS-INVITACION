@@ -2750,7 +2750,7 @@ footer{
 
 /* =====================================================
    FOTO PRINCIPAL YOMARIS - RUTA CREADA PARA GITHUB
-   Ruta de la imagen: assets/yomaris-marie-foto.png
+   Ruta de la imagen: yomaris-marie-foto.png
    ===================================================== */
 .quince-photo-frame{
   width:min(460px,94%);
@@ -2791,14 +2791,40 @@ footer{
   pointer-events:none;
 }
 
+.quince-photo-frame .photo-shine{
+  position:absolute;
+  inset:-20% auto auto -40%;
+  width:55%;
+  height:160%;
+  transform:rotate(22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+  animation:quinceShine 5.5s ease-in-out infinite;
+  z-index:3;
+  pointer-events:none;
+}
+
+@keyframes quinceShine{
+  0%,25%{left:-45%;opacity:0}
+  35%{opacity:1}
+  70%,100%{left:120%;opacity:0}
+}
+
 .quince-photo{
   width:100%;
   height:100%;
   object-fit:cover;
   object-position:center top;
   display:block;
-  transform:scale(1.02);
+  transform:scale(1.04);
   filter:saturate(1.08) contrast(1.04) brightness(1.02);
+  animation:quincePortraitMotion 8s ease-in-out infinite;
+}
+
+@keyframes quincePortraitMotion{
+  0%,100%{transform:scale(1.04) translate3d(0,0,0)}
+  25%{transform:scale(1.08) translate3d(-6px,-8px,0)}
+  50%{transform:scale(1.10) translate3d(0,-12px,0)}
+  75%{transform:scale(1.07) translate3d(6px,-6px,0)}
 }
 
 .photo-15-badge{
@@ -2827,25 +2853,6 @@ footer{
     0 0 18px rgba(255,243,191,.72);
 }
 
-.photo-name-ribbon{
-  position:absolute;
-  right:18px;
-  bottom:28px;
-  z-index:4;
-  max-width:62%;
-  padding:12px 15px;
-  border-radius:999px;
-  color:#fffdf7;
-  font-size:12px;
-  font-weight:950;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  text-align:center;
-  border:1px solid rgba(255,243,191,.55);
-  background:rgba(22,5,19,.62);
-  backdrop-filter:blur(12px);
-  box-shadow:0 16px 42px rgba(0,0,0,.28);
-}
 
 @media(max-width:900px){
   .quince-photo-frame{
@@ -2858,12 +2865,6 @@ footer{
     font-size:46px;
     left:18px;
     bottom:18px;
-  }
-  .photo-name-ribbon{
-    right:15px;
-    bottom:22px;
-    font-size:10px;
-    letter-spacing:.12em;
   }
 }
 
@@ -2990,10 +2991,10 @@ footer{
 
           <div class="hero-right">
             <div class="quince-photo-frame" aria-label="Foto principal de Yomaris Marie">
-              <img class="quince-photo" src="assets/yomaris-marie-foto.png" alt="Yomaris Marie Arce Delgado">
+              <img class="quince-photo" src="yomaris-marie-foto.png" alt="Yomaris Marie Arce Delgado">
+              <span class="photo-shine" aria-hidden="true"></span>
               <div class="photo-15-badge">15</div>
-              <div class="photo-name-ribbon">Yomaris Marie</div>
-            </div>
+                          </div>
           </div>
         </div>
       </div>
