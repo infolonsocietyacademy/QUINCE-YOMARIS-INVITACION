@@ -466,12 +466,231 @@
       font-weight:700;
     }
 
+
+    /* ===== Upgrade moderno: gloss premium + música fija ===== */
+    .entrance-screen{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:grid;
+      place-items:center;
+      padding:22px;
+      background:
+        radial-gradient(circle at 50% 22%,rgba(255,240,184,.24),transparent 30%),
+        radial-gradient(circle at 25% 76%,rgba(248,182,209,.28),transparent 34%),
+        linear-gradient(135deg,rgba(31,4,25,.96),rgba(84,18,61,.96) 54%,rgba(231,130,177,.93));
+      transition:opacity .75s ease,visibility .75s ease,transform .75s ease;
+    }
+
+    .entrance-screen.hide{
+      opacity:0;
+      visibility:hidden;
+      transform:scale(1.025);
+      pointer-events:none;
+    }
+
+    .entrance-screen::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg,transparent 0 36%,rgba(255,255,255,.16) 47%,transparent 58% 100%),
+        radial-gradient(circle,rgba(255,240,184,.16) 1px,transparent 1.8px);
+      background-size:220% 100%,34px 34px;
+      animation:entranceGloss 4.2s ease-in-out infinite;
+      pointer-events:none;
+    }
+
+    .entrance-orb{
+      position:absolute;
+      width:min(560px,80vw);
+      aspect-ratio:1;
+      border-radius:999px;
+      background:radial-gradient(circle,rgba(255,240,184,.32),rgba(248,182,209,.16) 38%,transparent 70%);
+      filter:blur(2px);
+      animation:orbPulse 4.5s ease-in-out infinite;
+    }
+
+    .entrance-card{
+      position:relative;
+      width:min(560px,100%);
+      text-align:center;
+      padding:42px 28px 34px;
+      border-radius:38px;
+      border:1px solid rgba(255,240,184,.70);
+      background:linear-gradient(145deg,rgba(255,248,236,.16),rgba(255,255,255,.06)),rgba(44,8,36,.72);
+      box-shadow:0 34px 110px rgba(0,0,0,.42),inset 0 0 70px rgba(255,255,255,.08);
+      backdrop-filter:blur(24px);
+      overflow:hidden;
+    }
+
+    .entrance-card::after{
+      content:"";
+      position:absolute;
+      inset:14px;
+      border-radius:28px;
+      border:1px solid rgba(255,240,184,.28);
+      pointer-events:none;
+    }
+
+    .entrance-crown{
+      font-size:70px;
+      line-height:1;
+      color:var(--gold-2);
+      text-shadow:0 0 24px rgba(255,240,184,.78),0 0 46px rgba(248,182,209,.42);
+      animation:crownFloat 3s ease-in-out infinite;
+    }
+
+    .entrance-kicker{
+      margin:12px 0 8px;
+      color:var(--gold-2);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:11px;
+      font-weight:950;
+    }
+
+    .entrance-card h2{
+      font-family:'Great Vibes','Imperial Script',cursive;
+      font-weight:400;
+      font-size:clamp(60px,11vw,112px);
+      line-height:.85;
+      margin:4px 0 0;
+      color:#fffdf7;
+      text-shadow:0 2px 0 rgba(214,173,79,.62),0 0 34px rgba(255,240,184,.46),0 14px 34px rgba(0,0,0,.32);
+    }
+
+    .entrance-card span{
+      display:block;
+      margin-top:8px;
+      font-family:'Cinzel','Playfair Display',serif;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:#fff8ec;
+      font-weight:800;
+    }
+
+    .entrance-text{
+      max-width:420px;
+      margin:18px auto 24px;
+      color:#fff9ef;
+      line-height:1.65;
+    }
+
+    .entrance-btn{
+      width:min(330px,100%);
+      position:relative;
+      z-index:1;
+    }
+
+    .entrance-skip{
+      display:block;
+      margin:14px auto 0;
+      border:0;
+      background:transparent;
+      color:rgba(255,248,236,.82);
+      font-weight:800;
+      cursor:pointer;
+      text-decoration:underline;
+      text-underline-offset:4px;
+    }
+
+    .music-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:40;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:48px;
+      padding:10px 15px;
+      border-radius:999px;
+      border:1px solid rgba(255,240,184,.58);
+      background:rgba(45,8,36,.76);
+      color:var(--gold-2);
+      box-shadow:0 18px 50px rgba(0,0,0,.32),inset 0 0 24px rgba(255,255,255,.06);
+      backdrop-filter:blur(16px);
+      cursor:pointer;
+      transition:.25s ease;
+    }
+
+    .music-float:hover{transform:translateY(-3px);box-shadow:0 24px 62px rgba(0,0,0,.38)}
+
+    .music-bars{display:inline-flex;align-items:end;gap:3px;height:20px}
+    .music-bars i{display:block;width:4px;border-radius:999px;background:linear-gradient(var(--gold-2),var(--rose));height:8px;box-shadow:0 0 14px rgba(255,240,184,.55)}
+    .music-float.playing .music-bars i:nth-child(1){animation:barDance .7s ease-in-out infinite}
+    .music-float.playing .music-bars i:nth-child(2){animation:barDance .7s ease-in-out .12s infinite}
+    .music-float.playing .music-bars i:nth-child(3){animation:barDance .7s ease-in-out .24s infinite}
+
+    .section{
+      position:relative;
+    }
+
+    .section::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:0;
+      width:min(980px,86vw);
+      height:1px;
+      transform:translateX(-50%);
+      background:linear-gradient(90deg,transparent,rgba(255,240,184,.62),rgba(248,182,209,.46),transparent);
+      box-shadow:0 0 22px rgba(255,240,184,.42);
+    }
+
+    .register-card,.success,.admin-panel,.info-card,.music-card,.timebox,.event-box{
+      backdrop-filter:blur(18px);
+    }
+
+    .btn{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .btn::after{
+      content:"";
+      position:absolute;
+      inset:-80% auto auto -40%;
+      width:38%;
+      height:260%;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+      transform:rotate(28deg);
+      transition:.65s ease;
+    }
+
+    .btn:hover::after{left:120%}
+
+    @keyframes entranceGloss{0%{background-position:-120% 0,0 0}100%{background-position:120% 0,0 0}}
+    @keyframes orbPulse{0%,100%{transform:scale(.92);opacity:.55}50%{transform:scale(1.08);opacity:1}}
+    @keyframes barDance{0%,100%{height:7px}50%{height:20px}}
+
     @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats,.music-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1 .last-name{font-size:clamp(20px,5.2vw,32px);letter-spacing:.14em}.name-wrap::before{display:none}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
   </style>
 </head>
 <body>
   <div class="sparkles" id="sparkles"></div>
   <div class="petals" id="petals"></div>
+
+  <!-- Entrada premium con música fija -->
+  <div class="entrance-screen" id="entranceScreen" aria-label="Entrada con música">
+    <div class="entrance-orb"></div>
+    <div class="entrance-card">
+      <div class="entrance-crown">♕</div>
+      <p class="entrance-kicker">Royal Digital Invitation</p>
+      <h2>Yomaris Marie</h2>
+      <span>Arce Delgado</span>
+      <p class="entrance-text">Toca para abrir la invitación con música de fondo y animación premium.</p>
+      <button class="btn entrance-btn" id="enterWithMusic" type="button">Entrar con música</button>
+      <button class="entrance-skip" id="enterSilent" type="button">Entrar sin música</button>
+    </div>
+  </div>
+
+  <button class="music-float" id="musicFloat" type="button" aria-label="Control de música">
+    <span class="music-bars"><i></i><i></i><i></i></span>
+    <strong id="musicFloatText">Música</strong>
+  </button>
+
 
   <main class="page">
     <section class="hero" id="inicio">
@@ -1556,6 +1775,114 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
         window.location.href = "./";
       });
     }
+
+
+    // =====================================================
+    // MÚSICA FIJA AL ENTRAR (sin archivo externo)
+    // Los navegadores modernos requieren interacción para sonido.
+    // Por eso la pantalla inicial "Entrar con música" activa el audio.
+    // =====================================================
+    const entranceScreen = document.getElementById("entranceScreen");
+    const enterWithMusicBtn = document.getElementById("enterWithMusic");
+    const enterSilentBtn = document.getElementById("enterSilent");
+    const musicFloat = document.getElementById("musicFloat");
+    const musicFloatText = document.getElementById("musicFloatText");
+
+    let musicCtx = null;
+    let musicMaster = null;
+    let musicTimer = null;
+    let musicPlaying = false;
+    let musicStep = 0;
+
+    const royalMelody = [
+      {note:523.25,dur:.55},{note:659.25,dur:.55},{note:783.99,dur:.70},{note:987.77,dur:.95},
+      {note:880.00,dur:.55},{note:783.99,dur:.55},{note:659.25,dur:.75},{note:587.33,dur:.85},
+      {note:523.25,dur:.55},{note:587.33,dur:.55},{note:659.25,dur:.70},{note:783.99,dur:.95},
+      {note:698.46,dur:.55},{note:659.25,dur:.55},{note:587.33,dur:.75},{note:523.25,dur:1.10}
+    ];
+
+    function closeEntrance(){
+      if(entranceScreen){
+        entranceScreen.classList.add("hide");
+        setTimeout(() => entranceScreen.remove(), 850);
+      }
+    }
+
+    function createTone(freq, start, duration, type, gainValue){
+      if(!musicCtx || !musicMaster) return;
+      const osc = musicCtx.createOscillator();
+      const gain = musicCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, start);
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(gainValue, start + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+      osc.connect(gain);
+      gain.connect(musicMaster);
+      osc.start(start);
+      osc.stop(start + duration + 0.04);
+    }
+
+    function playRoyalStep(){
+      if(!musicPlaying || !musicCtx) return;
+      const item = royalMelody[musicStep % royalMelody.length];
+      const now = musicCtx.currentTime;
+      createTone(item.note, now, item.dur, "triangle", .035);
+      createTone(item.note / 2, now, item.dur * 1.15, "sine", .018);
+      if(musicStep % 4 === 0) createTone(261.63, now, 1.7, "sine", .016);
+      if(musicStep % 4 === 2) createTone(392.00, now, 1.55, "sine", .014);
+      musicStep++;
+      musicTimer = setTimeout(playRoyalStep, item.dur * 760);
+    }
+
+    async function startMusic(){
+      try{
+        if(!musicCtx){
+          musicCtx = new (window.AudioContext || window.webkitAudioContext)();
+          musicMaster = musicCtx.createGain();
+          musicMaster.gain.value = .55;
+          musicMaster.connect(musicCtx.destination);
+        }
+        if(musicCtx.state === "suspended") await musicCtx.resume();
+        if(!musicPlaying){
+          musicPlaying = true;
+          musicFloat?.classList.add("playing");
+          if(musicFloatText) musicFloatText.textContent = "Pausar";
+          playRoyalStep();
+        }
+      }catch(error){
+        console.warn("No se pudo iniciar la música:", error);
+        showToast("Toca nuevamente para activar la música.");
+      }
+    }
+
+    function stopMusic(){
+      musicPlaying = false;
+      clearTimeout(musicTimer);
+      musicFloat?.classList.remove("playing");
+      if(musicFloatText) musicFloatText.textContent = "Música";
+    }
+
+    if(isAdminPage){
+      entranceScreen?.remove();
+      musicFloat?.remove();
+    }else{
+      enterWithMusicBtn?.addEventListener("click", async function(){
+        closeEntrance();
+        await startMusic();
+      });
+
+      enterSilentBtn?.addEventListener("click", function(){
+        closeEntrance();
+        stopMusic();
+      });
+
+      musicFloat?.addEventListener("click", async function(){
+        if(musicPlaying) stopMusic();
+        else await startMusic();
+      });
+    }
+
 
     if(!SUPABASE_READY){
       console.warn("Supabase no configurado. Pega SUPABASE_URL y SUPABASE_ANON_KEY.");
