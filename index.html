@@ -2791,40 +2791,14 @@ footer{
   pointer-events:none;
 }
 
-.quince-photo-frame .photo-shine{
-  position:absolute;
-  inset:-20% auto auto -40%;
-  width:55%;
-  height:160%;
-  transform:rotate(22deg);
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
-  animation:quinceShine 5.5s ease-in-out infinite;
-  z-index:3;
-  pointer-events:none;
-}
-
-@keyframes quinceShine{
-  0%,25%{left:-45%;opacity:0}
-  35%{opacity:1}
-  70%,100%{left:120%;opacity:0}
-}
-
 .quince-photo{
   width:100%;
   height:100%;
   object-fit:cover;
   object-position:center top;
   display:block;
-  transform:scale(1.04);
+  transform:scale(1.02);
   filter:saturate(1.08) contrast(1.04) brightness(1.02);
-  animation:quincePortraitMotion 8s ease-in-out infinite;
-}
-
-@keyframes quincePortraitMotion{
-  0%,100%{transform:scale(1.04) translate3d(0,0,0)}
-  25%{transform:scale(1.08) translate3d(-6px,-8px,0)}
-  50%{transform:scale(1.10) translate3d(0,-12px,0)}
-  75%{transform:scale(1.07) translate3d(6px,-6px,0)}
 }
 
 .photo-15-badge{
@@ -2866,29 +2840,103 @@ footer{
     left:18px;
     bottom:18px;
   }
+  .photo-name-ribbon{
+    right:15px;
+    bottom:22px;
+    font-size:10px;
+    letter-spacing:.12em;
+  }
 }
 
-  </style>
+  
+/* =====================================================
+   FINAL LUXURY EVENT APP UPGRADE (1-8)
+   ===================================================== */
+body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transparent 24%),radial-gradient(circle at 90% 10%, rgba(247,206,118,.13), transparent 28%),linear-gradient(180deg,#040204 0%,#0d050b 18%,#140712 38%,#220917 60%,#44132e 100%)!important;}
+.page{padding-bottom:30px;}
+.hero.hero-luxury{padding-top:32px;}
+.luxury-shell{padding:18px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02))!important;border:1px solid rgba(255,235,190,.20)!important;}
+.quick-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;padding:8px 12px 18px;}
+.quick-nav a{padding:10px 14px;border-radius:999px;text-decoration:none;color:#fff9ef;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.06);border:1px solid rgba(255,243,191,.18);}
+.quick-nav a:hover{background:rgba(255,255,255,.11);}
+.portal-stat-strip{display:flex;gap:12px;flex-wrap:wrap;padding:0 12px 18px;}
+.portal-chip{padding:11px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,243,191,.16);color:var(--gold-2);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;}
+.luxury-hero-grid{grid-template-columns:1.1fr .9fr!important;align-items:center;min-height:unset!important;}
+.hero-portal-panel{padding:22px 26px 26px!important;}
+.hero-name-wrap{margin-top:6px;}
+.hero-actions{margin-top:28px!important;}
+.magazine-side{padding:30px 22px!important;}
+.magazine-photo-wrap{position:relative;width:min(460px,100%);aspect-ratio:4/5;border-radius:36px;overflow:hidden;border:1px solid rgba(255,243,191,.45);background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.03));box-shadow:0 40px 120px rgba(0,0,0,.36), inset 0 0 0 1px rgba(255,255,255,.04);}
+.magazine-photo-wrap::before{content:"";position:absolute;inset:16px;border-radius:26px;border:1px solid rgba(255,243,191,.22);z-index:3;pointer-events:none;}
+.editorial-badge{position:absolute;left:18px;top:18px;z-index:4;padding:10px 14px;border-radius:999px;background:rgba(12,5,11,.58);border:1px solid rgba(255,243,191,.42);color:#fff0b8;font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;backdrop-filter:blur(12px);}
+.quince-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transform:scale(1.04);filter:saturate(1.06) contrast(1.03) brightness(1.03);animation:quincePortraitMotion 8s ease-in-out infinite;}
+@keyframes quincePortraitMotion{0%,100%{transform:scale(1.04) translate3d(0,0,0)}25%{transform:scale(1.07) translate3d(-6px,-8px,0)}50%{transform:scale(1.10) translate3d(0,-14px,0)}75%{transform:scale(1.07) translate3d(6px,-7px,0)}}
+.photo-shine{position:absolute;inset:-18% auto auto -42%;width:50%;height:160%;transform:rotate(22deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);animation:quinceShine 5.5s ease-in-out infinite;z-index:2;pointer-events:none;}
+@keyframes quinceShine{0%,25%{left:-45%;opacity:0}35%{opacity:1}70%,100%{left:120%;opacity:0}}
+.photo-15-badge{position:absolute;left:22px;bottom:22px;z-index:4;width:108px;height:108px;border-radius:50%;display:grid;place-items:center;font-family:'Playfair Display',Georgia,serif;font-size:58px;font-weight:800;color:#fff8ed;background:radial-gradient(circle at 32% 24%,rgba(255,255,255,.34),transparent 30%),linear-gradient(135deg,rgba(255,183,214,.88),rgba(244,207,118,.78));border:1px solid rgba(255,243,191,.82);box-shadow:0 18px 48px rgba(0,0,0,.34),0 0 28px rgba(255,243,191,.32);text-shadow:0 2px 0 rgba(120,70,12,.50),0 0 18px rgba(255,243,191,.72);}
+.magazine-caption{position:absolute;right:18px;bottom:20px;z-index:4;max-width:62%;padding:14px 16px;border-radius:22px;background:rgba(12,5,11,.58);border:1px solid rgba(255,243,191,.24);backdrop-filter:blur(14px);box-shadow:0 20px 60px rgba(0,0,0,.26);}
+.magazine-caption strong{display:block;color:#fffdf7;font-size:17px;line-height:1.2;}
+.magazine-caption span{display:block;margin-top:6px;color:#fff1d2;font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.45;}
+.experience-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px;max-width:860px;}
+.experience-card{padding:18px;border-radius:24px;border:1px solid rgba(255,243,191,.18);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));box-shadow:inset 0 0 0 1px rgba(255,255,255,.02),0 20px 50px rgba(0,0,0,.12);}
+.experience-card small{display:block;color:#fff0b8;font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;}
+.experience-card strong{display:block;margin-top:9px;color:#fffdf7;font-size:19px;line-height:1.25;}
+.experience-card span{display:block;margin-top:8px;color:#f8e8da;font-size:14px;line-height:1.5;}
+.rsvp-panel,.admin-panel-shell,.vip-pass-shell,.countdown-shell,.info-card,.music-card{border-color:rgba(255,243,191,.18)!important;}
+.multi-step-form{margin-top:6px;}
+.stepper{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 28px;}
+.step-dot{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,243,191,.16);color:#fffdf7;opacity:.58;transition:.25s ease;}
+.step-dot span{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:900;background:rgba(255,255,255,.08);color:#fff0b8;border:1px solid rgba(255,243,191,.18);}
+.step-dot small{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;}
+.step-dot.active{opacity:1;background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.04));box-shadow:0 16px 42px rgba(0,0,0,.16);}
+.form-step{display:none;animation:reveal .45s ease both;}
+.form-step.active{display:block;}
+.form-step-head{margin-bottom:18px;}
+.form-step-head h3{color:#fffdf7;font-size:28px;line-height:1.1;margin-bottom:6px;}
+.form-step-head p{color:#f8e8da;line-height:1.6;}
+.step-controls{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;margin-top:22px;}
+.vip-pass-preview{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px;}
+.vip-mini-card{padding:18px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,243,191,.14);}
+.vip-mini-card small{display:block;color:#fff0b8;font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;}
+.vip-mini-card strong{display:block;margin-top:8px;color:#fffdf7;font-size:20px;}
+.vip-mini-card span{display:block;margin-top:7px;color:#f8e8da;font-size:14px;line-height:1.5;}
+.vip-pass-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:center;margin-top:14px;}
+.vip-meta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px;}
+.vip-meta-item{padding:15px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,243,191,.12);text-align:left;}
+.vip-meta-item small{display:block;color:#fff0b8;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;}
+.vip-meta-item strong{display:block;margin-top:6px;color:#fffdf7;font-size:15px;line-height:1.35;}
+.admin-headbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+.admin-headbar h3{font-size:32px;color:#fffdf7;margin:10px 0 6px;}
+.admin-headbar p{color:#f8e8da;max-width:580px;line-height:1.6;}
+.dashboard-grid .stat-card{padding:22px 20px 18px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));}
+.dashboard-grid .stat-card span{display:block;margin-top:8px;color:#f7e6d1;font-size:13px;line-height:1.45;}
+.admin-toolbar-pro{padding:14px;border-radius:24px;background:rgba(255,255,255,.04);border:1px solid rgba(255,243,191,.12);}
+.experience-grid-four,.details-grid-four{grid-template-columns:repeat(4,1fr)!important;}
+.cinematic-card{max-width:740px!important;padding:54px 30px 44px!important;}
+.cinematic-card p{max-width:580px!important;}
+@media(max-width:1100px){.luxury-hero-grid{grid-template-columns:1fr!important}.experience-grid-four,.details-grid-four{grid-template-columns:repeat(2,1fr)!important}.vip-pass-layout{grid-template-columns:1fr}.admin-headbar{align-items:stretch}.quick-nav{justify-content:center}.portal-stat-strip{justify-content:center}}
+@media(max-width:780px){.experience-cards,.vip-pass-preview,.vip-meta-grid{grid-template-columns:1fr}.stepper{grid-template-columns:1fr}.step-dot{justify-content:flex-start}.magazine-caption{max-width:70%}.experience-grid-four,.details-grid-four{grid-template-columns:1fr!important}.photo-15-badge{width:84px;height:84px;font-size:44px}.magazine-photo-wrap{border-radius:28px}.admin-headbar h3{font-size:26px}.quick-nav a{font-size:11px;padding:9px 12px}}
+
+</style>
 </head>
 <body>
 
 
-  <div class="music-entry-screen" id="musicEntryScreen">
-    <div class="entry-spotlight left" aria-hidden="true"></div>
-    <div class="entry-spotlight right" aria-hidden="true"></div>
-    <div class="entry-stars" aria-hidden="true"></div>
-
-    <div class="music-entry-card">
-      <div class="entry-kicker">Black Rose Gold Royal Edition</div>
+  <div class="music-entry-screen cinematic-gate" id="musicEntryScreen">
+    <div class="cinematic-bg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="cinematic-card music-entry-card">
+      <div class="entry-kicker">Luxury Event App • Black Rose Gold</div>
       <div class="entry-crown-big">👑</div>
-      <small>Mis Quince</small>
+      <small>Bienvenidos a una experiencia premium</small>
       <h2>Yomaris Marie</h2>
       <div class="entry-lastname">ARCE DELGADO</div>
-      <p>Te espero en mis quince para celebrar juntos una noche inolvidable, elegante y llena de alegría.</p>
+      <p>Te invito a celebrar mis quince años en una noche elegante, llena de amor, música, recuerdos inolvidables y una experiencia digital diseñada especialmente para ti.</p>
+      <div class="song-pill">♫ Música incluida • Pase VIP • Registro online</div>
       <div class="entry-actions">
         <a href="#inicio" class="btn" id="enterWithMusic">Entrar a la invitación</a>
+        <a href="#registro" class="btn secondary">Confirmar asistencia</a>
       </div>
-      <span class="entry-note">Diseño premium optimizado para móvil • La música se controla abajo a la derecha</span>
+      <span class="entry-note">Diseño cinematográfico • optimizado para móvil • activa el audio al entrar</span>
     </div>
   </div>
 
@@ -2901,47 +2949,31 @@ footer{
   <div class="petals" id="petals"></div>
 
   <main class="page">
-    <section class="hero" id="inicio">
-      <div class="invite-card">
-        <div class="hero-grid">
-          <div class="hero-left">
-            <div class="badge"><span class="mini-crown">👑</span> INVITACIÓN</div>
+    <section class="hero hero-luxury" id="inicio">
+      <div class="invite-card luxury-shell">
+        <div class="quick-nav">
+          <a href="#inicio">Inicio</a>
+          <a href="#contador">Cuenta regresiva</a>
+          <a href="#registro">Registro</a>
+          <a href="#detalles">Detalles</a>
+          <a href="./?admin=1" target="_blank" rel="noopener">Admin</a>
+        </div>
 
-            <svg class="princess-tiara" viewBox="0 0 360 210" aria-label="Tiara de princesa premium">
-              <defs>
-                <linearGradient id="tiaraGoldA" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#fffbe6"/>
-                  <stop offset="20%" stop-color="#ffe08a"/>
-                  <stop offset="48%" stop-color="#c28a28"/>
-                  <stop offset="74%" stop-color="#fff3b7"/>
-                  <stop offset="100%" stop-color="#d6ad4f"/>
-                </linearGradient>
-                <linearGradient id="tiaraRoseA" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#fff5fa"/>
-                  <stop offset="52%" stop-color="#f8b6d1"/>
-                  <stop offset="100%" stop-color="#ec79ae"/>
-                </linearGradient>
-                <filter id="tiaraGlowA" x="-45%" y="-45%" width="190%" height="190%">
-                  <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000000" flood-opacity=".30"/>
-                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#fff0b8" flood-opacity=".72"/>
-                </filter>
-              </defs>
-              <g filter="url(#tiaraGlowA)">
-                <path d="M36 151 C82 116 99 70 125 119 C146 70 164 42 180 22 C196 42 214 70 235 119 C261 70 278 116 324 151" fill="none" stroke="url(#tiaraGoldA)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M58 153 C104 124 130 135 180 135 C230 135 256 124 302 153" fill="none" stroke="#fff7cf" stroke-width="6" stroke-linecap="round" opacity=".78"/>
-                <rect x="50" y="145" width="260" height="34" rx="17" fill="url(#tiaraGoldA)" stroke="#fff7cf" stroke-width="5"/>
-                <path d="M76 161 H284" stroke="#8f6418" stroke-width="3" opacity=".36"/>
-                <path d="M180 54 L198 84 L180 114 L162 84 Z" fill="url(#tiaraRoseA)" stroke="#fff7cf" stroke-width="5"/>
-                <path d="M126 103 L139 124 L126 145 L113 124 Z" fill="#fff7cf" stroke="#d6ad4f" stroke-width="4"/>
-                <path d="M234 103 L247 124 L234 145 L221 124 Z" fill="#fff7cf" stroke="#d6ad4f" stroke-width="4"/>
-                <circle cx="86" cy="146" r="9" fill="url(#tiaraRoseA)" stroke="#fff7cf" stroke-width="4"/>
-                <circle cx="274" cy="146" r="9" fill="url(#tiaraRoseA)" stroke="#fff7cf" stroke-width="4"/>
-                <path class="tiara-spark" d="M294 40 L304 62 L328 72 L304 82 L294 105 L284 82 L260 72 L284 62 Z" fill="#fff7cf" opacity=".85"/>
-                <path class="tiara-spark" d="M64 46 L72 63 L91 71 L72 79 L64 96 L56 79 L37 71 L56 63 Z" fill="#fff7cf" opacity=".72"/>
-              </g>
-            </svg>
+        <div class="portal-stat-strip">
+          <div class="portal-chip">Invitación Web Premium</div>
+          <div class="portal-chip">Música y animaciones</div>
+          <div class="portal-chip">Pase VIP con QR</div>
+          <div class="portal-chip">Portal admin + Excel/CSV</div>
+        </div>
 
-            <div class="name-wrap">
+        <div class="hero-grid luxury-hero-grid">
+          <div class="hero-left hero-portal-panel">
+            <div class="premium-topline">
+              <div class="badge"><span class="mini-crown">👑</span> Royal Invitation</div>
+              <div class="soft-pill">20 Junio 2026 • 6:00 PM</div>
+            </div>
+
+            <div class="name-wrap hero-name-wrap">
               <h1>
                 <span class="signature-stage" aria-label="Yomaris Marie">
                   <span class="signature-spark" aria-hidden="true"></span>
@@ -2975,26 +3007,33 @@ footer{
               </h1>
             </div>
 
-            <p class="subtitle">Hola, soy Yomaris Marie Arce Delgado, y con mucha ilusión quiero invitarte a celebrar conmigo una de las noches más especiales de mi vida: mis quince años. Será una noche llena de alegría, elegancia, música, momentos inolvidables y mucho amor junto a mi familia y las personas que forman parte de mi historia. Tu presencia hará que esta celebración sea aún más especial. Te espero para compartir juntos este día tan importante.</p>
+            <p class="subtitle">Hola, soy <strong>Yomaris Marie Arce Delgado</strong>, y con muchísima ilusión quiero invitarte a una noche inolvidable para celebrar mis quince años. He preparado una experiencia elegante, familiar y llena de momentos especiales para compartir contigo, con música, alegría, glamour y recuerdos que quedarán para siempre en nuestro corazón.</p>
 
-            <div class="event-row">
-              <div class="event-box"><small>Fecha</small><strong>20 de junio 2026</strong></div>
-              <div class="event-box"><small>Hora</small><strong>6:00 PM</strong></div>
-              <div class="event-box"><small>Vestimenta</small><strong>Formal / Elegante</strong></div>
+            <div class="experience-cards">
+              <div class="experience-card"><small>Fecha</small><strong>20 de junio 2026</strong><span>Noche mágica y elegante</span></div>
+              <div class="experience-card"><small>Lugar</small><strong>Club de Leones de Morovis</strong><span>Ambiente exclusivo</span></div>
+              <div class="experience-card"><small>Vestimenta</small><strong>Formal / Elegante</strong><span>Look de gala</span></div>
+              <div class="experience-card"><small>Música</small><strong>DJ + Karaoke + En vivo</strong><span>Experiencia completa</span></div>
             </div>
 
-            <div class="actions">
+            <div class="actions hero-actions">
               <a href="#registro" class="btn">Confirmar asistencia</a>
-              <a href="./?admin=1" target="_blank" rel="noopener" class="btn secondary">Panel admin</a>
+              <a href="#detalles" class="btn secondary">Ver detalles</a>
+              <a href="./?admin=1" target="_blank" rel="noopener" class="btn secondary">Portal admin</a>
             </div>
           </div>
 
-          <div class="hero-right">
-            <div class="quince-photo-frame" aria-label="Foto principal de Yomaris Marie">
+          <div class="hero-right magazine-side">
+            <div class="magazine-photo-wrap" aria-label="Foto principal de Yomaris Marie">
+              <div class="editorial-badge">VIP EVENT</div>
               <img class="quince-photo" src="yomaris-marie-foto.png" alt="Yomaris Marie Arce Delgado">
               <span class="photo-shine" aria-hidden="true"></span>
               <div class="photo-15-badge">15</div>
-                          </div>
+              <div class="magazine-caption">
+                <strong>Una noche de princesa</strong>
+                <span>Luxury event app • invitación premium • pase digital</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3022,97 +3061,176 @@ footer{
 
     <section class="section" id="registro">
       <div class="wrap">
-        <h2 class="section-title">Confirma tu Asistencia</h2>
-        <p class="section-sub">Completa tu registro y recibe tu pase digital con QR para presentar en la entrada.</p>
+        <h2 class="section-title">Registro Premium</h2>
+        <p class="section-sub">Completa el registro paso a paso y recibe tu <strong>pase VIP digital con QR</strong> para presentar en la entrada del evento.</p>
 
-        <div class="register-card">
-          <form id="guestForm">
-            <div class="form-grid">
-              <div class="field"><label for="name">Nombre completo</label><input id="name" name="name" type="text" placeholder="Ej. María González" required /></div>
-              <div class="field"><label for="phone">Teléfono / WhatsApp</label><input id="phone" name="phone" type="tel" placeholder="Ej. 787-000-0000" required /></div>
-              <div class="field"><label for="guests">Cantidad de acompañantes</label><select id="guests" name="guests" required><option value="">Selecciona</option><option value="0">Solo yo</option><option value="1">1 acompañante</option><option value="2">2 acompañantes</option><option value="3">3 acompañantes</option><option value="4">4 acompañantes</option></select></div>
-              <div class="field"><label for="attendance">Confirmación</label><select id="attendance" name="attendance" required><option value="">Selecciona</option><option value="Sí asistiré">Sí asistiré</option><option value="No podré asistir">No podré asistir</option></select></div>
-              <div class="field full"><label for="message">Mensaje especial para YOMARIS</label><textarea id="message" name="message" placeholder="Escribe un mensaje bonito para la quinceañera..."></textarea></div>
+        <div class="register-card panel-premium rsvp-panel">
+          <div class="panel-chip">Typeform Premium Experience</div>
+          <form id="guestForm" class="multi-step-form">
+            <div class="stepper" aria-label="Pasos del registro">
+              <div class="step-dot active" data-step="1"><span>1</span><small>Datos</small></div>
+              <div class="step-dot" data-step="2"><span>2</span><small>Asistencia</small></div>
+              <div class="step-dot" data-step="3"><span>3</span><small>Mensaje</small></div>
             </div>
-            <div class="form-actions"><button class="btn" type="submit">Generar pase QR</button></div>
+
+            <div class="form-step active" data-step="1">
+              <div class="form-step-head">
+                <h3>Cuéntanos quién eres</h3>
+                <p>Comencemos con tus datos para crear tu pase personalizado.</p>
+              </div>
+              <div class="form-grid">
+                <div class="field"><label for="name">Nombre completo</label><input id="name" name="name" type="text" placeholder="Ej. María González" required /></div>
+                <div class="field"><label for="phone">Teléfono / WhatsApp</label><input id="phone" name="phone" type="tel" placeholder="Ej. 787-000-0000" required /></div>
+              </div>
+              <div class="step-controls">
+                <button class="btn next-step" type="button">Continuar</button>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <div class="form-step-head">
+                <h3>Confirma tu asistencia</h3>
+                <p>Selecciona la cantidad de invitados y tu confirmación para el evento.</p>
+              </div>
+              <div class="form-grid">
+                <div class="field"><label for="guests">Cantidad de acompañantes</label><select id="guests" name="guests" required><option value="">Selecciona</option><option value="0">Solo yo</option><option value="1">1 acompañante</option><option value="2">2 acompañantes</option><option value="3">3 acompañantes</option><option value="4">4 acompañantes</option></select></div>
+                <div class="field"><label for="attendance">Confirmación</label><select id="attendance" name="attendance" required><option value="">Selecciona</option><option value="Sí asistiré">Sí asistiré</option><option value="No podré asistir">No podré asistir</option></select></div>
+              </div>
+              <div class="step-controls">
+                <button class="btn secondary prev-step" type="button">Atrás</button>
+                <button class="btn next-step" type="button">Continuar</button>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+              <div class="form-step-head">
+                <h3>Deja un mensaje especial</h3>
+                <p>Tu mensaje será parte de esta experiencia tan especial para Yomaris.</p>
+              </div>
+              <div class="form-grid">
+                <div class="field full"><label for="message">Mensaje especial para YOMARIS</label><textarea id="message" name="message" placeholder="Escribe un mensaje bonito para la quinceañera..."></textarea></div>
+              </div>
+              <div class="vip-pass-preview">
+                <div class="vip-mini-card">
+                  <small>Pase VIP digital</small>
+                  <strong>Entrada con QR</strong>
+                  <span>Se genera automáticamente al confirmar.</span>
+                </div>
+                <div class="vip-mini-card">
+                  <small>Portal premium</small>
+                  <strong>Registro + música + admin</strong>
+                  <span>Experiencia completa y profesional.</span>
+                </div>
+              </div>
+              <div class="step-controls">
+                <button class="btn secondary prev-step" type="button">Atrás</button>
+                <button class="btn" type="submit">Generar pase VIP</button>
+              </div>
+            </div>
           </form>
         </div>
 
-        <div class="success panel panel-premium success-premium" id="successBox">
-          <h2 class="section-title" style="font-size:clamp(42px,6vw,72px);">Pase Generado</h2>
-          <p class="section-sub" style="margin-bottom:0;">Gracias por confirmar. Presenta este QR en la entrada de la quinceañera.</p>
-          <div class="qr-wrap"><div id="qrcode"></div></div>
-          <div class="vip-code" id="vipCode">YOM-000000</div>
-          <p class="mini-note" id="guestSummary"></p>
+        <div class="success panel panel-premium success-premium vip-pass-shell" id="successBox">
+          <div class="panel-chip">VIP PASS READY</div>
+          <h2 class="section-title" style="font-size:clamp(40px,6vw,70px);">Pase Generado</h2>
+          <p class="section-sub" style="margin-bottom:8px;">Tu acceso digital premium ya está listo. Presenta este pase QR al llegar al evento.</p>
+          <div class="vip-pass-layout">
+            <div class="vip-pass-left">
+              <div class="qr-wrap"><div id="qrcode"></div></div>
+            </div>
+            <div class="vip-pass-right">
+              <div class="vip-code" id="vipCode">YOM-000000</div>
+              <div class="vip-meta-grid">
+                <div class="vip-meta-item"><small>Evento</small><strong>Mis Quince</strong></div>
+                <div class="vip-meta-item"><small>Fecha</small><strong>20 Junio 2026</strong></div>
+                <div class="vip-meta-item"><small>Hora</small><strong>6:00 PM</strong></div>
+                <div class="vip-meta-item"><small>Lugar</small><strong>Club de Leones de Morovis</strong></div>
+              </div>
+              <p class="mini-note" id="guestSummary"></p>
+            </div>
+          </div>
           <div class="actions" style="justify-content:center;margin-top:24px;">
-            <button class="btn" id="downloadPass" type="button">Descargar pase</button>
-            <button class="btn secondary" id="sendWhatsapp" type="button">Enviar por WhatsApp</button>
+            <button class="btn" id="downloadPass" type="button">Descargar pase QR</button>
+            <button class="btn secondary" id="sendWhatsapp" type="button">Compartir por WhatsApp</button>
             <button class="btn secondary" id="copyCode" type="button">Copiar código</button>
             <a class="btn secondary" href="#inicio">Volver al inicio</a>
           </div>
-          <p class="mini-note">Nota: en celular/iPad, toca “Compartir pase por WhatsApp” y selecciona WhatsApp para enviar la imagen del QR. Si el navegador no permite adjuntar directo, se descarga el pase para enviarlo manualmente.</p>
+          <p class="mini-note">Si tu celular no permite compartir directo, descarga el pase y luego envíalo manualmente por WhatsApp.</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="admin">
-        <div class="register-card" style="margin-bottom:22px;">
-          <h3 style="color:var(--gold-2);margin-bottom:10px;">Conexión Supabase</h3>
-          <p class="mini-note" style="margin:0;text-align:left;">
-            Edita este archivo y pega tu <strong>SUPABASE_URL</strong> y <strong>SUPABASE_ANON_KEY</strong> en la sección de configuración JavaScript.
-            Una vez conectado, los registros se guardan en la tabla <strong>yomaris_guests</strong> y el panel admin lee los datos desde Supabase.
-          </p>
-        </div>
+      <div class="register-card admin-connect-card" style="margin-bottom:22px;">
+        <div class="panel-chip">Supabase Setup</div>
+        <p class="mini-note" style="margin:0;text-align:left;">
+          Para guardar todo online, pega tu <strong>SUPABASE_URL</strong> y <strong>SUPABASE_ANON_KEY</strong> en la configuración JavaScript.
+          La tabla esperada es <strong>yomaris_guests</strong>. El panel admin seguirá funcionando en modo local si aún no conectas Supabase.
+        </p>
+      </div>
 
       <div class="wrap">
-        <h2 class="section-title">Panel Admin</h2>
-        <div class="actions" style="justify-content:center;margin-bottom:24px;">
-          <button class="btn secondary" id="adminLogout" type="button">Cerrar panel admin</button>
-          <a class="btn secondary" href="./">Volver a la invitación</a>
-        </div>
-        <p class="section-sub">Aquí puedes ver cuántas personas hay registradas, los nombres, teléfonos, códigos QR y el total de invitados.</p>
-        <div class="admin-panel">
-          <div class="admin-pill">♕ Control de invitados</div>
-          <div class="admin-stats">
-            <div class="stat-card"><small>Registros</small><b id="statRegisters">0</b></div>
-            <div class="stat-card"><small>Total personas</small><b id="statPeople">0</b></div>
-            <div class="stat-card"><small>Confirmados sí</small><b id="statYes">0</b></div>
+        <h2 class="section-title">Portal Admin</h2>
+        <p class="section-sub">Dashboard privado para gestionar invitados, revisar confirmaciones, buscar registros y exportar la base a <strong>Excel/CSV</strong>.</p>
+
+        <div class="admin-panel admin-panel-shell">
+          <div class="admin-headbar">
+            <div>
+              <div class="admin-pill">♕ Event Control Center</div>
+              <h3>Dashboard de invitados</h3>
+              <p>Control completo del evento desde una sola interfaz.</p>
+            </div>
+            <div class="actions admin-head-actions">
+              <button class="btn secondary" id="adminLogout" type="button">Cerrar panel admin</button>
+              <a class="btn secondary" href="./">Volver a la invitación</a>
+            </div>
           </div>
-          <div class="admin-tools">
+
+          <div class="admin-stats dashboard-grid">
+            <div class="stat-card"><small>Registros</small><b id="statRegisters">0</b><span>Total de formularios creados</span></div>
+            <div class="stat-card"><small>Total personas</small><b id="statPeople">0</b><span>Suma de invitados confirmados</span></div>
+            <div class="stat-card"><small>Confirmados sí</small><b id="statYes">0</b><span>Asistencias positivas</span></div>
+          </div>
+
+          <div class="admin-tools admin-toolbar-pro">
             <input id="adminSearch" type="search" placeholder="Buscar por nombre, teléfono o código..." />
-            <button class="btn small" id="exportCSV" type="button">Exportar CSV</button>
+            <button class="btn small" id="exportCSV" type="button">Exportar Excel/CSV</button>
             <button class="btn small danger" id="clearGuests" type="button">Borrar lista</button>
           </div>
+
           <div class="guest-list" id="guestList"></div>
         </div>
       </div>
     </section>
 
-
     <section class="section" id="entretenimiento">
       <div class="wrap">
-        <h2 class="section-title">Entretenimiento</h2>
-        <p class="section-sub">
-          Una noche preparada con música, alegría y ambiente elegante para celebrar los quince años de YOMARIS.
-        </p>
+        <h2 class="section-title">Experiencia del Evento</h2>
+        <p class="section-sub">Una experiencia premium pensada para que cada invitado sienta que está entrando a una verdadera celebración de lujo.</p>
 
-        <div class="music-grid modern-grid">
+        <div class="music-grid modern-grid experience-grid-four">
           <div class="music-card">
             <div class="music-icon">♫</div>
-            <h3>Audio</h3>
-            <p>Compuesta por <strong>DJ Francis Machado</strong>.</p>
+            <h3>Música Premium</h3>
+            <p>Ambientación musical especial y experiencia sonora de entrada para una sensación cinematográfica.</p>
           </div>
 
           <div class="music-card">
             <div class="music-icon">🎤</div>
             <h3>Karaoke</h3>
-            <p>Karaoke especial para disfrutar en familia y compartir momentos inolvidables.</p>
+            <p>Un espacio divertido y elegante para compartir canciones y momentos inolvidables en familia.</p>
           </div>
 
           <div class="music-card">
             <div class="music-icon">♪</div>
-            <h3>Audio en Vivo</h3>
-            <p>Presentación en vivo por <strong>Grupo Sender La Melodía</strong>.</p>
+            <h3>En Vivo</h3>
+            <p>Participación artística para elevar la celebración con una atmósfera especial y emocionante.</p>
+          </div>
+
+          <div class="music-card">
+            <div class="music-icon">✨</div>
+            <h3>Pase VIP</h3>
+            <p>Registro online, confirmación instantánea, QR digital y acceso organizado con estilo premium.</p>
           </div>
         </div>
       </div>
@@ -3121,16 +3239,17 @@ footer{
     <section class="section" id="detalles">
       <div class="wrap">
         <h2 class="section-title">Detalles del Evento</h2>
-        <p class="section-sub">Una celebración preparada con elegancia para compartir con las personas más especiales.</p>
-        <div class="info-grid modern-grid">
+        <p class="section-sub">Todo organizado en una estructura clara, elegante y profesional para que el invitado tenga toda la información a la mano.</p>
+        <div class="info-grid modern-grid details-grid-four">
           <div class="info-card"><h3>Lugar</h3><p><strong>Club de Leones de Morovis</strong><br><a href="https://maps.app.goo.gl/1p9rRudGvgr2RBcb7?g_st=iw" target="_blank" rel="noopener" style="color:var(--gold-2);font-weight:900;text-decoration:none;">Ver ubicación en Google Maps</a></p></div>
-          <div class="info-card"><h3>Entrada</h3><p>Presenta tu pase QR digital para validar tu registro al llegar.</p></div>
-          <div class="info-card"><h3>Confirmación</h3><p>Favor confirmar asistencia antes del 10 de junio de 2026.</p></div>
+          <div class="info-card"><h3>Hora de Entrada</h3><p>Recepción desde las <strong>6:00 PM</strong> para disfrutar del inicio del evento con puntualidad.</p></div>
+          <div class="info-card"><h3>Acceso</h3><p>Presenta tu <strong>pase QR digital</strong> al llegar para validar tu entrada de forma rápida y organizada.</p></div>
+          <div class="info-card"><h3>Confirmación</h3><p>Favor confirmar antes del <strong>10 de junio de 2026</strong> para reservar tu espacio correctamente.</p></div>
         </div>
       </div>
     </section>
 
-    <footer>Invitación digital creada con amor para la princesa YOMARIS MARIE ARCE DELGADO ✨</footer>
+    <footer>Invitación digital premium creada con amor para la princesa YOMARIS MARIE ARCE DELGADO ✨</footer>Invitación digital creada con amor para la princesa YOMARIS MARIE ARCE DELGADO ✨</footer>
   </main>
 
   <div class="toast" id="toast">Listo</div>
@@ -3293,6 +3412,49 @@ footer{
     const toast = document.getElementById("toast");
     const STORAGE_KEY = "invitadosYOMARISBackup";
     let lastRecord = null;
+
+
+    // =====================================================
+    // FORMULARIO MULTI-STEP PREMIUM
+    // =====================================================
+    let currentFormStep = 1;
+
+    function updateStepUi(step){
+      currentFormStep = step;
+      document.querySelectorAll('.form-step').forEach(panel => {
+        panel.classList.toggle('active', Number(panel.dataset.step) === step);
+      });
+      document.querySelectorAll('.step-dot').forEach(dot => {
+        dot.classList.toggle('active', Number(dot.dataset.step) === step);
+      });
+    }
+
+    function validateCurrentStep(step){
+      const currentPanel = document.querySelector(`.form-step[data-step="${step}"]`);
+      if(!currentPanel) return true;
+      const fields = [...currentPanel.querySelectorAll('input, select, textarea')];
+      for(const field of fields){
+        if(typeof field.reportValidity === 'function' && !field.reportValidity()){
+          field.focus();
+          return false;
+        }
+      }
+      return true;
+    }
+
+    document.querySelectorAll('.next-step').forEach(btn => {
+      btn.addEventListener('click', function(){
+        if(validateCurrentStep(currentFormStep)) updateStepUi(Math.min(3, currentFormStep + 1));
+      });
+    });
+
+    document.querySelectorAll('.prev-step').forEach(btn => {
+      btn.addEventListener('click', function(){
+        updateStepUi(Math.max(1, currentFormStep - 1));
+      });
+    });
+
+    updateStepUi(1);
 
     function showToast(text){
       if(!toast){ console.log(text); return; }
@@ -3568,6 +3730,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
           }, 500);
           await renderAdmin();
           form.reset();
+          updateStepUi(1);
         }catch(error){
           console.error(error);
           showToast("Error: " + (error.message || "No se pudo guardar"));
