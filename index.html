@@ -442,7 +442,7 @@
             <button class="btn secondary" id="copyCode" type="button">Copiar código</button>
             <a class="btn secondary" href="#inicio">Volver al inicio</a>
           </div>
-          <p class="mini-note">Nota: por seguridad del navegador, WhatsApp abre con el mensaje listo. El invitado solo tiene que tocar enviar. Para enviar el QR automáticamente sin tocar nada, se necesitaría API oficial de WhatsApp Business.</p>
+          <p class="mini-note">Nota: en celular/iPad, toca “Compartir pase por WhatsApp” y selecciona WhatsApp para enviar la imagen del QR. Si el navegador no permite adjuntar directo, se descarga el pase para enviarlo manualmente.</p>
         </div>
       </div>
     </section>
@@ -900,7 +900,9 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
           successBox?.scrollIntoView({behavior:"smooth",block:"start"});
 
           showToast(SUPABASE_READY ? "Registro guardado en Supabase y QR generado" : "Pase QR generado localmente");
-          openWhatsapp(record);
+          setTimeout(async () => {
+            await sharePassImage(record);
+          }, 500);
           await renderAdmin();
           form.reset();
         }catch(error){
@@ -933,92 +935,153 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
 
     const sendWhatsappBtn = document.getElementById("sendWhatsapp");
     if(sendWhatsappBtn){
-      sendWhatsappBtn.addEventListener("click", function(){
+      sendWhatsappBtn.textContent = "Compartir pase por WhatsApp";
+      sendWhatsappBtn.addEventListener("click", async function(){
         lastRecord = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYomaris") || "null");
-        if(lastRecord) openWhatsapp(lastRecord);
-        else showToast("Primero genera un pase");
+        if(lastRecord){
+          await sharePassImage(lastRecord);
+        }else{
+          showToast("Primero genera un pase");
+        }
+      });
+    }
+
+    async function createPassCanvas(record){
+      const qrCanvas = qrcodeBox?.querySelector("canvas");
+      const qrImg = qrcodeBox?.querySelector("img");
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = 900;
+      canvas.height = 1300;
+
+      const bg = ctx.createLinearGradient(0,0,900,1300);
+      bg.addColorStop(0,"#26061f");
+      bg.addColorStop(.35,"#6f254f");
+      bg.addColorStop(.72,"#f8b6d1");
+      bg.addColorStop(1,"#fff8ec");
+      ctx.fillStyle = bg;
+      ctx.fillRect(0,0,900,1300);
+
+      ctx.strokeStyle = "#fff0b8";
+      ctx.lineWidth = 8;
+      roundRect(ctx,50,50,800,1200,46,true,false);
+
+      ctx.fillStyle = "#fff0b8";
+      ctx.font = "bold 42px Segoe UI";
+      ctx.textAlign = "center";
+      ctx.fillText("PASE DIGITAL",450,150);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "80px Georgia";
+      ctx.fillText("Yomaris",450,250);
+
+      ctx.fillStyle = "#fff8ec";
+      ctx.font = "bold 36px Segoe UI";
+      ctx.fillText("ARCE DELGADO",450,310);
+
+      ctx.fillStyle = "#fff0b8";
+      ctx.font = "bold 34px Segoe UI";
+      ctx.fillText("Mis Quince Años",450,376);
+
+      ctx.fillStyle = "#ffffff";
+      roundRect(ctx,275,440,350,350,30,true,false);
+
+      if(qrCanvas){
+        ctx.drawImage(qrCanvas,305,470,290,290);
+      }else if(qrImg){
+        try{
+          if(!qrImg.complete){
+            await new Promise((resolve,reject) => {
+              qrImg.onload = resolve;
+              qrImg.onerror = reject;
+              setTimeout(resolve, 1800);
+            });
+          }
+          ctx.drawImage(qrImg,305,470,290,290);
+        }catch(err){
+          ctx.fillStyle = "#3c1230";
+          ctx.font = "bold 24px Segoe UI";
+          ctx.fillText(record.codigo || "YOM-000000",450,620);
+        }
+      }else{
+        ctx.fillStyle = "#3c1230";
+        ctx.font = "bold 24px Segoe UI";
+        ctx.fillText(record.codigo || "YOM-000000",450,620);
+      }
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 30px Segoe UI";
+      ctx.fillText(record.invitado || "Invitado",450,860);
+
+      ctx.fillStyle = "#fff8ec";
+      ctx.font = "26px Segoe UI";
+      ctx.fillText("20 de junio 2026 • 6:00 PM",450,910);
+      ctx.fillText("Total: " + (record.total_personas || "1") + " persona(s)",450,955);
+
+      ctx.fillStyle = "#fff0b8";
+      ctx.font = "bold 29px Segoe UI";
+      ctx.fillText(record.codigo || "YOM-000000",450,1025);
+
+      ctx.fillStyle = "#fff8ec";
+      ctx.font = "22px Segoe UI";
+      ctx.fillText("Presentar este QR en la entrada",450,1120);
+
+      return canvas;
+    }
+
+    async function downloadPassImage(record){
+      const canvas = await createPassCanvas(record);
+      const link = document.createElement("a");
+      link.download = "pase-yomaris-arce-delgado.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      showToast("Pase descargado como imagen");
+    }
+
+    async function sharePassImage(record){
+      const canvas = await createPassCanvas(record);
+
+      return new Promise((resolve) => {
+        canvas.toBlob(async function(blob){
+          if(!blob){
+            showToast("No se pudo crear la imagen del pase");
+            resolve(false);
+            return;
+          }
+
+          const file = new File([blob], "pase-yomaris-arce-delgado.png", {type:"image/png"});
+          const shareData = {
+            title:"Pase QR Yomaris Arce Delgado",
+            text:whatsappMessage(record),
+            files:[file]
+          };
+
+          try{
+            if(navigator.canShare && navigator.canShare({files:[file]}) && navigator.share){
+              await navigator.share(shareData);
+              showToast("Selecciona WhatsApp para enviar el pase con QR");
+              resolve(true);
+            }else{
+              await downloadPassImage(record);
+              showToast("Tu navegador no permite adjuntar directo. Se descargó la imagen para enviarla por WhatsApp.");
+              resolve(false);
+            }
+          }catch(err){
+            console.warn(err);
+            showToast("Compartir cancelado o no permitido");
+            resolve(false);
+          }
+        }, "image/png", .95);
       });
     }
 
     const downloadPassBtn = document.getElementById("downloadPass");
     if(downloadPassBtn){
-      downloadPassBtn.addEventListener("click", function(){
+      downloadPassBtn.textContent = "Descargar pase QR";
+      downloadPassBtn.addEventListener("click", async function(){
         const record = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYomaris") || "{}");
-        const qrCanvas = qrcodeBox?.querySelector("canvas");
-        const qrImg = qrcodeBox?.querySelector("img");
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = 900;
-        canvas.height = 1300;
-
-        const bg = ctx.createLinearGradient(0,0,900,1300);
-        bg.addColorStop(0,"#26061f");
-        bg.addColorStop(.35,"#6f254f");
-        bg.addColorStop(.72,"#f8b6d1");
-        bg.addColorStop(1,"#fff8ec");
-        ctx.fillStyle = bg;
-        ctx.fillRect(0,0,900,1300);
-
-        ctx.strokeStyle = "#fff0b8";
-        ctx.lineWidth = 8;
-        roundRect(ctx,50,50,800,1200,46,true,false);
-
-        ctx.fillStyle = "#fff0b8";
-        ctx.font = "bold 42px Segoe UI";
-        ctx.textAlign = "center";
-        ctx.fillText("PASE DIGITAL",450,150);
-
-        ctx.fillStyle = "#ffffff";
-        ctx.font = "80px Georgia";
-        ctx.fillText("Yomaris",450,250);
-
-        ctx.fillStyle = "#fff8ec";
-        ctx.font = "bold 36px Segoe UI";
-        ctx.fillText("ARCE DELGADO",450,310);
-
-        ctx.fillStyle = "#fff0b8";
-        ctx.font = "bold 34px Segoe UI";
-        ctx.fillText("Mis Quince Años",450,376);
-
-        ctx.fillStyle = "#ffffff";
-        roundRect(ctx,275,440,350,350,30,true,false);
-
-        if(qrCanvas){
-          ctx.drawImage(qrCanvas,305,470,290,290);
-        }else if(qrImg && qrImg.complete){
-          try{
-            ctx.drawImage(qrImg,305,470,290,290);
-          }catch(err){
-            ctx.fillStyle = "#3c1230";
-            ctx.font = "bold 24px Segoe UI";
-            ctx.fillText(record.codigo || "YOM-000000",450,620);
-          }
-        }
-
-        ctx.fillStyle = "#ffffff";
-        ctx.font = "bold 30px Segoe UI";
-        ctx.fillText(record.invitado || "Invitado",450,860);
-
-        ctx.fillStyle = "#fff8ec";
-        ctx.font = "26px Segoe UI";
-        ctx.fillText("20 de junio 2026 • 6:00 PM",450,910);
-        ctx.fillText("Total: " + (record.total_personas || "1") + " persona(s)",450,955);
-
-        ctx.fillStyle = "#fff0b8";
-        ctx.font = "bold 29px Segoe UI";
-        ctx.fillText(record.codigo || "YOM-000000",450,1025);
-
-        ctx.fillStyle = "#fff8ec";
-        ctx.font = "22px Segoe UI";
-        ctx.fillText("Presentar este QR en la entrada",450,1120);
-
-        const link = document.createElement("a");
-        link.download = "pase-yomaris-arce-delgado.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-
-        showToast("Pase descargado");
+        await downloadPassImage(record);
       });
     }
 
