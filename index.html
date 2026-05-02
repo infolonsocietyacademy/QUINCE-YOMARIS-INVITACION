@@ -466,231 +466,142 @@
       font-weight:700;
     }
 
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats,.music-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1 .last-name{font-size:clamp(20px,5.2vw,32px);letter-spacing:.14em}.name-wrap::before{display:none}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
 
-    /* ===== Upgrade moderno: gloss premium + música fija ===== */
-    .entrance-screen{
+
+    /* ===============================
+       ENTRADA PREMIUM + MP3 KEN-Y
+       =============================== */
+    .music-entry-screen{
       position:fixed;
       inset:0;
-      z-index:9999;
+      z-index:99999;
       display:grid;
       place-items:center;
-      padding:22px;
+      padding:24px;
       background:
-        radial-gradient(circle at 50% 22%,rgba(255,240,184,.24),transparent 30%),
-        radial-gradient(circle at 25% 76%,rgba(248,182,209,.28),transparent 34%),
-        linear-gradient(135deg,rgba(31,4,25,.96),rgba(84,18,61,.96) 54%,rgba(231,130,177,.93));
-      transition:opacity .75s ease,visibility .75s ease,transform .75s ease;
+        radial-gradient(circle at 18% 10%, rgba(255,240,184,.30), transparent 30%),
+        radial-gradient(circle at 82% 14%, rgba(248,182,209,.34), transparent 34%),
+        radial-gradient(circle at 50% 100%, rgba(255,240,184,.18), transparent 34%),
+        linear-gradient(135deg,#21051b 0%,#4a1038 42%,#8f3c68 100%);
+      transition:opacity .55s ease, visibility .55s ease;
     }
-
-    .entrance-screen.hide{
-      opacity:0;
-      visibility:hidden;
-      transform:scale(1.025);
-      pointer-events:none;
-    }
-
-    .entrance-screen::before{
+    .music-entry-screen::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(120deg,transparent 0 36%,rgba(255,255,255,.16) 47%,transparent 58% 100%),
-        radial-gradient(circle,rgba(255,240,184,.16) 1px,transparent 1.8px);
-      background-size:220% 100%,34px 34px;
-      animation:entranceGloss 4.2s ease-in-out infinite;
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,.10) 42%, transparent 60%),
+        radial-gradient(circle, rgba(255,240,184,.25) 1px, transparent 2px);
+      background-size: 220% 100%, 44px 44px;
+      animation: entryLuxurySweep 5s linear infinite;
       pointer-events:none;
     }
-
-    .entrance-orb{
-      position:absolute;
-      width:min(560px,80vw);
-      aspect-ratio:1;
-      border-radius:999px;
-      background:radial-gradient(circle,rgba(255,240,184,.32),rgba(248,182,209,.16) 38%,transparent 70%);
-      filter:blur(2px);
-      animation:orbPulse 4.5s ease-in-out infinite;
-    }
-
-    .entrance-card{
+    .music-entry-card{
       position:relative;
-      width:min(560px,100%);
+      width:min(620px,100%);
+      border-radius:42px;
+      border:1px solid rgba(255,240,184,.72);
+      background:
+        linear-gradient(145deg, rgba(45,9,36,.88), rgba(92,25,68,.72)),
+        radial-gradient(circle at top, rgba(255,240,184,.18), transparent 48%);
+      box-shadow:0 35px 110px rgba(0,0,0,.46), inset 0 0 70px rgba(255,255,255,.07);
+      padding:38px 28px;
       text-align:center;
-      padding:42px 28px 34px;
-      border-radius:38px;
-      border:1px solid rgba(255,240,184,.70);
-      background:linear-gradient(145deg,rgba(255,248,236,.16),rgba(255,255,255,.06)),rgba(44,8,36,.72);
-      box-shadow:0 34px 110px rgba(0,0,0,.42),inset 0 0 70px rgba(255,255,255,.08);
-      backdrop-filter:blur(24px);
+      color:#fff8ec;
       overflow:hidden;
     }
-
-    .entrance-card::after{
+    .music-entry-card::after{
       content:"";
       position:absolute;
-      inset:14px;
-      border-radius:28px;
+      inset:16px;
+      border-radius:30px;
       border:1px solid rgba(255,240,184,.28);
       pointer-events:none;
     }
-
-    .entrance-crown{
-      font-size:70px;
-      line-height:1;
-      color:var(--gold-2);
-      text-shadow:0 0 24px rgba(255,240,184,.78),0 0 46px rgba(248,182,209,.42);
-      animation:crownFloat 3s ease-in-out infinite;
-    }
-
-    .entrance-kicker{
-      margin:12px 0 8px;
-      color:var(--gold-2);
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      font-size:11px;
-      font-weight:950;
-    }
-
-    .entrance-card h2{
-      font-family:'Great Vibes','Imperial Script',cursive;
-      font-weight:400;
-      font-size:clamp(60px,11vw,112px);
-      line-height:.85;
-      margin:4px 0 0;
-      color:#fffdf7;
-      text-shadow:0 2px 0 rgba(214,173,79,.62),0 0 34px rgba(255,240,184,.46),0 14px 34px rgba(0,0,0,.32);
-    }
-
-    .entrance-card span{
+    .entry-crown-big{font-size:58px;filter:drop-shadow(0 0 18px rgba(255,240,184,.8));animation:crownFloat 3s ease-in-out infinite;}
+    .music-entry-card small{
       display:block;
       margin-top:8px;
-      font-family:'Cinzel','Playfair Display',serif;
-      letter-spacing:.22em;
+      color:#fff0b8;
       text-transform:uppercase;
-      color:#fff8ec;
-      font-weight:800;
+      letter-spacing:.22em;
+      font-weight:900;
+      font-size:12px;
     }
-
-    .entrance-text{
-      max-width:420px;
-      margin:18px auto 24px;
-      color:#fff9ef;
-      line-height:1.65;
+    .music-entry-card h2{
+      font-family:"Great Vibes","Imperial Script","Segoe Script",cursive;
+      font-size:clamp(54px,10vw,96px);
+      line-height:.9;
+      margin:18px 0 8px;
+      color:#fffdf7;
+      text-shadow:0 2px 0 rgba(214,173,79,.65),0 0 34px rgba(248,182,209,.52),0 16px 45px rgba(0,0,0,.38);
+      font-weight:400;
     }
-
-    .entrance-btn{
-      width:min(330px,100%);
-      position:relative;
-      z-index:1;
+    .music-entry-card p{max-width:500px;margin:0 auto;color:#fff9ef;line-height:1.7;font-size:17px;}
+    .song-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      margin:22px auto 0;
+      padding:11px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,240,184,.48);
+      background:rgba(255,248,236,.10);
+      color:#fff0b8;
+      font-weight:900;
+      box-shadow:0 0 30px rgba(214,173,79,.16);
     }
-
-    .entrance-skip{
-      display:block;
-      margin:14px auto 0;
-      border:0;
-      background:transparent;
-      color:rgba(255,248,236,.82);
-      font-weight:800;
-      cursor:pointer;
-      text-decoration:underline;
-      text-underline-offset:4px;
-    }
-
-    .music-float{
+    .entry-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px;}
+    .entry-actions .btn{position:relative;z-index:2;}
+    .entry-note{display:block;margin-top:16px;color:rgba(255,248,236,.78);font-size:13px;line-height:1.5;}
+    body.invitation-entered .music-entry-screen{opacity:0;visibility:hidden;pointer-events:none;}
+    .music-float-btn{
       position:fixed;
       right:18px;
       bottom:18px;
-      z-index:40;
+      z-index:9999;
+      border:1px solid rgba(255,240,184,.62);
+      background:linear-gradient(135deg,rgba(58,12,48,.92),rgba(136,55,98,.88));
+      color:#fff8ec;
+      border-radius:999px;
+      padding:12px 16px;
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      min-height:48px;
-      padding:10px 15px;
-      border-radius:999px;
-      border:1px solid rgba(255,240,184,.58);
-      background:rgba(45,8,36,.76);
-      color:var(--gold-2);
-      box-shadow:0 18px 50px rgba(0,0,0,.32),inset 0 0 24px rgba(255,255,255,.06);
-      backdrop-filter:blur(16px);
+      gap:8px;
+      font-weight:950;
       cursor:pointer;
-      transition:.25s ease;
+      box-shadow:0 18px 48px rgba(0,0,0,.30),0 0 26px rgba(214,173,79,.20);
     }
+    .music-float-btn.playing{background:linear-gradient(135deg,#fff8ec,#fff0b8,#f8b6d1);color:#421231;}
+    @keyframes entryLuxurySweep{0%{background-position:-120% 0,0 0}100%{background-position:120% 0,0 0}}
+    @media(max-width:640px){.music-entry-card{border-radius:30px;padding:32px 18px}.entry-actions{gap:10px}.music-float-btn{right:12px;bottom:12px;padding:11px 13px}}
 
-    .music-float:hover{transform:translateY(-3px);box-shadow:0 24px 62px rgba(0,0,0,.38)}
-
-    .music-bars{display:inline-flex;align-items:end;gap:3px;height:20px}
-    .music-bars i{display:block;width:4px;border-radius:999px;background:linear-gradient(var(--gold-2),var(--rose));height:8px;box-shadow:0 0 14px rgba(255,240,184,.55)}
-    .music-float.playing .music-bars i:nth-child(1){animation:barDance .7s ease-in-out infinite}
-    .music-float.playing .music-bars i:nth-child(2){animation:barDance .7s ease-in-out .12s infinite}
-    .music-float.playing .music-bars i:nth-child(3){animation:barDance .7s ease-in-out .24s infinite}
-
-    .section{
-      position:relative;
-    }
-
-    .section::before{
-      content:"";
-      position:absolute;
-      left:50%;
-      top:0;
-      width:min(980px,86vw);
-      height:1px;
-      transform:translateX(-50%);
-      background:linear-gradient(90deg,transparent,rgba(255,240,184,.62),rgba(248,182,209,.46),transparent);
-      box-shadow:0 0 22px rgba(255,240,184,.42);
-    }
-
-    .register-card,.success,.admin-panel,.info-card,.music-card,.timebox,.event-box{
-      backdrop-filter:blur(18px);
-    }
-
-    .btn{
-      position:relative;
-      overflow:hidden;
-    }
-
-    .btn::after{
-      content:"";
-      position:absolute;
-      inset:-80% auto auto -40%;
-      width:38%;
-      height:260%;
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
-      transform:rotate(28deg);
-      transition:.65s ease;
-    }
-
-    .btn:hover::after{left:120%}
-
-    @keyframes entranceGloss{0%{background-position:-120% 0,0 0}100%{background-position:120% 0,0 0}}
-    @keyframes orbPulse{0%,100%{transform:scale(.92);opacity:.55}50%{transform:scale(1.08);opacity:1}}
-    @keyframes barDance{0%,100%{height:7px}50%{height:20px}}
-
-    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats,.music-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1 .last-name{font-size:clamp(20px,5.2vw,32px);letter-spacing:.14em}.name-wrap::before{display:none}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
   </style>
 </head>
 <body>
-  <div class="sparkles" id="sparkles"></div>
-  <div class="petals" id="petals"></div>
 
-  <!-- Entrada premium con música fija -->
-  <div class="entrance-screen" id="entranceScreen" aria-label="Entrada con música">
-    <div class="entrance-orb"></div>
-    <div class="entrance-card">
-      <div class="entrance-crown">♕</div>
-      <p class="entrance-kicker">Royal Digital Invitation</p>
+  <div class="music-entry-screen" id="musicEntryScreen">
+    <div class="music-entry-card">
+      <div class="entry-crown-big">👑</div>
+      <small>Invitación Quinceañera</small>
       <h2>Yomaris Marie</h2>
-      <span>Arce Delgado</span>
-      <p class="entrance-text">Toca para abrir la invitación con música de fondo y animación premium.</p>
-      <button class="btn entrance-btn" id="enterWithMusic" type="button">Entrar con música</button>
-      <button class="entrance-skip" id="enterSilent" type="button">Entrar sin música</button>
+      <p>Entra a la invitación con la canción especial de quinceañera.</p>
+      <div class="song-pill">♫ Regalo de Quinceañera — R.K.M & Ken‑Y</div>
+      <div class="entry-actions">
+        <a href="#inicio" class="btn" id="enterWithMusic">Entrar con música</a>
+        <a href="#inicio" class="btn secondary" id="enterSilent">Entrar sin música</a>
+      </div>
+      <span class="entry-note">Si el navegador tarda en prender el audio, toca el botón de música abajo a la derecha.</span>
     </div>
   </div>
+  <audio id="bgMusic" preload="auto" loop playsinline>
+    <source src="regalo-de-quinceanera-ken.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-float-btn" id="musicFloat" type="button" aria-label="Activar o pausar música">♫ <span id="musicFloatText">Música</span></button>
 
-  <button class="music-float" id="musicFloat" type="button" aria-label="Control de música">
-    <span class="music-bars"><i></i><i></i><i></i></span>
-    <strong id="musicFloatText">Música</strong>
-  </button>
-
+  <div class="sparkles" id="sparkles"></div>
+  <div class="petals" id="petals"></div>
 
   <main class="page">
     <section class="hero" id="inicio">
@@ -1776,114 +1687,6 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       });
     }
 
-
-    // =====================================================
-    // MÚSICA FIJA AL ENTRAR (sin archivo externo)
-    // Los navegadores modernos requieren interacción para sonido.
-    // Por eso la pantalla inicial "Entrar con música" activa el audio.
-    // =====================================================
-    const entranceScreen = document.getElementById("entranceScreen");
-    const enterWithMusicBtn = document.getElementById("enterWithMusic");
-    const enterSilentBtn = document.getElementById("enterSilent");
-    const musicFloat = document.getElementById("musicFloat");
-    const musicFloatText = document.getElementById("musicFloatText");
-
-    let musicCtx = null;
-    let musicMaster = null;
-    let musicTimer = null;
-    let musicPlaying = false;
-    let musicStep = 0;
-
-    const royalMelody = [
-      {note:523.25,dur:.55},{note:659.25,dur:.55},{note:783.99,dur:.70},{note:987.77,dur:.95},
-      {note:880.00,dur:.55},{note:783.99,dur:.55},{note:659.25,dur:.75},{note:587.33,dur:.85},
-      {note:523.25,dur:.55},{note:587.33,dur:.55},{note:659.25,dur:.70},{note:783.99,dur:.95},
-      {note:698.46,dur:.55},{note:659.25,dur:.55},{note:587.33,dur:.75},{note:523.25,dur:1.10}
-    ];
-
-    function closeEntrance(){
-      if(entranceScreen){
-        entranceScreen.classList.add("hide");
-        setTimeout(() => entranceScreen.remove(), 850);
-      }
-    }
-
-    function createTone(freq, start, duration, type, gainValue){
-      if(!musicCtx || !musicMaster) return;
-      const osc = musicCtx.createOscillator();
-      const gain = musicCtx.createGain();
-      osc.type = type;
-      osc.frequency.setValueAtTime(freq, start);
-      gain.gain.setValueAtTime(0.0001, start);
-      gain.gain.exponentialRampToValueAtTime(gainValue, start + 0.04);
-      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
-      osc.connect(gain);
-      gain.connect(musicMaster);
-      osc.start(start);
-      osc.stop(start + duration + 0.04);
-    }
-
-    function playRoyalStep(){
-      if(!musicPlaying || !musicCtx) return;
-      const item = royalMelody[musicStep % royalMelody.length];
-      const now = musicCtx.currentTime;
-      createTone(item.note, now, item.dur, "triangle", .035);
-      createTone(item.note / 2, now, item.dur * 1.15, "sine", .018);
-      if(musicStep % 4 === 0) createTone(261.63, now, 1.7, "sine", .016);
-      if(musicStep % 4 === 2) createTone(392.00, now, 1.55, "sine", .014);
-      musicStep++;
-      musicTimer = setTimeout(playRoyalStep, item.dur * 760);
-    }
-
-    async function startMusic(){
-      try{
-        if(!musicCtx){
-          musicCtx = new (window.AudioContext || window.webkitAudioContext)();
-          musicMaster = musicCtx.createGain();
-          musicMaster.gain.value = .55;
-          musicMaster.connect(musicCtx.destination);
-        }
-        if(musicCtx.state === "suspended") await musicCtx.resume();
-        if(!musicPlaying){
-          musicPlaying = true;
-          musicFloat?.classList.add("playing");
-          if(musicFloatText) musicFloatText.textContent = "Pausar";
-          playRoyalStep();
-        }
-      }catch(error){
-        console.warn("No se pudo iniciar la música:", error);
-        showToast("Toca nuevamente para activar la música.");
-      }
-    }
-
-    function stopMusic(){
-      musicPlaying = false;
-      clearTimeout(musicTimer);
-      musicFloat?.classList.remove("playing");
-      if(musicFloatText) musicFloatText.textContent = "Música";
-    }
-
-    if(isAdminPage){
-      entranceScreen?.remove();
-      musicFloat?.remove();
-    }else{
-      enterWithMusicBtn?.addEventListener("click", async function(){
-        closeEntrance();
-        await startMusic();
-      });
-
-      enterSilentBtn?.addEventListener("click", function(){
-        closeEntrance();
-        stopMusic();
-      });
-
-      musicFloat?.addEventListener("click", async function(){
-        if(musicPlaying) stopMusic();
-        else await startMusic();
-      });
-    }
-
-
     if(!SUPABASE_READY){
       console.warn("Supabase no configurado. Pega SUPABASE_URL y SUPABASE_ANON_KEY.");
     }
@@ -1892,5 +1695,83 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       renderAdmin();
     }
   </script>
+
+  <script>
+    // =====================================================
+    // MÚSICA DE ENTRADA - MP3 LOCAL
+    // Archivo incluido: regalo-de-quinceanera-ken.mp3
+    // =====================================================
+    (function(){
+      function id(x){ return document.getElementById(x); }
+      const audio = id('bgMusic');
+      const screen = id('musicEntryScreen');
+      const enterBtn = id('enterWithMusic');
+      const silentBtn = id('enterSilent');
+      const floatBtn = id('musicFloat');
+      const floatText = id('musicFloatText');
+
+      function setButtonState(){
+        const playing = audio && !audio.paused;
+        if(floatBtn) floatBtn.classList.toggle('playing', !!playing);
+        if(floatText) floatText.textContent = playing ? 'Pausar' : 'Música';
+      }
+
+      function openInvitation(){
+        document.body.classList.add('invitation-entered');
+        if(screen){
+          screen.style.opacity = '0';
+          screen.style.visibility = 'hidden';
+          screen.style.pointerEvents = 'none';
+          setTimeout(function(){ screen.style.display = 'none'; }, 600);
+        }
+        try{ window.scrollTo({ top:0, behavior:'smooth' }); }catch(e){ window.scrollTo(0,0); }
+      }
+
+      async function playMusic(){
+        openInvitation();
+        if(!audio) return;
+        try{
+          audio.muted = false;
+          audio.volume = 0.78;
+          audio.loop = true;
+          const result = audio.play();
+          if(result && typeof result.then === 'function') await result;
+        }catch(e){
+          // No bloquea la entrada aunque el navegador bloquee el audio.
+          console.warn('Audio bloqueado o no disponible:', e);
+        }
+        setButtonState();
+      }
+
+      function enterSilent(){
+        openInvitation();
+        if(audio){ try{ audio.pause(); }catch(e){} }
+        setButtonState();
+      }
+
+      async function toggleMusic(){
+        if(!audio) return;
+        if(audio.paused){ await playMusic(); }
+        else{ audio.pause(); setButtonState(); }
+      }
+
+      if(enterBtn){
+        enterBtn.addEventListener('click', function(e){ e.preventDefault(); playMusic(); });
+      }
+      if(silentBtn){
+        silentBtn.addEventListener('click', function(e){ e.preventDefault(); enterSilent(); });
+      }
+      if(floatBtn){
+        floatBtn.addEventListener('click', function(e){ e.preventDefault(); toggleMusic(); });
+      }
+      if(audio){
+        audio.addEventListener('play', setButtonState);
+        audio.addEventListener('pause', setButtonState);
+        audio.addEventListener('ended', setButtonState);
+      }
+      setButtonState();
+    })();
+  </script>
+
 </body>
 </html>
