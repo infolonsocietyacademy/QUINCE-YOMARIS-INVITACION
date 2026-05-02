@@ -1633,6 +1633,14 @@ body::before{
   color:#ffe9a6 !important;
 }
 
+
+/* ===== EXPORT CSV PROFESIONAL ===== */
+#exportCSV{
+  background:linear-gradient(135deg,#fff8ed,#ffe9a6 42%,#ff9cc8) !important;
+  color:#2b071c !important;
+  box-shadow:0 16px 40px rgba(247,197,107,.18) !important;
+}
+
 </style>
 </head>
 <body>
@@ -2685,29 +2693,62 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       exportCsvBtn.addEventListener("click", async function(){
         try{
           const guests = await fetchGuests();
-          const headers = ["Nombre","Telefono","Confirmacion","Acompanantes","Total","Codigo","Creado"];
-          const rows = guests.map(g => [
-            g.invitado,
-            g.telefono,
-            g.confirmacion,
-            g.acompanantes,
-            g.total_personas,
-            g.codigo,
-            g.generado
-          ]);
+          const now = new Date();
 
-          const csv = [headers, ...rows]
-            .map(row => row.map(value => `"${String(value ?? "").replaceAll('"','""')}"`).join(","))
+          const totalRegistros = guests.length;
+          const totalPersonas = guests.reduce((a,g)=>a+Number(g.total_personas||0),0);
+          const totalConfirmados = guests.filter(g=>String(g.confirmacion).toLowerCase().includes("sí") || String(g.confirmacion).toLowerCase().includes("si")).length;
+          const totalNoAsisten = guests.filter(g=>String(g.confirmacion).toLowerCase().includes("no")).length;
+
+          const clean = (value) => String(value ?? "")
+            .replaceAll('"','""')
+            .replace(/\r?\n|\r/g, " ")
+            .trim();
+
+          const rows = [
+            ["INVITACIÓN QUINCEAÑERA - YOMARIS MARIE ARCE DELGADO"],
+            ["Reporte profesional de invitados"],
+            ["Fecha de exportación", now.toLocaleString()],
+            ["Evento", "20 de junio 2026 - 6:00 PM"],
+            ["Lugar", "Club de Leones de Morovis"],
+            [],
+            ["RESUMEN GENERAL"],
+            ["Registros", totalRegistros],
+            ["Total de personas", totalPersonas],
+            ["Confirmados Sí", totalConfirmados],
+            ["No podrán asistir", totalNoAsisten],
+            [],
+            ["LISTA DE INVITADOS"],
+            ["#", "Nombre completo", "Teléfono / WhatsApp", "Confirmación", "Acompañantes", "Total personas", "Código QR", "Fecha de registro", "Mensaje especial"],
+            ...guests.map((g,index)=>[
+              index + 1,
+              g.invitado || "",
+              g.telefono || "",
+              g.confirmacion || "",
+              g.acompanantes ?? 0,
+              g.total_personas ?? 1,
+              g.codigo || "",
+              g.generado || "",
+              g.mensaje || ""
+            ])
+          ];
+
+          const csv = "\ufeff" + rows
+            .map(row => row.map(value => `"${clean(value)}"`).join(","))
             .join("\n");
 
+          const fileDate = now.toISOString().slice(0,10);
           const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
           const url = URL.createObjectURL(blob);
           const link = document.createElement("a");
           link.href = url;
-          link.download = "invitados-yomaris-m-arce-delgado.csv";
+          link.download = `Reporte_Invitados_Yomaris_${fileDate}.csv`;
+          document.body.appendChild(link);
           link.click();
+          link.remove();
           URL.revokeObjectURL(url);
-          showToast("CSV descargado");
+
+          showToast("Reporte CSV profesional descargado para Excel");
         }catch(error){
           showToast("Error exportando: " + (error.message || "No se pudo exportar"));
         }
