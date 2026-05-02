@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación Quinceañera | Yomaris Arce Delgado</title>
+  <title>Invitación Quinceañera | YOMARIS M ARCE DELGADO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Great+Vibes&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -60,6 +66,9 @@
     @keyframes crownFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-7px) rotate(5deg)}}
     @keyframes photoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
     @keyframes pulseGlow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+    @keyframes luxuryNameGlow{0%,100%{filter:drop-shadow(0 0 10px rgba(255,240,184,.30)) drop-shadow(0 0 22px rgba(248,182,209,.26));transform:translateY(0) scale(1)}50%{filter:drop-shadow(0 0 22px rgba(255,240,184,.72)) drop-shadow(0 0 40px rgba(248,182,209,.46));transform:translateY(-3px) scale(1.015)}}
+    @keyframes nameShimmer{0%{background-position:-220% center}100%{background-position:220% center}}
+    @keyframes flourishSweep{0%,100%{opacity:.45;transform:scaleX(.88)}50%{opacity:1;transform:scaleX(1.08)}}
 
     .page{position:relative;z-index:2}
     .hero{min-height:100vh;display:grid;place-items:center;padding:28px 16px}
@@ -90,16 +99,97 @@
       width:max-content;max-width:100%;display:inline-flex;align-items:center;gap:11px;padding:13px 20px;border-radius:999px;border:1px solid rgba(255,240,184,.72);background:rgba(255,248,236,.10);color:var(--gold-2);font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.20em;margin-bottom:30px;box-shadow:0 0 28px rgba(214,173,79,.20)
     }
     .mini-crown{font-size:25px;filter:drop-shadow(0 0 13px rgba(255,240,184,.95));animation:crownFloat 3s ease-in-out infinite}
-    .princess-crown{width:118px;height:78px;margin-bottom:18px;filter:drop-shadow(0 8px 18px rgba(214,173,79,.42))}
-    .name-wrap{position:relative;width:max-content;max-width:100%}
-    .name-wrap::after{content:"";display:block;width:82%;height:1px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold-2),transparent);box-shadow:0 0 18px rgba(255,240,184,.75)}
+
+    .royal-crown,.princess-tiara{
+      width:148px;
+      max-width:46vw;
+      height:auto;
+      display:block;
+      margin:0 0 22px;
+      filter:drop-shadow(0 14px 26px rgba(214,173,79,.38)) drop-shadow(0 0 24px rgba(255,240,184,.42));
+      animation:crownFloat 3.8s ease-in-out infinite;
+    }
+
+    .princess-inner .royal-crown,.princess-inner .princess-tiara{
+      width:172px;
+      margin:0 auto 12px;
+    }
+
+    .tiara-spark{
+      transform-origin:center;
+      animation:pulseGlow 2.9s ease-in-out infinite;
+    }
+
+    .name-wrap{position:relative;width:max-content;max-width:100%;text-align:center}
+    .name-wrap::before{content:"✧";position:absolute;left:-34px;top:22px;color:var(--gold-2);font-size:28px;text-shadow:0 0 18px rgba(255,240,184,.8)}
+    .name-wrap::after{content:"";display:block;width:88%;height:1px;margin:20px auto 0;background:linear-gradient(90deg,transparent,var(--gold-2),transparent);box-shadow:0 0 18px rgba(255,240,184,.75)}
 
     h1{
-      font-family:"Brush Script MT","Segoe Script","Snell Roundhand","Lucida Handwriting",cursive;
-      font-size:clamp(66px,10vw,132px);font-weight:500;line-height:.78;letter-spacing:.01em;color:#fffdf7;
-      text-shadow:0 3px 0 rgba(214,173,79,.70),0 12px 34px rgba(0,0,0,.42),0 0 45px rgba(255,240,184,.40);
+      margin:0;
+      line-height:.88;
+      color:#fffdf7;
+      text-align:center;
     }
-    h1 span{display:block;margin-top:22px;font-family:"Brush Script MT","Segoe Script","Snell Roundhand","Lucida Handwriting",cursive;font-size:clamp(45px,6.4vw,86px);font-weight:500;letter-spacing:.02em;color:#fff8ec;text-shadow:0 2px 0 rgba(214,173,79,.62),0 0 32px rgba(248,182,209,.42)}
+
+    h1 .first-name{
+      position:relative;
+      display:block;
+      width:max-content;
+      max-width:100%;
+      margin:0 auto;
+      padding:0 .08em 10px;
+      font-family:"Imperial Script","Great Vibes","Edwardian Script ITC","Bickham Script Pro","Segoe Script","Snell Roundhand",cursive;
+      font-size:clamp(92px,13.4vw,176px);
+      font-weight:400;
+      letter-spacing:-.055em;
+      word-spacing:-.12em;
+      text-transform:none;
+      color:transparent;
+      background:linear-gradient(90deg,#fffdf7 0%,#fff0b8 20%,#f8b6d1 38%,#ffffff 50%,#d6ad4f 66%,#fff8ec 82%,#fffdf7 100%);
+      background-size:240% auto;
+      -webkit-background-clip:text;
+      background-clip:text;
+      text-shadow:0 3px 0 rgba(214,173,79,.52),0 16px 38px rgba(0,0,0,.42),0 0 45px rgba(255,240,184,.42),0 0 26px rgba(248,182,209,.42);
+      animation:luxuryNameGlow 3.4s ease-in-out infinite,nameShimmer 6.5s linear infinite;
+      transform-origin:center;
+    }
+
+    h1 .first-name::before{
+      content:"";
+      position:absolute;
+      left:4%;
+      right:2%;
+      bottom:8px;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,transparent,rgba(255,240,184,.98),rgba(248,182,209,.82),rgba(255,240,184,.98),transparent);
+      box-shadow:0 0 22px rgba(255,240,184,.72),0 0 34px rgba(248,182,209,.26);
+      animation:flourishSweep 3.2s ease-in-out infinite;
+      transform-origin:center;
+    }
+
+    h1 .first-name::after{
+      content:"✦";
+      position:absolute;
+      right:-20px;
+      top:20px;
+      font-size:clamp(24px,3vw,38px);
+      color:#fff0b8;
+      text-shadow:0 0 18px rgba(255,240,184,.95),0 0 28px rgba(248,182,209,.55);
+      animation:pulseGlow 2.4s ease-in-out infinite;
+    }
+
+    h1 .last-name{
+      display:block;
+      margin-top:23px;
+      font-family:"Cormorant Garamond","Playfair Display",Georgia,serif;
+      font-size:clamp(25px,3.8vw,50px);
+      font-weight:700;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      color:#fff8ec;
+      text-shadow:0 2px 0 rgba(214,173,79,.50),0 0 28px rgba(248,182,209,.42);
+    }
 
     .subtitle{max-width:700px;margin-top:28px;font-size:clamp(17px,2.2vw,22px);color:#fff9ef;line-height:1.72;text-shadow:0 8px 24px rgba(0,0,0,.34)}
     .event-row{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:36px;max-width:800px}
@@ -290,7 +380,7 @@
       font-weight:700;
     }
 
-    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats,.music-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1{font-size:clamp(58px,17vw,92px)}h1 span{font-size:clamp(38px,12vw,64px)}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats,.music-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1 .first-name{font-size:clamp(78px,22vw,118px);letter-spacing:-.065em}h1 .first-name::after{right:0;top:10px}h1 .last-name{font-size:clamp(20px,5.2vw,32px);letter-spacing:.14em}.name-wrap::before{display:none}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
   </style>
 </head>
 <body>
@@ -302,45 +392,45 @@
       <div class="invite-card">
         <div class="hero-grid">
           <div class="hero-left">
-            <div class="badge"><span class="mini-crown">♕</span> Invitación Royal Premium</div>
+            <div class="badge"><span class="mini-crown">👑</span> Invitación Princess Royal</div>
 
-            <svg class="royal-crown" viewBox="0 0 320 220" aria-label="Corona de princesa premium">
+            <svg class="princess-tiara" viewBox="0 0 360 210" aria-label="Tiara de princesa premium">
               <defs>
-                <linearGradient id="royalGoldA" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#fff9d8"/>
-                  <stop offset="22%" stop-color="#f6d477"/>
-                  <stop offset="48%" stop-color="#b98522"/>
-                  <stop offset="72%" stop-color="#fff1a8"/>
+                <linearGradient id="tiaraGoldA" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fffbe6"/>
+                  <stop offset="20%" stop-color="#ffe08a"/>
+                  <stop offset="48%" stop-color="#c28a28"/>
+                  <stop offset="74%" stop-color="#fff3b7"/>
                   <stop offset="100%" stop-color="#d6ad4f"/>
                 </linearGradient>
-                <linearGradient id="royalPinkA" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#fff0f7"/>
-                  <stop offset="55%" stop-color="#f8b6d1"/>
+                <linearGradient id="tiaraRoseA" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fff5fa"/>
+                  <stop offset="52%" stop-color="#f8b6d1"/>
                   <stop offset="100%" stop-color="#ec79ae"/>
                 </linearGradient>
-                <filter id="crownShadowA" x="-40%" y="-40%" width="180%" height="180%">
-                  <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity=".35"/>
-                  <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#fff0b8" flood-opacity=".65"/>
+                <filter id="tiaraGlowA" x="-45%" y="-45%" width="190%" height="190%">
+                  <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000000" flood-opacity=".30"/>
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#fff0b8" flood-opacity=".72"/>
                 </filter>
               </defs>
-              <g filter="url(#crownShadowA)">
-                <path d="M38 163 L62 67 L113 125 L160 42 L207 125 L258 67 L282 163 Z" fill="url(#royalGoldA)" stroke="#fff7cf" stroke-width="6" stroke-linejoin="round"/>
-                <path d="M58 154 L78 91 L116 136 L160 66 L204 136 L242 91 L262 154 Z" fill="rgba(255,255,255,.13)" stroke="rgba(255,255,255,.36)" stroke-width="2"/>
-                <rect x="47" y="151" width="226" height="42" rx="21" fill="url(#royalGoldA)" stroke="#fff7cf" stroke-width="6"/>
-                <path d="M70 171 H250" stroke="#8f6418" stroke-width="3" opacity=".45"/>
-                <circle cx="62" cy="66" r="15" fill="url(#royalPinkA)" stroke="#fff7cf" stroke-width="5"/>
-                <circle cx="160" cy="42" r="17" fill="#fff7cf" stroke="#d6ad4f" stroke-width="5"/>
-                <circle cx="258" cy="66" r="15" fill="url(#royalPinkA)" stroke="#fff7cf" stroke-width="5"/>
-                <ellipse cx="160" cy="128" rx="18" ry="24" fill="url(#royalPinkA)" stroke="#fff7cf" stroke-width="5"/>
-                <circle cx="112" cy="137" r="11" fill="#fff7cf" opacity=".95"/>
-                <circle cx="208" cy="137" r="11" fill="#fff7cf" opacity=".95"/>
-                <path class="gleam" d="M30 42 L60 24 L298 176 L269 197 Z" fill="rgba(255,255,255,.23)"/>
+              <g filter="url(#tiaraGlowA)">
+                <path d="M36 151 C82 116 99 70 125 119 C146 70 164 42 180 22 C196 42 214 70 235 119 C261 70 278 116 324 151" fill="none" stroke="url(#tiaraGoldA)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58 153 C104 124 130 135 180 135 C230 135 256 124 302 153" fill="none" stroke="#fff7cf" stroke-width="6" stroke-linecap="round" opacity=".78"/>
+                <rect x="50" y="145" width="260" height="34" rx="17" fill="url(#tiaraGoldA)" stroke="#fff7cf" stroke-width="5"/>
+                <path d="M76 161 H284" stroke="#8f6418" stroke-width="3" opacity=".36"/>
+                <path d="M180 54 L198 84 L180 114 L162 84 Z" fill="url(#tiaraRoseA)" stroke="#fff7cf" stroke-width="5"/>
+                <path d="M126 103 L139 124 L126 145 L113 124 Z" fill="#fff7cf" stroke="#d6ad4f" stroke-width="4"/>
+                <path d="M234 103 L247 124 L234 145 L221 124 Z" fill="#fff7cf" stroke="#d6ad4f" stroke-width="4"/>
+                <circle cx="86" cy="146" r="9" fill="url(#tiaraRoseA)" stroke="#fff7cf" stroke-width="4"/>
+                <circle cx="274" cy="146" r="9" fill="url(#tiaraRoseA)" stroke="#fff7cf" stroke-width="4"/>
+                <path class="tiara-spark" d="M294 40 L304 62 L328 72 L304 82 L294 105 L284 82 L260 72 L284 62 Z" fill="#fff7cf" opacity=".85"/>
+                <path class="tiara-spark" d="M64 46 L72 63 L91 71 L72 79 L64 96 L56 79 L37 71 L56 63 Z" fill="#fff7cf" opacity=".72"/>
               </g>
             </svg>
 
-            <div class="name-wrap"><h1>Yomaris<br><span>Arce Delgado</span></h1></div>
+            <div class="name-wrap"><h1><span class="first-name">Yomaris M</span><span class="last-name">Arce Delgado</span></h1></div>
 
-            <p class="subtitle">Con mucho amor y alegría, te invitamos a celebrar una noche mágica: los quince años de Yomaris Arce Delgado. Una celebración elegante, familiar y llena de recuerdos inolvidables.</p>
+            <p class="subtitle">Con mucho amor y alegría, te invitamos a celebrar una noche mágica: los quince años de YOMARIS M ARCE DELGADO. Una celebración elegante, familiar y llena de recuerdos inolvidables.</p>
 
             <div class="event-row">
               <div class="event-box"><small>Fecha</small><strong>20 de junio 2026</strong></div>
@@ -357,41 +447,41 @@
           <div class="hero-right">
             <div class="princess-frame">
               <div class="princess-inner">
-                <svg class="royal-crown" viewBox="0 0 320 220" aria-label="Corona de princesa premium">
+                <svg class="princess-tiara" viewBox="0 0 360 210" aria-label="Tiara de princesa premium">
               <defs>
-                <linearGradient id="royalGoldB" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#fff9d8"/>
-                  <stop offset="22%" stop-color="#f6d477"/>
-                  <stop offset="48%" stop-color="#b98522"/>
-                  <stop offset="72%" stop-color="#fff1a8"/>
+                <linearGradient id="tiaraGoldB" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fffbe6"/>
+                  <stop offset="20%" stop-color="#ffe08a"/>
+                  <stop offset="48%" stop-color="#c28a28"/>
+                  <stop offset="74%" stop-color="#fff3b7"/>
                   <stop offset="100%" stop-color="#d6ad4f"/>
                 </linearGradient>
-                <linearGradient id="royalPinkB" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#fff0f7"/>
-                  <stop offset="55%" stop-color="#f8b6d1"/>
+                <linearGradient id="tiaraRoseB" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fff5fa"/>
+                  <stop offset="52%" stop-color="#f8b6d1"/>
                   <stop offset="100%" stop-color="#ec79ae"/>
                 </linearGradient>
-                <filter id="crownShadowB" x="-40%" y="-40%" width="180%" height="180%">
-                  <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity=".35"/>
-                  <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#fff0b8" flood-opacity=".65"/>
+                <filter id="tiaraGlowB" x="-45%" y="-45%" width="190%" height="190%">
+                  <feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#000000" flood-opacity=".30"/>
+                  <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#fff0b8" flood-opacity=".72"/>
                 </filter>
               </defs>
-              <g filter="url(#crownShadowB)">
-                <path d="M38 163 L62 67 L113 125 L160 42 L207 125 L258 67 L282 163 Z" fill="url(#royalGoldB)" stroke="#fff7cf" stroke-width="6" stroke-linejoin="round"/>
-                <path d="M58 154 L78 91 L116 136 L160 66 L204 136 L242 91 L262 154 Z" fill="rgba(255,255,255,.13)" stroke="rgba(255,255,255,.36)" stroke-width="2"/>
-                <rect x="47" y="151" width="226" height="42" rx="21" fill="url(#royalGoldB)" stroke="#fff7cf" stroke-width="6"/>
-                <path d="M70 171 H250" stroke="#8f6418" stroke-width="3" opacity=".45"/>
-                <circle cx="62" cy="66" r="15" fill="url(#royalPinkB)" stroke="#fff7cf" stroke-width="5"/>
-                <circle cx="160" cy="42" r="17" fill="#fff7cf" stroke="#d6ad4f" stroke-width="5"/>
-                <circle cx="258" cy="66" r="15" fill="url(#royalPinkB)" stroke="#fff7cf" stroke-width="5"/>
-                <ellipse cx="160" cy="128" rx="18" ry="24" fill="url(#royalPinkB)" stroke="#fff7cf" stroke-width="5"/>
-                <circle cx="112" cy="137" r="11" fill="#fff7cf" opacity=".95"/>
-                <circle cx="208" cy="137" r="11" fill="#fff7cf" opacity=".95"/>
-                <path class="gleam" d="M30 42 L60 24 L298 176 L269 197 Z" fill="rgba(255,255,255,.23)"/>
+              <g filter="url(#tiaraGlowB)">
+                <path d="M36 151 C82 116 99 70 125 119 C146 70 164 42 180 22 C196 42 214 70 235 119 C261 70 278 116 324 151" fill="none" stroke="url(#tiaraGoldB)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58 153 C104 124 130 135 180 135 C230 135 256 124 302 153" fill="none" stroke="#fff7cf" stroke-width="6" stroke-linecap="round" opacity=".78"/>
+                <rect x="50" y="145" width="260" height="34" rx="17" fill="url(#tiaraGoldB)" stroke="#fff7cf" stroke-width="5"/>
+                <path d="M76 161 H284" stroke="#8f6418" stroke-width="3" opacity=".36"/>
+                <path d="M180 54 L198 84 L180 114 L162 84 Z" fill="url(#tiaraRoseB)" stroke="#fff7cf" stroke-width="5"/>
+                <path d="M126 103 L139 124 L126 145 L113 124 Z" fill="#fff7cf" stroke="#d6ad4f" stroke-width="4"/>
+                <path d="M234 103 L247 124 L234 145 L221 124 Z" fill="#fff7cf" stroke="#d6ad4f" stroke-width="4"/>
+                <circle cx="86" cy="146" r="9" fill="url(#tiaraRoseB)" stroke="#fff7cf" stroke-width="4"/>
+                <circle cx="274" cy="146" r="9" fill="url(#tiaraRoseB)" stroke="#fff7cf" stroke-width="4"/>
+                <path class="tiara-spark" d="M294 40 L304 62 L328 72 L304 82 L294 105 L284 82 L260 72 L284 62 Z" fill="#fff7cf" opacity=".85"/>
+                <path class="tiara-spark" d="M64 46 L72 63 L91 71 L72 79 L64 96 L56 79 L37 71 L56 63 Z" fill="#fff7cf" opacity=".72"/>
               </g>
             </svg>
                 <div class="flourish">✦ ✧ ✦</div><div class="elegant-15">15</div><div class="flourish">❦</div>
-                <p>Una celebración royal para una princesa en su noche especial.</p>
+                <p>Una noche de princesa, elegante y llena de magia.</p>
               </div>
             </div>
           </div>
@@ -402,7 +492,7 @@
     <section class="section" id="contador">
       <div class="wrap">
         <h2 class="section-title">Cuenta Regresiva</h2>
-        <p class="section-sub">Cada día nos acerca más a una noche especial, llena de amor, alegría y bendiciones para Yomaris.</p>
+        <p class="section-sub">Cada día nos acerca más a una noche especial, llena de amor, alegría y bendiciones para YOMARIS.</p>
         <div class="countdown">
           <div class="timebox"><b id="days">00</b><span>Días</span></div>
           <div class="timebox"><b id="hours">00</b><span>Horas</span></div>
@@ -424,7 +514,7 @@
               <div class="field"><label for="phone">Teléfono / WhatsApp</label><input id="phone" name="phone" type="tel" placeholder="Ej. 787-000-0000" required /></div>
               <div class="field"><label for="guests">Cantidad de acompañantes</label><select id="guests" name="guests" required><option value="">Selecciona</option><option value="0">Solo yo</option><option value="1">1 acompañante</option><option value="2">2 acompañantes</option><option value="3">3 acompañantes</option><option value="4">4 acompañantes</option></select></div>
               <div class="field"><label for="attendance">Confirmación</label><select id="attendance" name="attendance" required><option value="">Selecciona</option><option value="Sí asistiré">Sí asistiré</option><option value="No podré asistir">No podré asistir</option></select></div>
-              <div class="field full"><label for="message">Mensaje especial para Yomaris</label><textarea id="message" name="message" placeholder="Escribe un mensaje bonito para la quinceañera..."></textarea></div>
+              <div class="field full"><label for="message">Mensaje especial para YOMARIS</label><textarea id="message" name="message" placeholder="Escribe un mensaje bonito para la quinceañera..."></textarea></div>
             </div>
             <div class="form-actions"><button class="btn" type="submit">Generar QR y enviar por WhatsApp</button></div>
           </form>
@@ -485,7 +575,7 @@
       <div class="wrap">
         <h2 class="section-title">Entretenimiento</h2>
         <p class="section-sub">
-          Una noche preparada con música, alegría y ambiente elegante para celebrar los quince años de Yomaris.
+          Una noche preparada con música, alegría y ambiente elegante para celebrar los quince años de YOMARIS.
         </p>
 
         <div class="music-grid">
@@ -522,7 +612,7 @@
       </div>
     </section>
 
-    <footer>Invitación digital creada con amor para la quinceañera de Yomaris Arce Delgado ✨</footer>
+    <footer>Invitación digital creada con amor para la princesa YOMARIS M ARCE DELGADO ✨</footer>
   </main>
 
   <div class="toast" id="toast">Listo</div>
@@ -564,7 +654,7 @@
       document.body.innerHTML = `
         <main class="admin-locked">
           <div class="admin-login-card">
-            <div class="mini-crown" style="font-size:52px;margin-bottom:8px;">♕</div>
+            <div class="mini-crown" style="font-size:52px;margin-bottom:8px;">👑</div>
             <h1>Acceso Admin</h1>
             <p>Panel privado para ver registros, nombres, códigos QR y cantidad de invitados.</p>
             <input id="adminAccessInput" type="password" placeholder="Código de acceso" autocomplete="off" />
@@ -604,7 +694,7 @@
 
     if(isAdminPage && hasAdminAccess()){
       document.body.classList.add("admin-mode");
-      document.title = "Panel Admin | Invitación Yomaris";
+      document.title = "Panel Admin | Invitación YOMARIS";
     }
 
     // =====================================================
@@ -627,7 +717,7 @@
     if(petals){
       for(let i = 0; i < 24; i++){
         const p = document.createElement("span");
-        p.innerHTML = Math.random() > .5 ? "15" : "♕";
+        p.innerHTML = Math.random() > .5 ? "15" : "✧";
         p.style.left = Math.random() * 100 + "%";
         p.style.animationDuration = (8 + Math.random() * 10) + "s";
         p.style.animationDelay = (Math.random() * 8) + "s";
@@ -683,7 +773,7 @@
     const vipCodeBox = document.getElementById("vipCode");
     const guestSummary = document.getElementById("guestSummary");
     const toast = document.getElementById("toast");
-    const STORAGE_KEY = "invitadosYomarisBackup";
+    const STORAGE_KEY = "invitadosYOMARISBackup";
     let lastRecord = null;
 
     function showToast(text){
@@ -732,7 +822,7 @@
     }
 
     function whatsappMessage(record){
-      return `✨ Pase Digital Quinceañera Yomaris Arce Delgado ✨
+      return `✨ Pase Digital Quinceañera YOMARIS M ARCE DELGADO ✨
 
 Hola ${record.invitado}, tu registro fue creado correctamente.
 
@@ -757,11 +847,15 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       }
     }
 
-    function generateQr(record){
-      if(!qrcodeBox) return;
+    function wait(ms){
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function generateQr(record){
+      if(!qrcodeBox) return null;
 
       const payload = {
-        evento:"Quinceañera Yomaris Arce Delgado",
+        evento:"Quinceañera YOMARIS M ARCE DELGADO",
         fecha:"20 de junio 2026",
         hora:"6:00 PM",
         invitado:record.invitado,
@@ -785,23 +879,61 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
             colorLight:"#ffffff",
             correctLevel:QRCode.CorrectLevel.H
           });
-          return;
+
+          // Espera a que qrcodejs termine de pintar canvas/img
+          await wait(350);
+
+          const canvas = qrcodeBox.querySelector("canvas");
+          const img = qrcodeBox.querySelector("img");
+
+          if(canvas) return canvas;
+          if(img){
+            await wait(350);
+            return img;
+          }
         }
       }catch(err){
-        console.warn("QRCode local falló, usando imagen externa", err);
+        console.warn("QRCode local falló:", err);
       }
 
-      // Fallback seguro: genera QR con imagen externa.
-      // Esto evita que el QR se quede en blanco si la librería QRCode no carga.
+      // Fallback visible si la librería no carga.
+      // Nota: esta imagen se ve en pantalla, pero algunos navegadores no dejan copiarla al canvas.
       const img = document.createElement("img");
       img.alt = "Código QR";
       img.width = 250;
       img.height = 250;
+      img.crossOrigin = "anonymous";
       img.style.width = "250px";
       img.style.height = "250px";
       img.style.display = "block";
       img.src = "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + encodeURIComponent(qrText);
       qrcodeBox.appendChild(img);
+
+      try{
+        await new Promise((resolve) => {
+          img.onload = resolve;
+          img.onerror = resolve;
+          setTimeout(resolve, 2000);
+        });
+      }catch(err){}
+
+      return img;
+    }
+
+    async function ensureQrReady(record){
+      let qrCanvas = qrcodeBox?.querySelector("canvas");
+      let qrImg = qrcodeBox?.querySelector("img");
+
+      if(qrCanvas) return qrCanvas;
+      if(qrImg && qrImg.complete) return qrImg;
+
+      await generateQr(record);
+      await wait(450);
+
+      qrCanvas = qrcodeBox?.querySelector("canvas");
+      qrImg = qrcodeBox?.querySelector("img");
+
+      return qrCanvas || qrImg || null;
     }
 
     async function registerGuestInSupabase(data){
@@ -817,7 +949,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
         special_message: data.special_message || null,
         qr_code: code,
         qr_payload: {
-          evento:"Quinceañera Yomaris Arce Delgado",
+          evento:"Quinceañera YOMARIS M ARCE DELGADO",
           fecha:"20 de junio 2026",
           hora:"6:00 PM",
           invitado:data.full_name,
@@ -887,9 +1019,16 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
           }
 
           lastRecord = record;
-          localStorage.setItem("ultimoPaseYomaris", JSON.stringify(record));
+          localStorage.setItem("ultimoPaseYOMARIS", JSON.stringify(record));
 
-          generateQr(record);
+          // Respaldo local para que el admin cuente aunque Supabase falle o estés probando en local.
+          const localBackup = localGetGuests();
+          if(!localBackup.some(g => g.codigo === record.codigo || g.id === record.id)){
+            localBackup.unshift(record);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(localBackup));
+          }
+
+          await generateQr(record);
 
           if(vipCodeBox) vipCodeBox.textContent = record.codigo;
           if(guestSummary){
@@ -937,7 +1076,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
     if(sendWhatsappBtn){
       sendWhatsappBtn.textContent = "Compartir pase por WhatsApp";
       sendWhatsappBtn.addEventListener("click", async function(){
-        lastRecord = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYomaris") || "null");
+        lastRecord = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYOMARIS") || "null");
         if(lastRecord){
           await sharePassImage(lastRecord);
         }else{
@@ -947,8 +1086,8 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
     }
 
     async function createPassCanvas(record){
-      const qrCanvas = qrcodeBox?.querySelector("canvas");
-      const qrImg = qrcodeBox?.querySelector("img");
+      const qrElement = await ensureQrReady(record);
+
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
 
@@ -973,11 +1112,11 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       ctx.fillText("PASE DIGITAL",450,150);
 
       ctx.fillStyle = "#ffffff";
-      ctx.font = "80px Georgia";
-      ctx.fillText("Yomaris",450,250);
+      ctx.font = "96px Great Vibes, Segoe Script, Georgia";
+      ctx.fillText("Yomaris M",450,250);
 
       ctx.fillStyle = "#fff8ec";
-      ctx.font = "bold 36px Segoe UI";
+      ctx.font = "bold 34px Playfair Display, Georgia";
       ctx.fillText("ARCE DELGADO",450,310);
 
       ctx.fillStyle = "#fff0b8";
@@ -987,27 +1126,25 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       ctx.fillStyle = "#ffffff";
       roundRect(ctx,275,440,350,350,30,true,false);
 
-      if(qrCanvas){
-        ctx.drawImage(qrCanvas,305,470,290,290);
-      }else if(qrImg){
+      let qrDrawn = false;
+
+      if(qrElement){
         try{
-          if(!qrImg.complete){
-            await new Promise((resolve,reject) => {
-              qrImg.onload = resolve;
-              qrImg.onerror = reject;
-              setTimeout(resolve, 1800);
-            });
-          }
-          ctx.drawImage(qrImg,305,470,290,290);
+          ctx.drawImage(qrElement,305,470,290,290);
+          qrDrawn = true;
         }catch(err){
-          ctx.fillStyle = "#3c1230";
-          ctx.font = "bold 24px Segoe UI";
-          ctx.fillText(record.codigo || "YOM-000000",450,620);
+          console.warn("No se pudo dibujar QR en el pase:", err);
         }
-      }else{
+      }
+
+      if(!qrDrawn){
         ctx.fillStyle = "#3c1230";
-        ctx.font = "bold 24px Segoe UI";
-        ctx.fillText(record.codigo || "YOM-000000",450,620);
+        ctx.font = "bold 28px Segoe UI";
+        ctx.fillText("CÓDIGO DE ENTRADA",450,590);
+        ctx.font = "bold 32px Segoe UI";
+        ctx.fillText(record.codigo || "YOM-000000",450,640);
+        ctx.font = "20px Segoe UI";
+        ctx.fillText("Presenta este código si el QR no carga",450,690);
       }
 
       ctx.fillStyle = "#ffffff";
@@ -1033,7 +1170,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
     async function downloadPassImage(record){
       const canvas = await createPassCanvas(record);
       const link = document.createElement("a");
-      link.download = "pase-yomaris-arce-delgado.png";
+      link.download = "pase-yomaris-m-arce-delgado.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
       showToast("Pase descargado como imagen");
@@ -1050,9 +1187,9 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
             return;
           }
 
-          const file = new File([blob], "pase-yomaris-arce-delgado.png", {type:"image/png"});
+          const file = new File([blob], "pase-yomaris-m-arce-delgado.png", {type:"image/png"});
           const shareData = {
-            title:"Pase QR Yomaris Arce Delgado",
+            title:"Pase QR YOMARIS M ARCE DELGADO",
             text:whatsappMessage(record),
             files:[file]
           };
@@ -1080,7 +1217,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
     if(downloadPassBtn){
       downloadPassBtn.textContent = "Descargar pase QR";
       downloadPassBtn.addEventListener("click", async function(){
-        const record = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYomaris") || "{}");
+        const record = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYOMARIS") || "{}");
         await downloadPassImage(record);
       });
     }
@@ -1103,24 +1240,39 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
     // ADMIN PANEL
     // =====================================================
     async function fetchGuests(){
+      const localGuests = localGetGuests();
+
       if(SUPABASE_READY){
         const { data, error } = await supabaseClient
           .from("yomaris_guests")
           .select("*")
           .order("created_at", { ascending:false });
 
-        if(error) throw error;
-        return (data || []).map(mapDbRecord);
+        if(error){
+          console.warn("Supabase falló, usando respaldo local:", error);
+          return localGuests;
+        }
+
+        const dbGuests = (data || []).map(mapDbRecord);
+        const merged = [...dbGuests];
+
+        localGuests.forEach(localGuest => {
+          if(!merged.some(g => g.codigo === localGuest.codigo || g.id === localGuest.id)){
+            merged.push(localGuest);
+          }
+        });
+
+        return merged;
       }
 
-      return localGetGuests();
+      return localGuests;
     }
 
     async function renderAdmin(){
       const list = document.getElementById("guestList");
-      const totalRegistros = document.getElementById("totalRegistros");
-      const totalPersonas = document.getElementById("totalPersonas");
-      const totalAsistiran = document.getElementById("totalAsistiran");
+      const totalRegistros = document.getElementById("statRegisters");
+      const totalPersonas = document.getElementById("statPeople");
+      const totalAsistiran = document.getElementById("statYes");
       const searchInput = document.getElementById("adminSearch");
 
       if(!list) return;
@@ -1137,7 +1289,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
         });
 
         const willAttend = allGuests.filter(g => g.confirmacion === "Sí asistiré");
-        const totalPeople = willAttend.reduce((sum,g) => sum + Number(g.total_personas || 0), 0);
+        const totalPeople = allGuests.reduce((sum,g) => sum + Number(g.total_personas || 0), 0);
 
         if(totalRegistros) totalRegistros.textContent = allGuests.length;
         if(totalPersonas) totalPersonas.textContent = totalPeople;
@@ -1212,7 +1364,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
     const refreshAdminBtn = document.getElementById("refreshAdmin");
     if(refreshAdminBtn) refreshAdminBtn.addEventListener("click", renderAdmin);
 
-    const exportCsvBtn = document.getElementById("exportCsv");
+    const exportCsvBtn = document.getElementById("exportCSV");
     if(exportCsvBtn){
       exportCsvBtn.addEventListener("click", async function(){
         try{
@@ -1236,7 +1388,7 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
           const url = URL.createObjectURL(blob);
           const link = document.createElement("a");
           link.href = url;
-          link.download = "invitados-yomaris.csv";
+          link.download = "invitados-yomaris-m-arce-delgado.csv";
           link.click();
           URL.revokeObjectURL(url);
           showToast("CSV descargado");
