@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación Quinceañera | Yomaris Arce Delgado</title>
+
+  <style>
+    :root{
+      --rose:#f8b6d1;
+      --rose-2:#ec79ae;
+      --rose-deep:#6f254f;
+      --gold:#d6ad4f;
+      --gold-2:#fff0b8;
+      --cream:#fff8ec;
+      --ink:#2a0922;
+      --wine:#3b0f30;
+      --panel:rgba(55,13,45,.78);
+      --panel-soft:rgba(255,248,236,.12);
+      --line:rgba(255,232,164,.48);
+      --white:#fff;
+      --shadow:0 35px 110px rgba(33,5,27,.48);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      min-height:100vh;
+      font-family:"Segoe UI", system-ui, -apple-system, sans-serif;
+      color:var(--cream);
+      background:
+        radial-gradient(circle at 15% 8%, rgba(248,182,209,.52), transparent 27%),
+        radial-gradient(circle at 84% 10%, rgba(255,240,184,.34), transparent 28%),
+        radial-gradient(circle at 50% 92%, rgba(248,182,209,.30), transparent 33%),
+        linear-gradient(135deg,#26061f 0%,#491236 34%,#9f4776 66%,#f4aac8 100%);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,.05),rgba(255,255,255,.01)),
+        radial-gradient(circle,rgba(255,240,184,.20) 1px,transparent 1.8px);
+      background-size:auto,38px 38px;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .sparkles,.petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+    .sparkles span{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 18px var(--gold-2),0 0 34px rgba(214,173,79,.9);animation:floatUp linear infinite}
+    .petals span{position:absolute;color:rgba(255,248,236,.82);font-size:20px;text-shadow:0 0 18px rgba(248,182,209,.95);animation:petalFall linear infinite}
+
+    @keyframes floatUp{0%{transform:translateY(112vh) scale(.4);opacity:0}15%{opacity:1}100%{transform:translateY(-15vh) scale(1.25);opacity:0}}
+    @keyframes petalFall{0%{transform:translateY(-12vh) translateX(0) rotate(0deg);opacity:0}12%{opacity:1}100%{transform:translateY(112vh) translateX(70px) rotate(360deg);opacity:0}}
+    @keyframes reveal{from{opacity:0;transform:translateY(34px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes shine{0%,35%{left:-150%;top:-10%}70%,100%{left:120%;top:80%}}
+    @keyframes crownFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-7px) rotate(5deg)}}
+    @keyframes photoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes pulseGlow{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+
+    .page{position:relative;z-index:2}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:28px 16px}
+
+    .invite-card{
+      width:min(1180px,100%);
+      border-radius:46px;
+      border:1px solid rgba(255,240,184,.78);
+      background:
+        linear-gradient(145deg,rgba(58,12,48,.86),rgba(70,17,55,.72)),
+        radial-gradient(circle at top right,rgba(255,240,184,.20),transparent 34%),
+        radial-gradient(circle at bottom left,rgba(248,182,209,.22),transparent 38%);
+      backdrop-filter:blur(22px);
+      box-shadow:var(--shadow), inset 0 0 70px rgba(255,255,255,.07);
+      overflow:hidden;
+      position:relative;
+      animation:reveal .9s ease both;
+    }
+
+    .invite-card::before{content:"";position:absolute;inset:18px;border-radius:34px;border:1px solid rgba(214,173,79,.38);pointer-events:none}
+    .invite-card::after{content:"";position:absolute;width:180%;height:120px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);transform:rotate(28deg);left:-150%;top:-10%;animation:shine 5.5s ease-in-out infinite;pointer-events:none}
+
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;min-height:720px}
+    .hero-left{padding:64px 50px;display:flex;flex-direction:column;justify-content:center}
+    .hero-right{padding:36px;display:grid;place-items:center;border-left:1px solid rgba(214,173,79,.25);background:radial-gradient(circle at center,rgba(255,240,184,.20),transparent 42%),linear-gradient(160deg,rgba(255,248,236,.10),rgba(255,255,255,.04))}
+
+    .badge,.admin-pill{
+      width:max-content;max-width:100%;display:inline-flex;align-items:center;gap:11px;padding:13px 20px;border-radius:999px;border:1px solid rgba(255,240,184,.72);background:rgba(255,248,236,.10);color:var(--gold-2);font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.20em;margin-bottom:30px;box-shadow:0 0 28px rgba(214,173,79,.20)
+    }
+    .mini-crown{font-size:25px;filter:drop-shadow(0 0 13px rgba(255,240,184,.95));animation:crownFloat 3s ease-in-out infinite}
+    .princess-crown{width:118px;height:78px;margin-bottom:18px;filter:drop-shadow(0 8px 18px rgba(214,173,79,.42))}
+    .name-wrap{position:relative;width:max-content;max-width:100%}
+    .name-wrap::after{content:"";display:block;width:82%;height:1px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--gold-2),transparent);box-shadow:0 0 18px rgba(255,240,184,.75)}
+
+    h1{
+      font-family:"Brush Script MT","Segoe Script","Snell Roundhand","Lucida Handwriting",cursive;
+      font-size:clamp(66px,10vw,132px);font-weight:500;line-height:.78;letter-spacing:.01em;color:#fffdf7;
+      text-shadow:0 3px 0 rgba(214,173,79,.70),0 12px 34px rgba(0,0,0,.42),0 0 45px rgba(255,240,184,.40);
+    }
+    h1 span{display:block;margin-top:22px;font-family:"Brush Script MT","Segoe Script","Snell Roundhand","Lucida Handwriting",cursive;font-size:clamp(45px,6.4vw,86px);font-weight:500;letter-spacing:.02em;color:#fff8ec;text-shadow:0 2px 0 rgba(214,173,79,.62),0 0 32px rgba(248,182,209,.42)}
+
+    .subtitle{max-width:700px;margin-top:28px;font-size:clamp(17px,2.2vw,22px);color:#fff9ef;line-height:1.72;text-shadow:0 8px 24px rgba(0,0,0,.34)}
+    .event-row{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:36px;max-width:800px}
+    .event-box{padding:18px 14px;border-radius:24px;border:1px solid rgba(255,240,184,.40);background:rgba(255,248,236,.10);box-shadow:inset 0 0 22px rgba(255,255,255,.05)}
+    .event-box small{display:block;color:var(--gold-2);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:7px;font-weight:950}
+    .event-box strong{font-size:16px;color:#fff;font-weight:900}
+
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .btn{border:0;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:54px;padding:15px 26px;border-radius:999px;font-weight:950;letter-spacing:.02em;color:#421231;background:linear-gradient(135deg,var(--cream),var(--gold-2) 42%,var(--rose));box-shadow:0 20px 48px rgba(233,106,162,.28);transition:.25s ease}
+    .btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 26px 60px rgba(214,173,79,.34)}
+    .btn.secondary{color:#fff8e6;background:rgba(255,255,255,.10);border:1px solid rgba(255,240,184,.58);box-shadow:none}
+    .btn.danger{color:#fff;background:linear-gradient(135deg,#8b173a,#d84871);box-shadow:0 20px 48px rgba(216,72,113,.24)}
+    .btn.small{min-height:40px;padding:10px 16px;font-size:13px}
+
+    .princess-frame{width:min(430px,92%);aspect-ratio:3/4;border-radius:46px;border:1px solid rgba(255,240,184,.78);background:radial-gradient(circle at 50% 18%,rgba(255,255,255,.18),transparent 26%),linear-gradient(160deg,rgba(255,248,236,.16),rgba(248,182,209,.18)),linear-gradient(135deg,#f8b6d1,#8d3865 52%,#350b2c);box-shadow:0 34px 86px rgba(0,0,0,.32),inset 0 0 60px rgba(255,255,255,.12);display:grid;place-items:center;text-align:center;padding:34px;position:relative;overflow:hidden;animation:photoFloat 4s ease-in-out infinite}
+    .princess-frame::before{content:"";position:absolute;inset:16px;border-radius:34px;border:1px solid rgba(255,248,236,.38)}
+    .princess-frame::after{content:"";position:absolute;width:120%;height:120%;background:radial-gradient(circle at center,rgba(255,240,184,.20),transparent 50%);animation:pulseGlow 4s ease-in-out infinite}
+    .princess-inner{position:relative;z-index:1}
+    .elegant-15{position:relative;display:inline-block;font-family:Georgia,"Times New Roman",serif;font-size:clamp(112px,14vw,172px);line-height:.75;font-weight:400;color:var(--cream);text-shadow:0 2px 0 rgba(214,173,79,.80),0 16px 36px rgba(0,0,0,.34),0 0 40px rgba(255,240,184,.44);margin:8px 0 18px}
+    .elegant-15::before,.elegant-15::after{content:"";position:absolute;top:50%;width:74px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-2));box-shadow:0 0 18px rgba(255,240,184,.75)}
+    .elegant-15::before{right:105%;transform:translateY(-50%)}.elegant-15::after{left:105%;transform:translateY(-50%) scaleX(-1)}
+    .flourish{color:var(--gold-2);font-family:Georgia,serif;font-size:34px;letter-spacing:.15em;margin-top:-3px;text-shadow:0 0 20px rgba(214,173,79,.55)}
+    .princess-inner p{margin-top:18px;color:#fff9ef;line-height:1.65;font-size:17px;text-shadow:0 6px 18px rgba(0,0,0,.28)}
+
+    .section{padding:82px 16px}.wrap{width:min(1120px,100%);margin:auto}
+    .section-title{text-align:center;font-family:"Brush Script MT","Segoe Script","Snell Roundhand","Lucida Handwriting",cursive;font-size:clamp(48px,7vw,84px);font-weight:500;line-height:.95;color:#fffdf7;text-shadow:0 2px 0 rgba(214,173,79,.58),0 12px 34px rgba(0,0,0,.35),0 0 30px rgba(248,182,209,.35);margin-bottom:18px}
+    .section-sub{max-width:840px;margin:0 auto 34px;text-align:center;color:#fff9ef;line-height:1.75;font-size:18px;text-shadow:0 8px 20px rgba(0,0,0,.24)}
+    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;max-width:860px;margin:36px auto 0}
+    .timebox{text-align:center;padding:26px 14px;border-radius:28px;border:1px solid rgba(255,240,184,.42);background:linear-gradient(145deg,rgba(55,13,45,.72),rgba(255,255,255,.08));box-shadow:0 20px 55px rgba(0,0,0,.28)}
+    .timebox b{display:block;font-family:Georgia,serif;font-size:clamp(34px,6vw,58px);color:var(--gold-2);text-shadow:0 0 22px rgba(214,173,79,.35)}
+    .timebox span{display:block;margin-top:5px;font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#fff9ef}
+
+    .register-card,.success,.admin-panel{max-width:960px;margin:auto;border-radius:38px;border:1px solid rgba(255,240,184,.52);background:linear-gradient(145deg,rgba(55,13,45,.82),rgba(255,255,255,.08)),radial-gradient(circle at top right,rgba(255,240,184,.13),transparent 36%),radial-gradient(circle at bottom left,rgba(248,182,209,.15),transparent 40%);box-shadow:var(--shadow);padding:34px;position:relative;overflow:hidden}
+    .register-card::before,.admin-panel::before{content:"♕";position:absolute;right:28px;top:18px;font-size:56px;color:rgba(255,240,184,.25)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}
+    label{color:var(--gold-2);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:950}
+    input,select,textarea{width:100%;border:1px solid rgba(255,240,184,.45);outline:none;border-radius:19px;background:rgba(24,5,20,.58);color:#fff;padding:15px 16px;font-size:16px;box-shadow:inset 0 0 18px rgba(0,0,0,.16)}
+    textarea{min-height:112px;resize:vertical}input::placeholder,textarea::placeholder{color:rgba(255,248,236,.72)}
+    input:focus,select:focus,textarea:focus{border-color:rgba(255,240,184,.95);box-shadow:0 0 0 4px rgba(255,240,184,.14),inset 0 0 18px rgba(0,0,0,.16)}
+    option{background:#4b173b;color:#fff}.form-actions{display:flex;justify-content:center;margin-top:24px;gap:12px;flex-wrap:wrap}
+
+    .success{display:none;margin-top:34px;text-align:center}.success.show{display:block;animation:reveal .65s ease both}
+    .qr-wrap{width:min(330px,100%);margin:22px auto;padding:20px;border-radius:30px;background:#fff;box-shadow:0 20px 65px rgba(214,173,79,.30);display:grid;place-items:center;border:8px solid var(--gold-2)}
+    #qrcode canvas,#qrcode img{width:250px!important;height:250px!important;max-width:100%}
+    .vip-code{margin:16px auto 0;display:inline-flex;padding:12px 18px;border-radius:999px;border:1px solid rgba(255,240,184,.58);color:var(--gold-2);background:rgba(255,248,236,.10);font-weight:950;letter-spacing:.11em}
+    .mini-note{max-width:760px;margin:18px auto 0;color:#fff9ef;line-height:1.7}
+
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}.info-card{border-radius:28px;border:1px solid rgba(255,240,184,.38);background:rgba(55,13,45,.58);padding:24px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.22)}.info-card h3{color:var(--gold-2);margin-bottom:10px;font-size:18px}.info-card p{color:#fff9ef;line-height:1.6}
+
+    .admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}.stat-card{border:1px solid rgba(255,240,184,.38);background:rgba(255,248,236,.09);border-radius:24px;padding:18px}.stat-card small{display:block;text-transform:uppercase;letter-spacing:.14em;color:var(--gold-2);font-size:11px;font-weight:950}.stat-card b{display:block;margin-top:8px;color:#fff;font-size:34px;font-family:Georgia,serif}.admin-tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0}.admin-tools input{flex:1;min-width:230px}.guest-list{display:grid;gap:12px;margin-top:18px;max-height:520px;overflow:auto;padding-right:4px}.guest-item{border:1px solid rgba(255,240,184,.32);border-radius:24px;background:rgba(0,0,0,.18);padding:18px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}.guest-item h3{color:#fff;font-size:18px;margin-bottom:6px}.guest-item p{color:#fff9ef;line-height:1.55;font-size:14px}.guest-code{display:inline-flex;margin-top:8px;border-radius:999px;border:1px solid rgba(255,240,184,.45);padding:8px 11px;color:var(--gold-2);font-size:12px;font-weight:950;letter-spacing:.08em}.empty{border:1px dashed rgba(255,240,184,.42);border-radius:24px;padding:28px;text-align:center;color:#fff9ef;background:rgba(255,255,255,.06)}
+
+    footer{padding:45px 16px 58px;text-align:center;color:#fff9ef}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);z-index:20;padding:14px 18px;border-radius:999px;background:rgba(35,7,29,.96);border:1px solid rgba(255,240,184,.52);color:var(--gold-2);box-shadow:0 20px 50px rgba(0,0,0,.35);transition:.3s ease;pointer-events:none;text-align:center;width:max-content;max-width:calc(100% - 30px)}.toast.show{transform:translateX(-50%) translateY(0)}
+
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-right{border-left:0;border-top:1px solid rgba(214,173,79,.25)}.hero-left{padding:42px 22px}.event-row,.countdown,.info-grid,.admin-stats{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.invite-card{border-radius:32px}.register-card,.success,.admin-panel{padding:24px;border-radius:30px}.princess-frame{width:min(360px,94%)}.elegant-15::before,.elegant-15::after{width:38px}.name-wrap{width:100%}h1{font-size:clamp(58px,17vw,92px)}h1 span{font-size:clamp(38px,12vw,64px)}.guest-item{grid-template-columns:1fr}.guest-actions{display:flex;gap:8px;flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+  <div class="sparkles" id="sparkles"></div>
+  <div class="petals" id="petals"></div>
+
+  <main class="page">
+    <section class="hero" id="inicio">
+      <div class="invite-card">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <div class="badge"><span class="mini-crown">♕</span> Invitación Royal Premium</div>
+
+            <svg class="royal-crown" viewBox="0 0 320 220" aria-label="Corona de princesa premium">
+              <defs>
+                <linearGradient id="royalGoldA" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fff9d8"/>
+                  <stop offset="22%" stop-color="#f6d477"/>
+                  <stop offset="48%" stop-color="#b98522"/>
+                  <stop offset="72%" stop-color="#fff1a8"/>
+                  <stop offset="100%" stop-color="#d6ad4f"/>
+                </linearGradient>
+                <linearGradient id="royalPinkA" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fff0f7"/>
+                  <stop offset="55%" stop-color="#f8b6d1"/>
+                  <stop offset="100%" stop-color="#ec79ae"/>
+                </linearGradient>
+                <filter id="crownShadowA" x="-40%" y="-40%" width="180%" height="180%">
+                  <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity=".35"/>
+                  <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#fff0b8" flood-opacity=".65"/>
+                </filter>
+              </defs>
+              <g filter="url(#crownShadowA)">
+                <path d="M38 163 L62 67 L113 125 L160 42 L207 125 L258 67 L282 163 Z" fill="url(#royalGoldA)" stroke="#fff7cf" stroke-width="6" stroke-linejoin="round"/>
+                <path d="M58 154 L78 91 L116 136 L160 66 L204 136 L242 91 L262 154 Z" fill="rgba(255,255,255,.13)" stroke="rgba(255,255,255,.36)" stroke-width="2"/>
+                <rect x="47" y="151" width="226" height="42" rx="21" fill="url(#royalGoldA)" stroke="#fff7cf" stroke-width="6"/>
+                <path d="M70 171 H250" stroke="#8f6418" stroke-width="3" opacity=".45"/>
+                <circle cx="62" cy="66" r="15" fill="url(#royalPinkA)" stroke="#fff7cf" stroke-width="5"/>
+                <circle cx="160" cy="42" r="17" fill="#fff7cf" stroke="#d6ad4f" stroke-width="5"/>
+                <circle cx="258" cy="66" r="15" fill="url(#royalPinkA)" stroke="#fff7cf" stroke-width="5"/>
+                <ellipse cx="160" cy="128" rx="18" ry="24" fill="url(#royalPinkA)" stroke="#fff7cf" stroke-width="5"/>
+                <circle cx="112" cy="137" r="11" fill="#fff7cf" opacity=".95"/>
+                <circle cx="208" cy="137" r="11" fill="#fff7cf" opacity=".95"/>
+                <path class="gleam" d="M30 42 L60 24 L298 176 L269 197 Z" fill="rgba(255,255,255,.23)"/>
+              </g>
+            </svg>
+
+            <div class="name-wrap"><h1>Yomaris<br><span>Arce Delgado</span></h1></div>
+
+            <p class="subtitle">Con mucho amor y alegría, te invitamos a celebrar una noche mágica: los quince años de Yomaris Arce Delgado. Una celebración elegante, familiar y llena de recuerdos inolvidables.</p>
+
+            <div class="event-row">
+              <div class="event-box"><small>Fecha</small><strong>20 de junio 2026</strong></div>
+              <div class="event-box"><small>Hora</small><strong>6:00 PM</strong></div>
+              <div class="event-box"><small>Vestimenta</small><strong>Formal / Elegante</strong></div>
+            </div>
+
+            <div class="actions">
+              <a href="#registro" class="btn">Confirmar asistencia</a>
+              <a href="#admin" class="btn secondary">Panel admin</a>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="princess-frame">
+              <div class="princess-inner">
+                <svg class="royal-crown" viewBox="0 0 320 220" aria-label="Corona de princesa premium">
+              <defs>
+                <linearGradient id="royalGoldB" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fff9d8"/>
+                  <stop offset="22%" stop-color="#f6d477"/>
+                  <stop offset="48%" stop-color="#b98522"/>
+                  <stop offset="72%" stop-color="#fff1a8"/>
+                  <stop offset="100%" stop-color="#d6ad4f"/>
+                </linearGradient>
+                <linearGradient id="royalPinkB" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#fff0f7"/>
+                  <stop offset="55%" stop-color="#f8b6d1"/>
+                  <stop offset="100%" stop-color="#ec79ae"/>
+                </linearGradient>
+                <filter id="crownShadowB" x="-40%" y="-40%" width="180%" height="180%">
+                  <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity=".35"/>
+                  <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#fff0b8" flood-opacity=".65"/>
+                </filter>
+              </defs>
+              <g filter="url(#crownShadowB)">
+                <path d="M38 163 L62 67 L113 125 L160 42 L207 125 L258 67 L282 163 Z" fill="url(#royalGoldB)" stroke="#fff7cf" stroke-width="6" stroke-linejoin="round"/>
+                <path d="M58 154 L78 91 L116 136 L160 66 L204 136 L242 91 L262 154 Z" fill="rgba(255,255,255,.13)" stroke="rgba(255,255,255,.36)" stroke-width="2"/>
+                <rect x="47" y="151" width="226" height="42" rx="21" fill="url(#royalGoldB)" stroke="#fff7cf" stroke-width="6"/>
+                <path d="M70 171 H250" stroke="#8f6418" stroke-width="3" opacity=".45"/>
+                <circle cx="62" cy="66" r="15" fill="url(#royalPinkB)" stroke="#fff7cf" stroke-width="5"/>
+                <circle cx="160" cy="42" r="17" fill="#fff7cf" stroke="#d6ad4f" stroke-width="5"/>
+                <circle cx="258" cy="66" r="15" fill="url(#royalPinkB)" stroke="#fff7cf" stroke-width="5"/>
+                <ellipse cx="160" cy="128" rx="18" ry="24" fill="url(#royalPinkB)" stroke="#fff7cf" stroke-width="5"/>
+                <circle cx="112" cy="137" r="11" fill="#fff7cf" opacity=".95"/>
+                <circle cx="208" cy="137" r="11" fill="#fff7cf" opacity=".95"/>
+                <path class="gleam" d="M30 42 L60 24 L298 176 L269 197 Z" fill="rgba(255,255,255,.23)"/>
+              </g>
+            </svg>
+                <div class="flourish">✦ ✧ ✦</div><div class="elegant-15">15</div><div class="flourish">❦</div>
+                <p>Una celebración royal para una princesa en su noche especial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contador">
+      <div class="wrap">
+        <h2 class="section-title">Cuenta Regresiva</h2>
+        <p class="section-sub">Cada día nos acerca más a una noche especial, llena de amor, alegría y bendiciones para Yomaris.</p>
+        <div class="countdown">
+          <div class="timebox"><b id="days">00</b><span>Días</span></div>
+          <div class="timebox"><b id="hours">00</b><span>Horas</span></div>
+          <div class="timebox"><b id="minutes">00</b><span>Minutos</span></div>
+          <div class="timebox"><b id="seconds">00</b><span>Segundos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="registro">
+      <div class="wrap">
+        <h2 class="section-title">Confirma tu Asistencia</h2>
+        <p class="section-sub">Completa tu registro y recibirás un pase digital con QR. Al generarlo, se abrirá WhatsApp para enviarte el pase y el código.</p>
+
+        <div class="register-card">
+          <form id="guestForm">
+            <div class="form-grid">
+              <div class="field"><label for="name">Nombre completo</label><input id="name" name="name" type="text" placeholder="Ej. María González" required /></div>
+              <div class="field"><label for="phone">Teléfono / WhatsApp</label><input id="phone" name="phone" type="tel" placeholder="Ej. 787-000-0000" required /></div>
+              <div class="field"><label for="guests">Cantidad de acompañantes</label><select id="guests" name="guests" required><option value="">Selecciona</option><option value="0">Solo yo</option><option value="1">1 acompañante</option><option value="2">2 acompañantes</option><option value="3">3 acompañantes</option><option value="4">4 acompañantes</option></select></div>
+              <div class="field"><label for="attendance">Confirmación</label><select id="attendance" name="attendance" required><option value="">Selecciona</option><option value="Sí asistiré">Sí asistiré</option><option value="No podré asistir">No podré asistir</option></select></div>
+              <div class="field full"><label for="message">Mensaje especial para Yomaris</label><textarea id="message" name="message" placeholder="Escribe un mensaje bonito para la quinceañera..."></textarea></div>
+            </div>
+            <div class="form-actions"><button class="btn" type="submit">Generar QR y enviar por WhatsApp</button></div>
+          </form>
+        </div>
+
+        <div class="success" id="successBox">
+          <h2 class="section-title" style="font-size:clamp(42px,6vw,72px);">Pase Generado</h2>
+          <p class="section-sub" style="margin-bottom:0;">Gracias por confirmar. Presenta este QR en la entrada de la quinceañera.</p>
+          <div class="qr-wrap"><div id="qrcode"></div></div>
+          <div class="vip-code" id="vipCode">YOM-000000</div>
+          <p class="mini-note" id="guestSummary"></p>
+          <div class="actions" style="justify-content:center;margin-top:24px;">
+            <button class="btn" id="downloadPass" type="button">Descargar pase</button>
+            <button class="btn secondary" id="sendWhatsapp" type="button">Enviar por WhatsApp</button>
+            <button class="btn secondary" id="copyCode" type="button">Copiar código</button>
+            <a class="btn secondary" href="#inicio">Volver al inicio</a>
+          </div>
+          <p class="mini-note">Nota: por seguridad del navegador, WhatsApp abre con el mensaje listo. El invitado solo tiene que tocar enviar. Para enviar el QR automáticamente sin tocar nada, se necesitaría API oficial de WhatsApp Business.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="admin">
+        <div class="register-card" style="margin-bottom:22px;">
+          <h3 style="color:var(--gold-2);margin-bottom:10px;">Conexión Supabase</h3>
+          <p class="mini-note" style="margin:0;text-align:left;">
+            Edita este archivo y pega tu <strong>SUPABASE_URL</strong> y <strong>SUPABASE_ANON_KEY</strong> en la sección de configuración JavaScript.
+            Una vez conectado, los registros se guardan en la tabla <strong>yomaris_guests</strong> y el panel admin lee los datos desde Supabase.
+          </p>
+        </div>
+
+      <div class="wrap">
+        <h2 class="section-title">Panel Admin</h2>
+        <p class="section-sub">Aquí puedes ver cuántas personas hay registradas, los nombres, teléfonos, códigos QR y el total de invitados.</p>
+        <div class="admin-panel">
+          <div class="admin-pill">♕ Control de invitados</div>
+          <div class="admin-stats">
+            <div class="stat-card"><small>Registros</small><b id="statRegisters">0</b></div>
+            <div class="stat-card"><small>Total personas</small><b id="statPeople">0</b></div>
+            <div class="stat-card"><small>Confirmados sí</small><b id="statYes">0</b></div>
+          </div>
+          <div class="admin-tools">
+            <input id="adminSearch" type="search" placeholder="Buscar por nombre, teléfono o código..." />
+            <button class="btn small" id="exportCSV" type="button">Exportar CSV</button>
+            <button class="btn small danger" id="clearGuests" type="button">Borrar lista</button>
+          </div>
+          <div class="guest-list" id="guestList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">Detalles del Evento</h2>
+        <p class="section-sub">Una celebración preparada con elegancia para compartir con las personas más especiales.</p>
+        <div class="info-grid">
+          <div class="info-card"><h3>Lugar</h3><p>Salón de Actividades<br>Dirección pendiente</p></div>
+          <div class="info-card"><h3>Entrada</h3><p>Presenta tu pase QR digital para validar tu registro al llegar.</p></div>
+          <div class="info-card"><h3>Confirmación</h3><p>Favor confirmar asistencia antes del 10 de junio de 2026.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Invitación digital creada con amor para la quinceañera de Yomaris Arce Delgado ✨</footer>
+  </main>
+
+  <div class="toast" id="toast">Listo</div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    // =====================================================
+    // CONFIGURACIÓN SUPABASE
+    // 1) Ve a Supabase > Project Settings > API
+    // 2) Copia Project URL y anon public key
+    // 3) Pégalos aquí abajo
+    // =====================================================
+    const SUPABASE_URL = "PEGA_AQUI_TU_SUPABASE_URL";
+    const SUPABASE_ANON_KEY = "PEGA_AQUI_TU_SUPABASE_ANON_KEY";
+
+    const SUPABASE_READY =
+      SUPABASE_URL &&
+      SUPABASE_ANON_KEY &&
+      !SUPABASE_URL.includes("PEGA_AQUI") &&
+      !SUPABASE_ANON_KEY.includes("PEGA_AQUI");
+
+    const supabaseClient = SUPABASE_READY
+      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+      : null;
+
+    // =====================================================
+    // ANIMACIONES
+    // =====================================================
+    const sparkles = document.getElementById("sparkles");
+    const petals = document.getElementById("petals");
+
+    if(sparkles){
+      for(let i = 0; i < 55; i++){
+        const s = document.createElement("span");
+        s.style.left = Math.random() * 100 + "%";
+        s.style.animationDuration = (5 + Math.random() * 10) + "s";
+        s.style.animationDelay = (Math.random() * 8) + "s";
+        s.style.opacity = Math.random() * .75 + .25;
+        sparkles.appendChild(s);
+      }
+    }
+
+    if(petals){
+      for(let i = 0; i < 24; i++){
+        const p = document.createElement("span");
+        p.innerHTML = Math.random() > .5 ? "❀" : "♡";
+        p.style.left = Math.random() * 100 + "%";
+        p.style.animationDuration = (8 + Math.random() * 10) + "s";
+        p.style.animationDelay = (Math.random() * 8) + "s";
+        p.style.fontSize = (16 + Math.random() * 18) + "px";
+        petals.appendChild(p);
+      }
+    }
+
+    // =====================================================
+    // CUENTA REGRESIVA
+    // =====================================================
+    const eventDate = new Date("June 20, 2026 18:00:00").getTime();
+
+    function updateCountdown(){
+      const now = new Date().getTime();
+      const gap = eventDate - now;
+      const ids = ["days","hours","minutes","seconds"];
+
+      if(gap <= 0){
+        ids.forEach(id => {
+          const el = document.getElementById(id);
+          if(el) el.textContent = "00";
+        });
+        return;
+      }
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      const values = {
+        days: Math.floor(gap / day),
+        hours: Math.floor((gap % day) / hour),
+        minutes: Math.floor((gap % hour) / minute),
+        seconds: Math.floor((gap % minute) / second)
+      };
+
+      Object.entries(values).forEach(([id,value]) => {
+        const el = document.getElementById(id);
+        if(el) el.textContent = value.toString().padStart(2,"0");
+      });
+    }
+
+    setInterval(updateCountdown,1000);
+    updateCountdown();
+
+    // =====================================================
+    // ELEMENTOS
+    // =====================================================
+    const form = document.getElementById("guestForm");
+    const successBox = document.getElementById("successBox");
+    const qrcodeBox = document.getElementById("qrcode");
+    const vipCodeBox = document.getElementById("vipCode");
+    const guestSummary = document.getElementById("guestSummary");
+    const toast = document.getElementById("toast");
+    const STORAGE_KEY = "invitadosYomarisBackup";
+    let lastRecord = null;
+
+    function showToast(text){
+      if(!toast) return alert(text);
+      toast.textContent = text;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"),2800);
+    }
+
+    function normalizePhone(phone){
+      const digits = String(phone || "").replace(/\D/g,"");
+      if(digits.length === 10) return "1" + digits;
+      return digits;
+    }
+
+    function makeVipCode(name){
+      const clean = String(name || "INV").toUpperCase().replace(/[^A-ZÁÉÍÓÚÑ]/g,"").slice(0,3) || "INV";
+      const random = Math.floor(100000 + Math.random() * 900000);
+      return "YOM-" + clean + "-" + random;
+    }
+
+    function localGetGuests(){
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    }
+
+    function localSaveGuest(record){
+      const saved = localGetGuests();
+      saved.unshift(record);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+    }
+
+    function mapDbRecord(row){
+      return {
+        id: row.id,
+        invitado: row.full_name,
+        telefono: row.phone,
+        acompanantes: row.companions,
+        total_personas: row.total_people,
+        confirmacion: row.attendance,
+        mensaje: row.special_message || "",
+        codigo: row.qr_code,
+        generado: row.created_at ? new Date(row.created_at).toLocaleString() : "",
+        checked_in: row.checked_in || false,
+        checked_in_at: row.checked_in_at
+      };
+    }
+
+    function whatsappMessage(record){
+      return `✨ Pase Digital Quinceañera Yomaris Arce Delgado ✨
+
+Hola ${record.invitado}, tu registro fue creado correctamente.
+
+📅 Fecha: 20 de junio 2026
+⏰ Hora: 6:00 PM
+👑 Código QR: ${record.codigo}
+👥 Total registrado: ${record.total_personas} persona(s)
+✅ Confirmación: ${record.confirmacion}
+
+Presenta este código/QR en la entrada.
+
+Nota: descarga el pase desde la página para guardar la imagen del QR.`;
+    }
+
+    function openWhatsapp(record){
+      const phone = normalizePhone(record.telefono);
+      const msg = encodeURIComponent(whatsappMessage(record));
+      if(phone){
+        window.open(`https://wa.me/${phone}?text=${msg}`, "_blank");
+      }else{
+        window.open(`https://wa.me/?text=${msg}`, "_blank");
+      }
+    }
+
+    function generateQr(record){
+      if(!qrcodeBox) return;
+      qrcodeBox.innerHTML = "";
+
+      const payload = {
+        evento:"Quinceañera Yomaris Arce Delgado",
+        fecha:"20 de junio 2026",
+        hora:"6:00 PM",
+        invitado:record.invitado,
+        telefono:record.telefono,
+        acompanantes:record.acompanantes,
+        total_personas:record.total_personas,
+        confirmacion:record.confirmacion,
+        codigo:record.codigo
+      };
+
+      if(typeof QRCode !== "undefined"){
+        new QRCode(qrcodeBox,{
+          text: JSON.stringify(payload),
+          width:250,
+          height:250,
+          colorDark:"#3c1230",
+          colorLight:"#ffffff",
+          correctLevel:QRCode.CorrectLevel.H
+        });
+      }else{
+        qrcodeBox.innerHTML = `<div style="color:#3c1230;font-weight:900;text-align:center;padding:30px;">QR no cargó.<br>Código:<br>${record.codigo}</div>`;
+      }
+    }
+
+    async function registerGuestInSupabase(data){
+      if(!supabaseClient) throw new Error("Supabase no está configurado.");
+
+      const { data: inserted, error } = await supabaseClient.rpc("register_yomaris_guest", {
+        p_full_name: data.full_name,
+        p_phone: data.phone,
+        p_companions: data.companions,
+        p_attendance: data.attendance,
+        p_special_message: data.special_message
+      });
+
+      if(error) throw error;
+      return mapDbRecord(inserted);
+    }
+
+    if(form){
+      form.addEventListener("submit", async function(e){
+        e.preventDefault();
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const oldText = submitBtn ? submitBtn.textContent : "";
+        if(submitBtn){
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Guardando registro...";
+        }
+
+        try{
+          const name = document.getElementById("name").value.trim();
+          const phone = document.getElementById("phone").value.trim();
+          const guests = Number(document.getElementById("guests").value || 0);
+          const attendance = document.getElementById("attendance").value;
+          const message = document.getElementById("message").value.trim();
+
+          let record;
+
+          if(SUPABASE_READY){
+            record = await registerGuestInSupabase({
+              full_name:name,
+              phone:phone,
+              companions:guests,
+              attendance:attendance,
+              special_message:message
+            });
+          }else{
+            const code = makeVipCode(name);
+            record = {
+              id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+              invitado:name,
+              telefono:phone,
+              acompanantes:guests,
+              total_personas:guests + 1,
+              confirmacion:attendance,
+              mensaje:message,
+              codigo:code,
+              generado:new Date().toLocaleString()
+            };
+            localSaveGuest(record);
+            showToast("Supabase no está configurado. Guardado localmente.");
+          }
+
+          lastRecord = record;
+          localStorage.setItem("ultimoPaseYomaris", JSON.stringify(record));
+
+          generateQr(record);
+
+          if(vipCodeBox) vipCodeBox.textContent = record.codigo;
+          if(guestSummary){
+            guestSummary.innerHTML = `<strong>${record.invitado}</strong>, tu registro indica: <strong>${record.confirmacion}</strong>. Total registrado: <strong>${record.total_personas} persona(s)</strong>.`;
+          }
+
+          successBox?.classList.add("show");
+          successBox?.scrollIntoView({behavior:"smooth",block:"start"});
+
+          showToast(SUPABASE_READY ? "Registro guardado en Supabase" : "Pase QR generado");
+          openWhatsapp(record);
+          await renderAdmin();
+          form.reset();
+        }catch(error){
+          console.error(error);
+          showToast("Error: " + (error.message || "No se pudo guardar"));
+        }finally{
+          if(submitBtn){
+            submitBtn.disabled = false;
+            submitBtn.textContent = oldText;
+          }
+        }
+      });
+    }
+
+    // =====================================================
+    // BOTONES PASE
+    // =====================================================
+    const copyCodeBtn = document.getElementById("copyCode");
+    if(copyCodeBtn){
+      copyCodeBtn.addEventListener("click", async function(){
+        const code = vipCodeBox?.textContent || "";
+        try{
+          await navigator.clipboard.writeText(code);
+          showToast("Código copiado");
+        }catch(err){
+          showToast("Código: " + code);
+        }
+      });
+    }
+
+    const sendWhatsappBtn = document.getElementById("sendWhatsapp");
+    if(sendWhatsappBtn){
+      sendWhatsappBtn.addEventListener("click", function(){
+        lastRecord = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYomaris") || "null");
+        if(lastRecord) openWhatsapp(lastRecord);
+        else showToast("Primero genera un pase");
+      });
+    }
+
+    const downloadPassBtn = document.getElementById("downloadPass");
+    if(downloadPassBtn){
+      downloadPassBtn.addEventListener("click", function(){
+        const record = lastRecord || JSON.parse(localStorage.getItem("ultimoPaseYomaris") || "{}");
+        const qrCanvas = qrcodeBox?.querySelector("canvas");
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = 900;
+        canvas.height = 1300;
+
+        const bg = ctx.createLinearGradient(0,0,900,1300);
+        bg.addColorStop(0,"#26061f");
+        bg.addColorStop(.35,"#6f254f");
+        bg.addColorStop(.72,"#f8b6d1");
+        bg.addColorStop(1,"#fff8ec");
+        ctx.fillStyle = bg;
+        ctx.fillRect(0,0,900,1300);
+
+        ctx.strokeStyle = "#fff0b8";
+        ctx.lineWidth = 8;
+        roundRect(ctx,50,50,800,1200,46,true,false);
+
+        ctx.fillStyle = "#fff0b8";
+        ctx.font = "bold 42px Segoe UI";
+        ctx.textAlign = "center";
+        ctx.fillText("PASE DIGITAL",450,150);
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "80px Georgia";
+        ctx.fillText("Yomaris",450,250);
+
+        ctx.fillStyle = "#fff8ec";
+        ctx.font = "bold 36px Segoe UI";
+        ctx.fillText("ARCE DELGADO",450,310);
+
+        ctx.fillStyle = "#fff0b8";
+        ctx.font = "bold 34px Segoe UI";
+        ctx.fillText("Mis Quince Años",450,376);
+
+        if(qrCanvas){
+          ctx.fillStyle = "#ffffff";
+          roundRect(ctx,275,440,350,350,30,true,false);
+          ctx.drawImage(qrCanvas,305,470,290,290);
+        }
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "bold 30px Segoe UI";
+        ctx.fillText(record.invitado || "Invitado",450,860);
+
+        ctx.fillStyle = "#fff8ec";
+        ctx.font = "26px Segoe UI";
+        ctx.fillText("20 de junio 2026 • 6:00 PM",450,910);
+        ctx.fillText("Total: " + (record.total_personas || "1") + " persona(s)",450,955);
+
+        ctx.fillStyle = "#fff0b8";
+        ctx.font = "bold 29px Segoe UI";
+        ctx.fillText(record.codigo || "YOM-000000",450,1025);
+
+        ctx.fillStyle = "#fff8ec";
+        ctx.font = "22px Segoe UI";
+        ctx.fillText("Presentar este QR en la entrada",450,1120);
+
+        const link = document.createElement("a");
+        link.download = "pase-yomaris-arce-delgado.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+
+        showToast("Pase descargado");
+      });
+    }
+
+    function roundRect(ctx,x,y,w,h,r,fill,stroke){
+      if(w < 2*r) r = w/2;
+      if(h < 2*r) r = h/2;
+      ctx.beginPath();
+      ctx.moveTo(x+r,y);
+      ctx.arcTo(x+w,y,x+w,y+h,r);
+      ctx.arcTo(x+w,y+h,x,y+h,r);
+      ctx.arcTo(x,y+h,x,y,r);
+      ctx.arcTo(x,y,x+w,y,r);
+      ctx.closePath();
+      if(fill) ctx.fill();
+      if(stroke) ctx.stroke();
+    }
+
+    // =====================================================
+    // ADMIN PANEL
+    // =====================================================
+    async function fetchGuests(){
+      if(SUPABASE_READY){
+        const { data, error } = await supabaseClient
+          .from("yomaris_guests")
+          .select("*")
+          .order("created_at", { ascending:false });
+
+        if(error) throw error;
+        return (data || []).map(mapDbRecord);
+      }
+
+      return localGetGuests();
+    }
+
+    async function renderAdmin(){
+      const list = document.getElementById("guestList");
+      const totalRegistros = document.getElementById("totalRegistros");
+      const totalPersonas = document.getElementById("totalPersonas");
+      const totalAsistiran = document.getElementById("totalAsistiran");
+      const searchInput = document.getElementById("adminSearch");
+
+      if(!list) return;
+
+      try{
+        const allGuests = await fetchGuests();
+        const query = (searchInput?.value || "").toLowerCase().trim();
+
+        const guests = allGuests.filter(g => {
+          return !query ||
+            String(g.invitado || "").toLowerCase().includes(query) ||
+            String(g.telefono || "").toLowerCase().includes(query) ||
+            String(g.codigo || "").toLowerCase().includes(query);
+        });
+
+        const willAttend = allGuests.filter(g => g.confirmacion === "Sí asistiré");
+        const totalPeople = willAttend.reduce((sum,g) => sum + Number(g.total_personas || 0), 0);
+
+        if(totalRegistros) totalRegistros.textContent = allGuests.length;
+        if(totalPersonas) totalPersonas.textContent = totalPeople;
+        if(totalAsistiran) totalAsistiran.textContent = willAttend.length;
+
+        if(!guests.length){
+          list.innerHTML = `<div class="empty">${SUPABASE_READY ? "No hay registros en Supabase todavía." : "No hay registros locales todavía. Configura Supabase para guardar online."}</div>`;
+          return;
+        }
+
+        list.innerHTML = guests.map(g => `
+          <div class="guest-item">
+            <div>
+              <h3>${escapeHtml(g.invitado)}</h3>
+              <p><strong>Teléfono:</strong> ${escapeHtml(g.telefono || "")}</p>
+              <p><strong>Confirmación:</strong> ${escapeHtml(g.confirmacion || "")}</p>
+              <p><strong>Acompañantes:</strong> ${Number(g.acompanantes || 0)} | <strong>Total:</strong> ${Number(g.total_personas || 1)}</p>
+              <p><strong>Creado:</strong> ${escapeHtml(g.generado || "")}</p>
+              <span class="guest-code">${escapeHtml(g.codigo || "")}</span>
+            </div>
+            <div class="guest-actions">
+              <button class="btn small secondary" onclick='adminSendWhatsapp(${JSON.stringify(g).replace(/'/g,"&#39;")})'>WhatsApp</button>
+              <button class="btn small danger" onclick='adminDeleteGuest("${g.id || ""}")'>Borrar</button>
+            </div>
+          </div>
+        `).join("");
+      }catch(error){
+        console.error(error);
+        list.innerHTML = `<div class="empty">Error cargando registros: ${escapeHtml(error.message || "Revisa Supabase URL / ANON KEY / RLS.")}</div>`;
+      }
+    }
+
+    function escapeHtml(text){
+      return String(text || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    window.adminSendWhatsapp = function(record){
+      openWhatsapp(record);
+    };
+
+    window.adminDeleteGuest = async function(id){
+      if(!confirm("¿Seguro que quieres borrar este registro?")) return;
+
+      try{
+        if(SUPABASE_READY){
+          const { error } = await supabaseClient
+            .from("yomaris_guests")
+            .delete()
+            .eq("id", id);
+          if(error) throw error;
+        }else{
+          const updated = localGetGuests().filter(g => String(g.id) !== String(id));
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        }
+
+        showToast("Registro eliminado");
+        await renderAdmin();
+      }catch(error){
+        console.error(error);
+        showToast("Error borrando: " + (error.message || "No se pudo borrar"));
+      }
+    };
+
+    const adminSearch = document.getElementById("adminSearch");
+    if(adminSearch) adminSearch.addEventListener("input", renderAdmin);
+
+    const refreshAdminBtn = document.getElementById("refreshAdmin");
+    if(refreshAdminBtn) refreshAdminBtn.addEventListener("click", renderAdmin);
+
+    const exportCsvBtn = document.getElementById("exportCsv");
+    if(exportCsvBtn){
+      exportCsvBtn.addEventListener("click", async function(){
+        const guests = await fetchGuests();
+        const headers = ["Nombre","Telefono","Confirmacion","Acompanantes","Total","Codigo","Creado"];
+        const rows = guests.map(g => [
+          g.invitado,
+          g.telefono,
+          g.confirmacion,
+          g.acompanantes,
+          g.total_personas,
+          g.codigo,
+          g.generado
+        ]);
+
+        const csv = [headers, ...rows]
+          .map(row => row.map(value => `"${String(value ?? "").replaceAll('"','""')}"`).join(","))
+          .join("\n");
+
+        const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "invitados-yomaris.csv";
+        link.click();
+        URL.revokeObjectURL(url);
+        showToast("CSV descargado");
+      });
+    }
+
+    const clearLocalBtn = document.getElementById("clearGuests");
+    if(clearLocalBtn){
+      clearLocalBtn.addEventListener("click", async function(){
+        if(!confirm("¿Seguro? Esto borrará los registros visibles. Si Supabase está conectado, borrará la tabla.")) return;
+
+        try{
+          if(SUPABASE_READY){
+            const guests = await fetchGuests();
+            const ids = guests.map(g => g.id).filter(Boolean);
+            if(ids.length){
+              const { error } = await supabaseClient.from("yomaris_guests").delete().in("id", ids);
+              if(error) throw error;
+            }
+          }else{
+            localStorage.removeItem(STORAGE_KEY);
+          }
+
+          showToast("Registros borrados");
+          await renderAdmin();
+        }catch(error){
+          console.error(error);
+          showToast("Error: " + (error.message || "No se pudo borrar"));
+        }
+      });
+    }
+
+    renderAdmin();
+  </script>
+</body>
+</html>
