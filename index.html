@@ -723,7 +723,7 @@
         <h2 class="section-title">Detalles del Evento</h2>
         <p class="section-sub">Una celebración preparada con elegancia para compartir con las personas más especiales.</p>
         <div class="info-grid">
-          <div class="info-card"><h3>Lugar</h3><p>Salón de Actividades<br>Dirección pendiente</p></div>
+          <div class="info-card"><h3>Lugar</h3><p><strong>Club de Leones de Morovis</strong><br><a href="https://maps.app.goo.gl/1p9rRudGvgr2RBcb7?g_st=iw" target="_blank" rel="noopener" style="color:var(--gold-2);font-weight:900;text-decoration:none;">Ver ubicación en Google Maps</a></p></div>
           <div class="info-card"><h3>Entrada</h3><p>Presenta tu pase QR digital para validar tu registro al llegar.</p></div>
           <div class="info-card"><h3>Confirmación</h3><p>Favor confirmar asistencia antes del 10 de junio de 2026.</p></div>
         </div>
@@ -946,6 +946,8 @@ Hola ${record.invitado}, tu registro fue creado correctamente.
 
 📅 Fecha: 20 de junio 2026
 ⏰ Hora: 6:00 PM
+📍 Lugar: Club de Leones de Morovis
+🗺️ Maps: https://maps.app.goo.gl/1p9rRudGvgr2RBcb7?g_st=iw
 👑 Código QR: ${record.codigo}
 👥 Total registrado: ${record.total_personas} persona(s)
 ✅ Confirmación: ${record.confirmacion}
@@ -976,6 +978,8 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
         evento:"Quinceañera YOMARIS MARIE ARCE DELGADO",
         fecha:"20 de junio 2026",
         hora:"6:00 PM",
+        lugar:"Club de Leones de Morovis",
+        maps:"https://maps.app.goo.gl/1p9rRudGvgr2RBcb7?g_st=iw",
         invitado:record.invitado,
         telefono:record.telefono,
         acompanantes:record.acompanantes,
@@ -1070,6 +1074,8 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
           evento:"Quinceañera YOMARIS MARIE ARCE DELGADO",
           fecha:"20 de junio 2026",
           hora:"6:00 PM",
+          lugar:"Club de Leones de Morovis",
+          maps:"https://maps.app.goo.gl/1p9rRudGvgr2RBcb7?g_st=iw",
           invitado:data.full_name,
           telefono:data.phone,
           acompanantes:data.companions,
@@ -1272,15 +1278,16 @@ Nota: descarga el pase desde la página para guardar la imagen del QR.`;
       ctx.fillStyle = "#fff8ec";
       ctx.font = "26px Segoe UI";
       ctx.fillText("20 de junio 2026 • 6:00 PM",450,910);
-      ctx.fillText("Total: " + (record.total_personas || "1") + " persona(s)",450,955);
+      ctx.fillText("Club de Leones de Morovis",450,955);
+      ctx.fillText("Total: " + (record.total_personas || "1") + " persona(s)",450,1000);
 
       ctx.fillStyle = "#fff0b8";
       ctx.font = "bold 29px Segoe UI";
-      ctx.fillText(record.codigo || "YOM-000000",450,1025);
+      ctx.fillText(record.codigo || "YOM-000000",450,1060);
 
       ctx.fillStyle = "#fff8ec";
       ctx.font = "22px Segoe UI";
-      ctx.fillText("Presentar este QR en la entrada",450,1120);
+      ctx.fillText("Presentar este QR en la entrada",450,1145);
 
       return canvas;
     }
