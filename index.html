@@ -2447,6 +2447,306 @@ body::after{
   .princess-frame{max-width:330px;}
 }
 
+
+
+/* =====================================================
+   2026 MODERN LUXURY FULL REFRESH
+   ===================================================== */
+:root{
+  --gold2: var(--gold-2);
+  --pink: #ffbfd9;
+  --pink2: #ff82b7;
+  --roseglass: rgba(255,191,217,.12);
+  --goldglass: rgba(255,243,191,.14);
+  --darkglass: rgba(16,5,15,.58);
+  --card-border: rgba(255,243,191,.22);
+  --card-shadow: 0 28px 90px rgba(0,0,0,.34);
+}
+html,body{
+  background-attachment: fixed;
+}
+body{
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255,190,220,.28), transparent 24%),
+    radial-gradient(circle at 88% 10%, rgba(255,243,191,.20), transparent 24%),
+    radial-gradient(circle at 50% 80%, rgba(255,128,182,.12), transparent 28%),
+    linear-gradient(135deg,#0f0410 0%,#22071b 24%,#4d1538 58%,#9f4a77 100%) !important;
+}
+body::before{
+  background:
+    radial-gradient(circle at center, rgba(255,243,191,.14) 1px, transparent 1.8px),
+    linear-gradient(rgba(255,255,255,.025), rgba(255,255,255,.01));
+  background-size: 42px 42px, auto;
+  opacity:.72;
+}
+.page{
+  isolation:isolate;
+}
+.invite-card,
+.register-card,
+.success,
+.admin-panel,
+.info-card,
+.music-card,
+.timebox,
+.modern-invite-panel,
+.countdown-shell,
+.panel-premium,
+.music-entry-card,
+.admin-login-card,
+.cinematic-card{
+  backdrop-filter: blur(22px) saturate(130%);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+}
+.invite-card{
+  border-radius: 42px !important;
+  background:
+    linear-gradient(145deg, rgba(28,8,23,.88), rgba(58,16,45,.74)) !important;
+  border:1px solid rgba(255,243,191,.24) !important;
+  box-shadow:
+    0 30px 120px rgba(0,0,0,.42),
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 0 60px rgba(255,255,255,.03) !important;
+}
+.invite-card::before{
+  inset:14px !important;
+  border-radius:30px !important;
+  border:1px solid rgba(255,243,191,.16) !important;
+}
+.hero-grid{
+  min-height: 760px;
+}
+.hero-left{
+  padding: 58px 48px !important;
+}
+.hero-right{
+  background:
+    radial-gradient(circle at center, rgba(255,243,191,.10), transparent 35%),
+    linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) !important;
+}
+.badge,.soft-pill,.admin-pill,.panel-chip,.vip-code,.song-pill{
+  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.04)) !important;
+  border:1px solid rgba(255,243,191,.24) !important;
+  box-shadow: 0 10px 34px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.05) !important;
+}
+.mini-crown,.entry-crown-big,.cinematic-crown{
+  filter: drop-shadow(0 0 16px rgba(255,243,191,.72)) drop-shadow(0 14px 24px rgba(0,0,0,.38));
+}
+.first-name,
+.entry-name-title .word,
+.music-entry-card h2,
+.section-title,
+.cinematic-name{
+  letter-spacing: .01em;
+}
+.modern-invite-panel,
+.panel-premium,
+.register-card,
+.admin-panel,
+.success{
+  position:relative;
+  overflow:hidden;
+  border-radius:32px !important;
+  background:
+    linear-gradient(145deg, rgba(24,7,20,.88), rgba(49,13,38,.76)) !important;
+  border:1px solid rgba(255,243,191,.18) !important;
+  box-shadow:
+    0 24px 80px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 0 50px rgba(255,255,255,.025) !important;
+}
+.modern-invite-panel::before,
+.countdown-shell::before,
+.modern-grid .music-card::before,
+.modern-grid .info-card::before{
+  opacity:.88;
+}
+.modern-invite-panel::after,
+.countdown-shell::after,
+.music-entry-card::after,
+.cinematic-card::after{
+  opacity:.55;
+}
+.event-row,
+.info-grid,
+.music-grid,
+.admin-stats{
+  gap:18px !important;
+}
+.event-box,
+.timebox,
+.info-card,
+.music-card,
+.stat-card,
+.guest-item{
+  border-radius:24px !important;
+  border:1px solid rgba(255,243,191,.18) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)) !important;
+  box-shadow:
+    0 16px 45px rgba(0,0,0,.20),
+    inset 0 1px 0 rgba(255,255,255,.03) !important;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.event-box:hover,
+.timebox:hover,
+.info-card:hover,
+.music-card:hover,
+.stat-card:hover,
+.guest-item:hover{
+  transform: translateY(-6px);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.28),
+    0 0 0 1px rgba(255,243,191,.05) inset !important;
+  border-color: rgba(255,243,191,.34) !important;
+}
+.event-box strong,
+.info-card p,
+.music-card p,
+.stat-card b,
+.guest-item h3,
+.guest-item p,
+.section-sub,
+.subtitle,
+footer,
+.music-entry-card p,
+.cinematic-card p{
+  color:#fffdf9 !important;
+}
+.event-box small,
+.info-card h3,
+.music-card h3,
+.stat-card small,
+.timebox span,
+label,
+.countdown-header strong,
+.entry-lastname{
+  color:#fff1b6 !important;
+}
+.actions,.form-actions,.admin-tools,.entry-actions{
+  gap:14px !important;
+}
+.btn{
+  position:relative;
+  overflow:hidden;
+  min-height:56px !important;
+  padding:15px 28px !important;
+  border-radius:999px !important;
+  border:1px solid rgba(255,243,191,.36);
+  background: linear-gradient(135deg,#fff8ed 0%, #fff0bb 38%, #ffbcd8 100%) !important;
+  box-shadow:
+    0 18px 44px rgba(244,207,118,.18),
+    0 14px 30px rgba(255,111,173,.14) !important;
+}
+.btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.65) 50%, transparent 80%);
+  transform: translateX(-130%) skewX(-20deg);
+  transition: transform .9s ease;
+}
+.btn:hover::after{
+  transform: translateX(130%) skewX(-20deg);
+}
+.btn.secondary{
+  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.04)) !important;
+  color:#fff8ef !important;
+}
+.btn.danger{
+  background: linear-gradient(135deg,#7d153a,#d44a79) !important;
+  color:#fff !important;
+}
+input,select,textarea{
+  border-radius:18px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.14)) !important;
+  border:1px solid rgba(255,243,191,.15) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03), inset 0 8px 18px rgba(0,0,0,.14) !important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color: rgba(255,243,191,.42) !important;
+  box-shadow:
+    0 0 0 4px rgba(255,243,191,.08),
+    inset 0 1px 0 rgba(255,255,255,.03),
+    inset 0 8px 18px rgba(0,0,0,.14) !important;
+}
+.princess-frame{
+  border-radius:40px !important;
+  box-shadow:
+    0 28px 90px rgba(0,0,0,.34),
+    inset 0 0 70px rgba(255,255,255,.10) !important;
+}
+.qr-wrap{
+  border-radius:28px !important;
+  border:6px solid rgba(255,243,191,.94) !important;
+  box-shadow: 0 20px 60px rgba(244,207,118,.25) !important;
+}
+.music-float-btn{
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius:999px !important;
+  border:1px solid rgba(255,243,191,.32) !important;
+  box-shadow: 0 16px 50px rgba(0,0,0,.24) !important;
+}
+.music-entry-screen{
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,243,191,.18), transparent 24%),
+    radial-gradient(circle at 18% 72%, rgba(255,183,214,.18), transparent 24%),
+    radial-gradient(circle at 86% 74%, rgba(255,243,191,.10), transparent 24%),
+    linear-gradient(135deg,#0b030b 0%,#240818 34%,#4d1638 64%,#9b4c76 100%) !important;
+}
+.music-entry-screen::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: radial-gradient(circle at center, transparent 42%, rgba(0,0,0,.26) 100%);
+}
+.music-entry-card{
+  border-radius:36px !important;
+  background:
+    linear-gradient(145deg, rgba(21,6,18,.84), rgba(61,17,46,.70)) !important;
+  border:1px solid rgba(255,243,191,.24) !important;
+  box-shadow:
+    0 30px 110px rgba(0,0,0,.48),
+    inset 0 1px 0 rgba(255,255,255,.05),
+    inset 0 0 70px rgba(255,255,255,.03) !important;
+}
+.entry-kicker,
+.music-entry-card small,
+.entry-lastname,
+.countdown-header span{
+  opacity:.96;
+}
+.entry-name-line{
+  height:2px !important;
+}
+.countdown-shell{
+  border-radius:32px !important;
+  padding:24px !important;
+}
+.countdown-progress{
+  height:10px !important;
+  background: rgba(255,255,255,.06) !important;
+  border:1px solid rgba(255,243,191,.14) !important;
+}
+.countdown-progress span{
+  background: linear-gradient(90deg,#ffbfd9, #fff1b6, #ff82b7) !important;
+}
+.admin-login-card,
+.cinematic-card{
+  border-radius:36px !important;
+}
+footer{
+  opacity:.92;
+}
+@media (max-width: 900px){
+  .hero-left{padding:34px 22px !important;}
+  .modern-invite-panel,.register-card,.admin-panel,.success,.countdown-shell,.panel-premium{padding:22px !important;}
+  .invite-card{border-radius:30px !important;}
+  .music-entry-card,.admin-login-card,.cinematic-card{border-radius:28px !important;}
+}
+
 </style>
 </head>
 <body>
