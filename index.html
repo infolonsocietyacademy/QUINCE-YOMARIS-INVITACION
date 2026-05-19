@@ -3058,21 +3058,22 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
   }
 </style>
 
+
+<style id="hide-upper-left-welcome-panel">
+  .hero-intro,
+  .intro-card,
+  .premium-welcome,
+  .welcome-card,
+  .experience-card,
+  .gate-copy,
+  .cinematic-copy {
+    display: none !important;
+  }
+</style>
+
 </head>
 <body>
-<div class="cinematic-card music-entry-card">
-      <div class="entry-kicker">Luxury Event App • Black Rose Gold</div>
-      <div class="entry-crown-big">👑</div>
-      <small>Bienvenidos a una experiencia premium</small>
-      <h2>Yomaris Marie</h2>
-      <div class="entry-lastname">ARCE DELGADO</div>
-      <p>Te invito a celebrar mis quince años en una noche elegante, llena de amor, música, recuerdos inolvidables y una experiencia digital diseñada especialmente para ti.</p>
-      <div class="song-pill">✦ Invitación especial • Noche de gala</div>
-      <div class="entry-actions">
-        
-        <a href="#detalles" class="btn secondary">Ver detalles</a>
-      </div>
-      <span class="entry-note">Diseño cinematográfico • optimizado para móvil • experiencia elegante</span>
+<span class="entry-note">Diseño cinematográfico • optimizado para móvil • experiencia elegante</span>
     </div>
   </div>
 <div class="sparkles" id="sparkles"></div>
@@ -3134,9 +3135,7 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
             </div>
 
             <p class="subtitle">Hola, soy <strong>Yomaris Marie Arce Delgado</strong>, y con muchísima ilusión quiero invitarte a una noche inolvidable para celebrar mis quince años. He preparado una experiencia elegante, familiar y llena de momentos especiales para compartir contigo, con música, alegría, glamour y recuerdos que quedarán para siempre en nuestro corazón.</p>
-
-            <div class="experience-cards">
-              <div class="experience-card"><small>Fecha</small><strong>20 de junio 2026</strong><span>Noche mágica y elegante</span></div>
+<strong>20 de junio 2026</strong><span>Noche mágica y elegante</span></div>
               <div class="experience-card"><small>Lugar</small><strong>Club de Leones de Morovis</strong><span>Ambiente exclusivo</span></div>
               <div class="experience-card"><small>Vestimenta</small><strong>Formal / Elegante</strong><span>Look de gala</span></div>
               <div class="experience-card"><small>Música</small><strong>DJ + Karaoke + En vivo</strong><span>Experiencia completa</span></div>
@@ -3299,6 +3298,22 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(
     ".music-entry-screen, .cinematic-gate, .entry-screen, .welcome-screen, #entryGate, #welcomeGate, #musicEntryScreen, [data-entry-gate]"
   ).forEach(el => el.remove());
+});
+</script>
+
+
+<script id="remove-upper-left-welcome-panel">
+document.addEventListener("DOMContentLoaded", function () {
+  const targets = Array.from(document.querySelectorAll("div, section, aside, article"));
+  targets.forEach(el => {
+    const text = (el.innerText || "").replace(/\s+/g, " ").trim().toLowerCase();
+    if (
+      text.includes("bienvenidos a una experiencia premium") &&
+      text.includes("ver detalles")
+    ) {
+      el.remove();
+    }
+  });
 });
 </script>
 
