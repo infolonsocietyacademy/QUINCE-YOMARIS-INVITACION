@@ -3038,6 +3038,26 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
   }
 </style>
 
+
+<style id="remove-entry-gate-final">
+  .music-entry-screen,
+  .cinematic-gate,
+  .entry-screen,
+  .welcome-screen,
+  #entryGate,
+  #welcomeGate,
+  #musicEntryScreen,
+  [data-entry-gate] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  html, body {
+    overflow-y: auto !important;
+  }
+</style>
+
 </head>
 <body>
 <div class="cinematic-card music-entry-card">
@@ -3049,7 +3069,7 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
       <p>Te invito a celebrar mis quince años en una noche elegante, llena de amor, música, recuerdos inolvidables y una experiencia digital diseñada especialmente para ti.</p>
       <div class="song-pill">✦ Invitación especial • Noche de gala</div>
       <div class="entry-actions">
-        <a href="#inicio" class="btn" id="enterWithMusic">Entrar a la invitación</a>
+        
         <a href="#detalles" class="btn secondary">Ver detalles</a>
       </div>
       <span class="entry-note">Diseño cinematográfico • optimizado para móvil • experiencia elegante</span>
@@ -3270,6 +3290,16 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
     updateCountdown();
     setInterval(updateCountdown, 1000);
   })();
+</script>
+
+
+<script id="direct-open-final">
+document.addEventListener("DOMContentLoaded", function () {
+  document.body.classList.add("invitation-entered");
+  document.querySelectorAll(
+    ".music-entry-screen, .cinematic-gate, .entry-screen, .welcome-screen, #entryGate, #welcomeGate, #musicEntryScreen, [data-entry-gate]"
+  ).forEach(el => el.remove());
+});
 </script>
 
 </body>
