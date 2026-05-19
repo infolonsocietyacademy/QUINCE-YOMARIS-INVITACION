@@ -3138,7 +3138,7 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
 <strong>20 de junio 2026</strong><span>Noche mágica y elegante</span></div>
               <div class="experience-card"><small>Lugar</small><strong>Club de Leones de Morovis</strong><span>Ambiente exclusivo</span></div>
               <div class="experience-card"><small>Vestimenta</small><strong>Formal / Elegante</strong><span>Look de gala</span></div>
-              <div class="experience-card"><small>Música</small><strong>DJ + Karaoke + En vivo</strong><span>Experiencia completa</span></div>
+              <div class="experience-card"><small>Música</small><strong>DJ + KAREOKE + Musica en vivo</strong><span>GRUPO SENDER "LA MELODIA"</span></div>
             </div>
 
             <div class="actions hero-actions">
@@ -3191,14 +3191,14 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
 
           <div class="music-card">
             <div class="music-icon">🎤</div>
-            <h3>Karaoke</h3>
-            <p>Un espacio divertido y elegante para compartir canciones y momentos inolvidables en familia.</p>
+            <h3>KAREOKE</h3>
+            <p>POR DJ FRANCIS MACHADO</p>
           </div>
 
           <div class="music-card">
             <div class="music-icon">♪</div>
-            <h3>En Vivo</h3>
-            <p>Participación artística para elevar la celebración con una atmósfera especial y emocionante.</p>
+            <h3>Musica en vivo</h3>
+            <p>GRUPO SENDER "LA MELODIA"</p>
           </div>
 
           <div class="music-card">
@@ -3266,30 +3266,7 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
 </script>
 
 
-<script id="countdown-runtime">
-  (function () {
-    const target = new Date("2026-12-31T19:00:00");
-    function pad(n) { return String(Math.max(0, n)).padStart(2, "0"); }
-    function updateCountdown() {
-      const now = new Date();
-      let diff = Math.max(0, target - now);
-      const days = Math.floor(diff / 86400000); diff %= 86400000;
-      const hours = Math.floor(diff / 3600000); diff %= 3600000;
-      const minutes = Math.floor(diff / 60000); diff %= 60000;
-      const seconds = Math.floor(diff / 1000);
-      const d = document.getElementById("days");
-      const h = document.getElementById("hours");
-      const m = document.getElementById("minutes");
-      const s = document.getElementById("seconds");
-      if (d) d.textContent = pad(days);
-      if (h) h.textContent = pad(hours);
-      if (m) m.textContent = pad(minutes);
-      if (s) s.textContent = pad(seconds);
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  })();
-</script>
+
 
 
 <script id="direct-open-final">
@@ -3312,6 +3289,70 @@ document.addEventListener("DOMContentLoaded", function () {
       text.includes("ver detalles")
     ) {
       el.remove();
+    }
+  });
+});
+</script>
+
+
+<script id="fixed-real-countdown">
+document.addEventListener("DOMContentLoaded", function () {
+  const target = new Date("2026-06-20T18:00:00");
+
+  function pad(n) {
+    return String(Math.max(0, n)).padStart(2, "0");
+  }
+
+  function updateRealCountdown() {
+    const now = new Date();
+    let diff = Math.max(0, target - now);
+
+    const days = Math.floor(diff / 86400000);
+    diff %= 86400000;
+    const hours = Math.floor(diff / 3600000);
+    diff %= 3600000;
+    const minutes = Math.floor(diff / 60000);
+    diff %= 60000;
+    const seconds = Math.floor(diff / 1000);
+
+    const dayEl = document.getElementById("days");
+    const hourEl = document.getElementById("hours");
+    const minEl = document.getElementById("minutes");
+    const secEl = document.getElementById("seconds");
+
+    if (dayEl) dayEl.textContent = pad(days);
+    if (hourEl) hourEl.textContent = pad(hours);
+    if (minEl) minEl.textContent = pad(minutes);
+    if (secEl) secEl.textContent = pad(seconds);
+
+    const label = document.getElementById("countdownDateLabel");
+    if (label) label.textContent = "20 Junio 2026 · 6:00 PM";
+  }
+
+  updateRealCountdown();
+  setInterval(updateRealCountdown, 1000);
+});
+</script>
+
+
+<script id="force-entertainment-copy">
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = Array.from(document.querySelectorAll(".music-card, .info-card, .entertainment-card, .feature-card, article, .card"));
+  cards.forEach(card => {
+    const titleEl = card.querySelector("h3, h4, .title");
+    const pEl = card.querySelector("p");
+    if (!titleEl || !pEl) return;
+
+    const t = (titleEl.textContent || "").trim().toLowerCase();
+
+    if (t.includes("musica en vivo") || t.includes("en vivo") || t.includes("en vivio")) {
+      titleEl.textContent = "Musica en vivo";
+      pEl.textContent = 'GRUPO SENDER "LA MELODIA"';
+    }
+
+    if (t.includes("karaoke") || t.includes("kareoke")) {
+      titleEl.textContent = "KAREOKE";
+      pEl.textContent = "POR DJ FRANCIS MACHADO";
     }
   });
 });
