@@ -3012,13 +3012,35 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
 }
 
 </style>
+
+<style id="direct-entry-fix">
+  .music-entry-screen,
+  .cinematic-gate,
+  #entryGate,
+  #welcomeGate {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  body { overflow-y: auto !important; }
+</style>
+
+
+<style id="countdown-visible-fix">
+  #contador,
+  .countdown-shell,
+  .countdown {
+    display: block;
+  }
+  .countdown {
+    display: grid;
+  }
+</style>
+
 </head>
 <body>
-
-
-  <div class="music-entry-screen cinematic-gate" id="musicEntryScreen">
-    <div class="cinematic-bg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-    <div class="cinematic-card music-entry-card">
+<div class="cinematic-card music-entry-card">
       <div class="entry-kicker">Luxury Event App • Black Rose Gold</div>
       <div class="entry-crown-big">👑</div>
       <small>Bienvenidos a una experiencia premium</small>
@@ -3215,5 +3237,40 @@ body{background:radial-gradient(circle at 10% 8%, rgba(255,154,204,.16), transpa
       }
     })();
   </script>
+
+<script id="direct-entry-script">
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("invitation-entered");
+    const gates = document.querySelectorAll(".music-entry-screen, .cinematic-gate, #entryGate, #welcomeGate");
+    gates.forEach(g => g.remove());
+  });
+</script>
+
+
+<script id="countdown-runtime">
+  (function () {
+    const target = new Date("2026-12-31T19:00:00");
+    function pad(n) { return String(Math.max(0, n)).padStart(2, "0"); }
+    function updateCountdown() {
+      const now = new Date();
+      let diff = Math.max(0, target - now);
+      const days = Math.floor(diff / 86400000); diff %= 86400000;
+      const hours = Math.floor(diff / 3600000); diff %= 3600000;
+      const minutes = Math.floor(diff / 60000); diff %= 60000;
+      const seconds = Math.floor(diff / 1000);
+      const d = document.getElementById("days");
+      const h = document.getElementById("hours");
+      const m = document.getElementById("minutes");
+      const s = document.getElementById("seconds");
+      if (d) d.textContent = pad(days);
+      if (h) h.textContent = pad(hours);
+      if (m) m.textContent = pad(minutes);
+      if (s) s.textContent = pad(seconds);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+
 </body>
 </html>
